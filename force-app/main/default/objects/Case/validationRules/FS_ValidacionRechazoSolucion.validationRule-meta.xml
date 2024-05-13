@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_ValidacionRechazoSolucion</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    TEXT(FS_AprobacionSolucion__c) == &quot;No&quot;,
+      FS_ComentariosRechazoSolucion__c == null
+)</errorConditionFormula>
+    <errorDisplayField>FS_ComentariosRechazoSolucion__c</errorDisplayField>
+    <errorMessage>Debe llenar el motivo de rechazo</errorMessage>
+</ValidationRule>

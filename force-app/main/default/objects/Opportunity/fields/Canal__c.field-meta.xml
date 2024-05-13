@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canal__c</fullName>
+    <description>Determina cuál es el canal de creación del lead</description>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(LeadSource,&quot;Partner&quot;),&quot;Partner&quot;,IF(ISPICKVAL(LeadSource,&quot;Outbound&quot;),&quot;Outbound&quot;,&quot;Inbound&quot;))</formula>
+    <inlineHelpText>Determina si el Lead vino de Outbound, Partner o Inbound</inlineHelpText>
+    <label>Canal</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

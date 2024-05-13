@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Formato2018</fullName>
+    <fields>Name</fields>
+    <fields>AccountId</fields>
+    <fields>Canal__c</fields>
+    <fields>Amount</fields>
+    <fields>ValorLR__c</fields>
+    <fields>Servicios_Profesionales__c</fields>
+    <fields>CloseDate</fields>
+    <label>Formato2018</label>
+</CompactLayout>

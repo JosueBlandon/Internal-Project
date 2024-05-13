@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_MotivosRechazoInstalacionParche__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Motivos de rechazo instalación de parche Release</inlineHelpText>
+    <label>Motivos de Rechazo Instalación de parche</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Error en compilación</fullName>
+                <default>false</default>
+                <label>Error en compilación</label>
+            </value>
+            <value>
+                <fullName>Error en scripts</fullName>
+                <default>false</default>
+                <label>Error en scripts</label>
+            </value>
+            <value>
+                <fullName>Error en levantar el ambiente</fullName>
+                <default>false</default>
+                <label>Error en levantar el ambiente</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

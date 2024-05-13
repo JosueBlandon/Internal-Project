@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Causa_de_P_rdida__c</fullName>
+    <externalId>false</externalId>
+    <label>Causa de Pérdida</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Capacidad tecnica de la plataforma</fullName>
+                <default>false</default>
+                <label>Capacidad tecnica de la plataforma</label>
+            </value>
+            <value>
+                <fullName>Competencia con mejor producto</fullName>
+                <default>false</default>
+                <label>Competencia con mejor producto</label>
+            </value>
+            <value>
+                <fullName>Decisión de Fisa de NO Participar</fullName>
+                <default>false</default>
+                <label>Decisión de Fisa de NO Participar</label>
+            </value>
+            <value>
+                <fullName>Demora en respuesta de producto</fullName>
+                <default>false</default>
+                <label>Demora en respuesta de producto</label>
+            </value>
+            <value>
+                <fullName>Funcionalidades de producto</fullName>
+                <default>false</default>
+                <label>Funcionalidades de producto</label>
+            </value>
+            <value>
+                <fullName>Mala capacidad de entendimiento del equipo comercial</fullName>
+                <default>false</default>
+                <label>Mala capacidad de entendimiento del equipo comercial</label>
+            </value>
+            <value>
+                <fullName>No es Prioridad para el Cliente</fullName>
+                <default>false</default>
+                <label>No es Prioridad para el Cliente</label>
+            </value>
+            <value>
+                <fullName>Oportunidad dejó de responder</fullName>
+                <default>false</default>
+                <label>Oportunidad dejó de responder</label>
+            </value>
+            <value>
+                <fullName>Otro</fullName>
+                <default>false</default>
+                <label>Otro</label>
+            </value>
+            <value>
+                <fullName>Precio alto</fullName>
+                <default>false</default>
+                <label>Precio alto</label>
+            </value>
+            <value>
+                <fullName>Precio alto</fullName>
+                <default>false</default>
+                <label>Precio alto</label>
+            </value>
+            <value>
+                <fullName>Proceso cancelado por el cliente</fullName>
+                <default>false</default>
+                <label>Proceso cancelado por el cliente</label>
+            </value>
+            <value>
+                <fullName>Proceso de Implementación</fullName>
+                <default>false</default>
+                <label>Proceso de Implementación</label>
+            </value>
+            <value>
+                <fullName>Prospecto/Cliente no realizó el pago</fullName>
+                <default>false</default>
+                <label>Prospecto/Cliente no realizó el pago</label>
+            </value>
+            <value>
+                <fullName>Proyecto stand-by</fullName>
+                <default>false</default>
+                <label>Proyecto stand-by</label>
+            </value>
+            <value>
+                <fullName>SQL no respondió a la solicitud de primera reunión</fullName>
+                <default>false</default>
+                <label>SQL no respondió a la solicitud de primera reunión</label>
+            </value>
+            <value>
+                <fullName>SQL pequeño no cuenta con presupuesto</fullName>
+                <default>false</default>
+                <label>SQL pequeño no cuenta con presupuesto</label>
+            </value>
+            <value>
+                <fullName>Tiempos altos de Implementación</fullName>
+                <default>false</default>
+                <label>Tiempos altos de Implementación</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

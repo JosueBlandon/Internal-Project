@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Producto__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Productos adquiridos por los clientes</description>
+    <externalId>false</externalId>
+    <label>Producto</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Cuentas</relationshipLabel>
+    <relationshipName>Cuentas</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Puesto__c</fullName>
+    <description>Nivel del cargo del Lead que se ha registrado</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Nivel del cargo del Lead que se ha registrado</inlineHelpText>
+    <label>Puesto</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Presidencia</fullName>
+                <default>false</default>
+                <label>Presidencia</label>
+            </value>
+            <value>
+                <fullName>Director</fullName>
+                <default>false</default>
+                <label>Director</label>
+            </value>
+            <value>
+                <fullName>Gerencia</fullName>
+                <default>false</default>
+                <label>Gerencia</label>
+            </value>
+            <value>
+                <fullName>Jefe</fullName>
+                <default>false</default>
+                <label>Jefe</label>
+            </value>
+            <value>
+                <fullName>Analista - Asistente</fullName>
+                <default>false</default>
+                <label>Analista - Asistente</label>
+            </value>
+            <value>
+                <fullName>Estudiante</fullName>
+                <default>false</default>
+                <label>Estudiante</label>
+            </value>
+            <value>
+                <fullName>Periodista</fullName>
+                <default>false</default>
+                <label>Periodista</label>
+            </value>
+            <value>
+                <fullName>Consultor</fullName>
+                <default>false</default>
+                <label>Consultor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

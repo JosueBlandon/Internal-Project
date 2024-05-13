@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_validacionCasoNuevoAgente</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISNEW(), CONTAINS( $UserRole.DeveloperName , &apos;FS_Agente&apos;), TEXT( FS_TipoIncidente__c) == null)</errorConditionFormula>
+    <errorMessage>Solo los jefes y administradores tienen permisos para crear casos.</errorMessage>
+</ValidationRule>

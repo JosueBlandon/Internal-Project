@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>calificaci_n_cuenta__c</fullName>
+    <description>calificación de la potencialidad del proyecto en general</description>
+    <externalId>false</externalId>
+    <label>calificación_cuenta</label>
+    <length>32000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

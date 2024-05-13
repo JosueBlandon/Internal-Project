@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Problema_Institucion__c</fullName>
+    <description>Detalle conciso del problema u objetivo de la institución por la que quiere adquirir esta Oportunidad</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Detalle del problema u objetivo que tiene la institución para adquirir esta Oportunidad</inlineHelpText>
+    <label>Problema Institucion</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

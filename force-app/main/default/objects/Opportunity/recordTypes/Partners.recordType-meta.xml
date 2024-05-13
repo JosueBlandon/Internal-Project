@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partners</fullName>
+    <active>true</active>
+    <businessProcess>Partners</businessProcess>
+    <description>Proceso de inclusión de Partners</description>
+    <label>Partners</label>
+    <picklistValues>
+        <picklist>Causa_de_P_rdida__c</picklist>
+        <values>
+            <fullName>Capacidad tecnica de la plataforma</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competencia con mejor producto%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decisión de Fisa de NO Participar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demora en respuesta de producto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Funcionalidades de producto%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mala capacidad de entendimiento del equipo comercial%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No es Prioridad para el Cliente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oportunidad dejó de responder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Otro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Precio alto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Precio alto%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proceso cancelado por el cliente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proceso de Implementación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecto%2FCliente no realizó el pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proyecto stand-by%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQL no respondió a la solicitud de primera reunión</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQL pequeño no cuenta con presupuesto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tiempos altos de Implementación</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Closure_Q__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Delivery__c</picklist>
+        <values>
+            <fullName>Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SaaS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Empresa_Servicio__c</picklist>
+        <values>
+            <fullName>Fisa Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seriva</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Etapa_de_Baja__c</picklist>
+        <values>
+            <fullName>Analisis DEF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aprobación Propuesta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Book %26 Earn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Generar Propuesta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Macro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negociation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quoting Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solution Presentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Value Proposition</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Cerrada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confirmar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Máximo previsto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitido</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oportunidades en curso</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Directo%2F Evento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Directo%2F Interno</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Directo%2F Invitación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Otros %2F Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outbound</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referencia Cliente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referencia del empleado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Producto_Subproducto__c</picklist>
+        <values>
+            <fullName>FISA - Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FISA-System</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>OMNIA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Producto__c</picklist>
+        <values>
+            <fullName>FISA FISS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FISA System</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Otro</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Risk_Level__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Soluci_n__c</picklist>
+        <values>
+            <fullName>BRE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banca Empresas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banca Móvil%2FBanca Web</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canales Digitales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Core Bancario</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Core de Tarjeta de Crédito</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Motor de Crédito</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OnBoarding Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagos Móviles %28Rapid Cash%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SWITCH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tarjeta de Débito</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tesorería</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tama_o__c</picklist>
+        <values>
+            <fullName>Grande %28%2B%243%2E000 MM Activos%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mediano %28Entre %243%2E000 MM y %24300 MM Activos%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pequeño %28-%24300 MM Activos%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tipo_de_Lead__c</picklist>
+        <values>
+            <fullName>Aseguadora</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cooperativa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empresa Tecnología</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financiera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fintech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fondos de Inversión</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Institución Gubernamental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tipo_de_Opotunidad__c</picklist>
+        <values>
+            <fullName>Canal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crosselling Fisa Licencia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crosselling Fisa Servicios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crosselling Partnership Licencia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crosselling Partnership Servicio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upselling Fisa Licencia</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Cliente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No es Cliente</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Valoraci_n_oportunidad__c</picklist>
+        <values>
+            <fullName>Bronze</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leads</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Win</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_ValidacionFechaCompromisoEntrega</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+  FS_NombreTipoRegistro__c = &quot;Incidente&quot;,
+  TEXT( FS_MotivoCambioFechaEntrega__c ) = null,
+  ISCHANGED( FS_FechaCompromisoEntrega__c),  
+   DAY(PRIORVALUE(FS_FechaCompromisoEntrega__c)) &gt; 0
+)</errorConditionFormula>
+    <errorDisplayField>FS_MotivoCambioFechaEntrega__c</errorDisplayField>
+    <errorMessage>Escriba el motivo de cambio de fecha.</errorMessage>
+</ValidationRule>

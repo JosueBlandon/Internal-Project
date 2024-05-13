@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Formato2018</fullName>
+    <fields>Name</fields>
+    <fields>Industry</fields>
+    <fields>Pa_s__c</fields>
+    <fields>Ciudad__c</fields>
+    <fields>Activos_en_US__c</fields>
+    <fields>Phone</fields>
+    <fields>Website</fields>
+    <fields>OwnerId</fields>
+    <label>Formato2018</label>
+</CompactLayout>

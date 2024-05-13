@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_PrevenirEditarCampoProyecto</fullName>
+    <active>true</active>
+    <description>Regla de valida que un usuario PM-PS no puede editar el campo Proyecto si el caso no está en los estados: Nuevo, En Análisis o En Propuesta Económica.</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+$Profile.Name = &apos;PM-PS&apos;,
+RecordType.DeveloperName = &apos;FS_Requerimiento&apos;,
+AND(
+NOT(ISPICKVAL(PRIORVALUE(Status), &apos;Nuevo&apos;)),
+NOT(ISPICKVAL(Status, &apos;Nuevo&apos;))
+),
+AND(
+NOT(ISPICKVAL(PRIORVALUE(Status), &apos;En Análisis&apos;)),
+NOT(ISPICKVAL(Status, &apos;En Análisis&apos;))
+),
+AND(
+NOT(ISPICKVAL(PRIORVALUE(Status), &apos;En Propuesta Económica&apos;)),
+NOT(ISPICKVAL(Status, &apos;En Propuesta Económica&apos;))
+),	
+ISCHANGED(FS_Proyecto__c)
+)</errorConditionFormula>
+    <errorMessage>Privilegios insuficientes, no puede editar el campo Proyecto, si el caso no está los siguientes estados: Nuevo, En Análisis o En Propuesta Económica.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Datos_Es_Precontratado</fullName>
+    <active>true</active>
+    <description>Validación de campos requeridos si es precontratado.</description>
+    <errorConditionFormula>OR(
+AND(
+NOT(ISPICKVAL(FS_Es_Precontratado__c, &quot;&quot;)), 
+OR(
+ISPICKVAL(FS_Proyecto__c, &quot;&quot;),
+ISBLANK(FS_Dias_Aprobados__c),
+ISBLANK(FS_Tarifa_DH__c)
+)
+),
+AND(
+ISPICKVAL(FS_Es_Precontratado__c, &quot;&quot;),
+OR(
+NOT(ISBLANK(FS_Dias_Aprobados__c)),
+NOT(ISBLANK(FS_Tarifa_DH__c))
+)				
+)
+)</errorConditionFormula>
+    <errorMessage>¿Es Precontratado? está vacío o es igual a &quot;Si&quot; o &quot;No&quot;, debe completar los campos: Proyecto, Días Aprobados, Tarifa D/H y Total USD PE.</errorMessage>
+</ValidationRule>

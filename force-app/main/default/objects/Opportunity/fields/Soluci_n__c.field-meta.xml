@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Soluci_n__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Solución Solicitada por el Cliente</inlineHelpText>
+    <label>Solución</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Motor de Crédito</fullName>
+                <default>false</default>
+                <label>Motor de Crédito</label>
+            </value>
+            <value>
+                <fullName>Core Bancario</fullName>
+                <default>false</default>
+                <label>Core Bancario</label>
+            </value>
+            <value>
+                <fullName>BRE</fullName>
+                <default>false</default>
+                <label>BRE</label>
+            </value>
+            <value>
+                <fullName>Banca Móvil/Banca Web</fullName>
+                <default>false</default>
+                <label>Banca Móvil/Banca Web</label>
+            </value>
+            <value>
+                <fullName>Banca Empresas</fullName>
+                <default>false</default>
+                <label>Banca Empresas</label>
+            </value>
+            <value>
+                <fullName>Canales Digitales</fullName>
+                <default>false</default>
+                <label>Canales Digitales</label>
+            </value>
+            <value>
+                <fullName>SWITCH</fullName>
+                <default>false</default>
+                <label>SWITCH</label>
+            </value>
+            <value>
+                <fullName>Core de Tarjeta de Crédito</fullName>
+                <default>false</default>
+                <label>Core de Tarjeta de Crédito</label>
+            </value>
+            <value>
+                <fullName>Tarjeta de Débito</fullName>
+                <default>false</default>
+                <label>Tarjeta de Débito</label>
+            </value>
+            <value>
+                <fullName>OnBoarding Digital</fullName>
+                <default>false</default>
+                <label>OnBoarding Digital</label>
+            </value>
+            <value>
+                <fullName>Pagos Móviles (Rapid Cash)</fullName>
+                <default>false</default>
+                <label>Pagos Móviles (Rapid Cash)</label>
+            </value>
+            <value>
+                <fullName>Tesorería</fullName>
+                <default>false</default>
+                <label>Tesorería</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

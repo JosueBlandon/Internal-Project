@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_CasoSolicitud</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Análisis Falla Operativa</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Aprobación 1er Costo</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Cerrado</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Dado de Baja</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>En Análisis</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Entregado</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Nuevo</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>Pendiente de Respuesta CSAT</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

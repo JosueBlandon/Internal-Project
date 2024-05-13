@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valor_de_Lista__c</fullName>
+    <description>Valor total del precio de lista de los productos seleccionados</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Valor total del precio de lista de los productos seleccionados</inlineHelpText>
+    <label>Valor de Lista</label>
+    <precision>15</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Integración PowerBI</label>
+    <permissionSets>FS_Permisos_para_usuario_de_integracion_PowerBI</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

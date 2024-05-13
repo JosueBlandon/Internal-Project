@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pais__c</fullName>
+    <description>País</description>
+    <externalId>false</externalId>
+    <inlineHelpText>País</inlineHelpText>
+    <label>pais</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>TextArea</type>
+</CustomField>

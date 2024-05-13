@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Area__c</fullName>
+    <externalId>false</externalId>
+    <label>Área</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>N1. OMNIA</fullName>
+                <default>false</default>
+                <label>N1. OMNIA</label>
+            </value>
+            <value>
+                <fullName>N1. CORE</fullName>
+                <default>false</default>
+                <label>N1. CORE</label>
+            </value>
+            <value>
+                <fullName>N2-OMNIA</fullName>
+                <default>false</default>
+                <label>N2-OMNIA</label>
+            </value>
+            <value>
+                <fullName>N2- CORE</fullName>
+                <default>false</default>
+                <label>N2- CORE</label>
+            </value>
+            <value>
+                <fullName>QA CC-OMNIA</fullName>
+                <default>false</default>
+                <label>QA CC-OMNIA</label>
+            </value>
+            <value>
+                <fullName>QA CC-CORE</fullName>
+                <default>false</default>
+                <label>QA CC-CORE</label>
+            </value>
+            <value>
+                <fullName>Release</fullName>
+                <default>false</default>
+                <label>Release</label>
+            </value>
+            <value>
+                <fullName>PS</fullName>
+                <default>false</default>
+                <label>PS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

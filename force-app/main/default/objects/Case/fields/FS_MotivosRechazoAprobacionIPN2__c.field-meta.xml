@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_MotivosRechazoAprobacionIPN2__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivo de rechazo de aprobación IP-N2</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>FS_AprobacionSolucionIPN2__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Desarrollo incompleto</fullName>
+                <default>false</default>
+                <label>Desarrollo incompleto</label>
+            </value>
+            <value>
+                <fullName>Desarrollo erróneo</fullName>
+                <default>false</default>
+                <label>Desarrollo erróneo</label>
+            </value>
+            <value>
+                <fullName>Documentación incompleta</fullName>
+                <default>false</default>
+                <label>Documentación incompleta</label>
+            </value>
+            <value>
+                <fullName>Error en documentación</fullName>
+                <default>false</default>
+                <label>Error en documentación</label>
+            </value>
+            <value>
+                <fullName>Inconsistencia objetos</fullName>
+                <default>false</default>
+                <label>Inconsistencia objetos</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Desarrollo incompleto</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Desarrollo erróneo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Documentación incompleta</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Error en documentación</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Inconsistencia objetos</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calificaci_n_Cuenta__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Calificación de la cuenta a la que pertenece el lead.</inlineHelpText>
+    <label>Calificación Cuenta</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alto Interés</fullName>
+                <default>false</default>
+                <label>Alto Interés</label>
+            </value>
+            <value>
+                <fullName>Interés</fullName>
+                <default>false</default>
+                <label>Interés</label>
+            </value>
+            <value>
+                <fullName>No Interés</fullName>
+                <default>false</default>
+                <label>No Interés</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

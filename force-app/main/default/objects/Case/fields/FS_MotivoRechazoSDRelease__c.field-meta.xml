@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_MotivoRechazoSDRelease__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivos de rechazo por SD - Release</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Falta de aprobación PR</fullName>
+                <default>false</default>
+                <label>Falta de aprobación PR</label>
+            </value>
+            <value>
+                <fullName>Inconsistencia en parche</fullName>
+                <default>false</default>
+                <label>Inconsistencia en parche</label>
+            </value>
+            <value>
+                <fullName>Documentación incompleta</fullName>
+                <default>false</default>
+                <label>Documentación incompleta</label>
+            </value>
+            <value>
+                <fullName>Error en documentación</fullName>
+                <default>false</default>
+                <label>Error en documentación</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

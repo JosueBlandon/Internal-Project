@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Campos_Requeridos_Encuesta</fullName>
+    <active>true</active>
+    <description>Regla para llenar campos requeridos en la encuesta.</description>
+    <errorConditionFormula>AND(
+ISBLANK(TEXT(FS_MotivoInsatisfaccion__c)),
+$Profile.Name = &apos;Encuestas Servicio al Cliente. Perfil&apos;,
+OR(
+ISPICKVAL(Status, &apos;Cerrado&apos;),
+ISPICKVAL(Status, &apos;Dado de Baja&apos;)
+)
+)</errorConditionFormula>
+    <errorMessage>Debe ingresar el Motivo de Calificación de la encuesta.</errorMessage>
+</ValidationRule>

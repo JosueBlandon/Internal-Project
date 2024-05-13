@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Datos_Licencia_Recurrente</fullName>
+    <active>true</active>
+    <description>Validación de campos requeridos en Licencia Recurrente.</description>
+    <errorConditionFormula>OR(
+AND(
+ISPICKVAL(FS_Aplica_Licencia_Recurrente__c, &quot;Si&quot;),
+OR(
+ISPICKVAL(FS_Cuando_Aplica_LR__c, &quot;&quot;),
+ISBLANK(FS_Dias_que_Aplica_LR__c)
+)
+),
+AND(				
+ISPICKVAL(FS_Aplica_Licencia_Recurrente__c, &quot;&quot;),
+OR(
+NOT(ISPICKVAL(FS_Cuando_Aplica_LR__c, &quot;&quot;)),
+NOT(ISBLANK(FS_Dias_que_Aplica_LR__c))			
+)
+)
+)</errorConditionFormula>
+    <errorMessage>¿Aplica Licencia Recurrente? está vacío o igual a &quot;Si&quot;, debe completar los campos: ¿Cuándo Aplica LR? y Días que Aplica LR.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gesto_de_cuenta_formato_compacto</fullName>
+    <fields>FS_Cuenta__c</fields>
+    <fields>FS_Project_Manager__c</fields>
+    <label>Gesto de cuenta formato compacto</label>
+</CompactLayout>

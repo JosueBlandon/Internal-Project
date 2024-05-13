@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>FIS Cuenta personal Cliente</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>FIS Cuenta personal Cliente</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>Coordinador_de_Marketing</parentRole>
+</Role>

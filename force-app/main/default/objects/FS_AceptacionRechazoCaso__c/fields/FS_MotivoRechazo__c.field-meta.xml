@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_MotivoRechazo__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivo de Rechazo</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Error en la entrega</fullName>
+                <default>false</default>
+                <label>Error en la entrega</label>
+            </value>
+            <value>
+                <fullName>No resolvió lo reportado</fullName>
+                <default>false</default>
+                <label>No resolvió lo reportado</label>
+            </value>
+            <value>
+                <fullName>Entrega incompleta</fullName>
+                <default>false</default>
+                <label>Entrega incompleta</label>
+            </value>
+            <value>
+                <fullName>Complemento o alcance</fullName>
+                <default>false</default>
+                <label>Complemento o alcance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

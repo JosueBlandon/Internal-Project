@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Producto_Subproducto__c</fullName>
+    <externalId>false</externalId>
+    <label>Producto/Subproducto</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FISA-System</fullName>
+                <default>true</default>
+                <label>FISA-System</label>
+            </value>
+            <value>
+                <fullName>OMNIA</fullName>
+                <default>false</default>
+                <label>OMNIA</label>
+            </value>
+            <value>
+                <fullName>FISA - Credit Card</fullName>
+                <default>false</default>
+                <label>FISA - Credit Card</label>
+            </value>
+            <value>
+                <fullName>OMNIA - BRE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - BRE</label>
+            </value>
+            <value>
+                <fullName>OMNIA - Banca Móvil - Mobile 2.0</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - Banca Móvil - Mobile 2.0</label>
+            </value>
+            <value>
+                <fullName>OMNIA - Customer Management</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - Customer Management</label>
+            </value>
+            <value>
+                <fullName>OMNIA - FT</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - FT</label>
+            </value>
+            <value>
+                <fullName>OMNIA - Herramienta (AG)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - Herramienta (AG)</label>
+            </value>
+            <value>
+                <fullName>OMNIA - OLB Empresas</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - OLB Empresas</label>
+            </value>
+            <value>
+                <fullName>OMNIA - OLB Personas</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - OLB Personas</label>
+            </value>
+            <value>
+                <fullName>OMNIA - Pricing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OMNIA - Pricing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

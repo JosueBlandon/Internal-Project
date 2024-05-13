@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_ValidacionRechazoIPRelease</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(TEXT( FS_AprobacionSolucionIPRelease__c ) = &quot;No&quot;, 
+    TEXT( FS_MotivoRechazoAprobacionIPRealease__c ) = null
+)</errorConditionFormula>
+    <errorDisplayField>FS_MotivoRechazoAprobacionIPRealease__c</errorDisplayField>
+    <errorMessage>Escriba el motivo de rechazo.</errorMessage>
+</ValidationRule>

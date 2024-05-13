@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Efectivo__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Descripción de lead efectivo</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Casilla para Area Comercial
+Espicificar que es un lead efectivo para el área comercial</inlineHelpText>
+    <label>Lead Efectivo</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

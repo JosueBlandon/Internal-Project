@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_MotivoCambioFechaEntrega__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivo de Cambio de Fecha Entrega</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cambio de prioridad</fullName>
+                <default>false</default>
+                <label>Cambio de prioridad</label>
+            </value>
+            <value>
+                <fullName>Dependencia de versionamiento</fullName>
+                <default>false</default>
+                <label>Dependencia de versionamiento</label>
+            </value>
+            <value>
+                <fullName>Cambio de alcance</fullName>
+                <default>false</default>
+                <label>Cambio de alcance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

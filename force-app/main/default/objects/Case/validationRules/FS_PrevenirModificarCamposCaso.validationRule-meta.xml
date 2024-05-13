@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_PrevenirModificarCamposCaso</fullName>
+    <active>true</active>
+    <description>Regla de valida que un usuario PM-PS no puede editar ciertos campos del caso.</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+CreatedBy.Profile.Name = &apos;Customer Community User&apos;,
+RecordType.DeveloperName = &apos;FS_Requerimiento&apos;,
+$Profile.Name == &apos;PM-PS&apos;,
+OR(
+ISCHANGED(AccountId),
+ISCHANGED(Subject),
+ISCHANGED(Origin),
+ISBLANK(Contact.Id),
+ISCHANGED(FS_DescripcionCliente__c),
+ISCHANGED(Description),
+ISCHANGED(FS_OrigenCaso__c),
+ISCHANGED(FS_Area__c),
+ISCHANGED(FS_Carterizacion__c),
+ISCHANGED(FS_SubEstado__c),
+ISCHANGED(FS_FechaEnvioEncuesta__c),
+ISCHANGED(FS_FechaContestacionEncuesta__c),
+ISCHANGED(FS_ResultadoEncuesta__c),
+ISCHANGED(FS_MotivoInsatisfaccion__c),
+ISCHANGED(FS_ComentariosEncuesta__c),
+ISCHANGED(FS_AceptaRespuesta__c),
+ISCHANGED(FS_MotivoRechazo__c),
+ISCHANGED(FS_ComentariosRespuesta__c),
+ISCHANGED(FS_Fecha_Entrega_de_Propuesta_Economica__c),
+ISCHANGED(FS_Acepta_Propuesta_Economica__c),
+ISCHANGED(FS_Fecha_Aprobacion_PE__c),
+ISCHANGED(FS_URLParcheCliente__c),
+ISCHANGED(FS_Fecha_Entrega_Cliente__c),
+ISCHANGED(FS_Fecha_Puesta_en_Produccion__c)
+)
+)</errorConditionFormula>
+    <errorMessage>Privilegios insuficientes, no puede editar campos del caso ingresados por el cliente o el sistema.</errorMessage>
+</ValidationRule>

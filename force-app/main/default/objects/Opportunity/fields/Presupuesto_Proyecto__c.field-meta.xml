@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Presupuesto_Proyecto__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Validar presupuesto para el desarrollo de la iniciativa</inlineHelpText>
+    <label>Presupuesto Proyecto</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_ValidacionFechaCompromiso</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  ISCHANGED(FS_FechaCompromisoEntrega__c),
+  OR(
+    ISBLANK(PRIORVALUE(FS_FechaCompromisoEntrega__c)), 
+    ISNULL(PRIORVALUE(FS_FechaCompromisoEntrega__c)) 
+  ),
+  FS_NombreTipoRegistro__c = &apos;Solicitud (Falla Operativa)&apos;,
+  !FS_1erCostoAprobado__c 
+)</errorConditionFormula>
+    <errorDisplayField>FS_FechaCompromisoEntrega__c</errorDisplayField>
+    <errorMessage>Todavía no puede modificar este campo.</errorMessage>
+</ValidationRule>

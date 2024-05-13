@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Baja</fullName>
+        <default>false</default>
+        <label>Baja</label>
+    </customValue>
+    <customValue>
+        <fullName>Media</fullName>
+        <default>false</default>
+        <label>Media</label>
+    </customValue>
+    <customValue>
+        <fullName>Alta</fullName>
+        <default>false</default>
+        <label>Alta</label>
+    </customValue>
+    <customValue>
+        <fullName>VIP</fullName>
+        <default>false</default>
+        <label>VIP</label>
+    </customValue>
+    <masterLabel>Carterización</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

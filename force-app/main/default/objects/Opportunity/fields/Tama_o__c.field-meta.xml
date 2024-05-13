@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tama_o__c</fullName>
+    <externalId>false</externalId>
+    <label>Tamaño</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Grande (+$3.000 MM Activos)</fullName>
+                <default>false</default>
+                <label>Grande (+$3.000 MM Activos)</label>
+            </value>
+            <value>
+                <fullName>Mediano (Entre $3.000 MM y $300 MM Activos)</fullName>
+                <default>false</default>
+                <label>Mediano (Entre $3.000 MM y $300 MM Activos)</label>
+            </value>
+            <value>
+                <fullName>Pequeño (-$300 MM Activos)</fullName>
+                <default>false</default>
+                <label>Pequeño (-$300 MM Activos)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

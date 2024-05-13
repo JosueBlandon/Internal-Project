@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cliente</fullName>
+    <active>true</active>
+    <label>Cliente</label>
+    <picklistValues>
+        <picklist>FS_Area__c</picklist>
+        <values>
+            <fullName>BI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26R</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Release</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales%2FMKTG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Talento Humano</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>Alta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baja</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Normal</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Diferida</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>En progreso</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esperando a otra persona</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finalizada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No iniciada</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Stand by</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subject</picklist>
+        <values>
+            <fullName>Correo electrónico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enviar carta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enviar cotización</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Llamada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Otros</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Conocimiento de Negocio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Precio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Producto - Innovación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Productos nuevos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Servicio y Calidad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tiempo entrega</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

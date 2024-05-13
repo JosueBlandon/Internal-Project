@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_PrevenirEditarDetallesFinancieros</fullName>
+    <active>true</active>
+    <description>Regla de valida que un usuario PM-PS no puede editar ciertos campos de la seccion Detalles Financieros.</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+$Profile.Name = &apos;PM-PS&apos;,
+RecordType.DeveloperName = &apos;FS_Requerimiento&apos;,
+NOT(ISPICKVAL(PRIORVALUE(Status), &apos;En Propuesta Económica&apos;)),
+NOT(ISPICKVAL(Status, &apos;En Propuesta Económica&apos;)),
+OR(
+ISCHANGED(FS_Es_Precontratado__c),
+ISCHANGED(FS_Dias_Aprobados__c),
+ISCHANGED(FS_Tarifa_DH__c),
+ISCHANGED(FS_Aplica_Licencia_Recurrente__c),
+ISCHANGED(FS_Cuando_Aplica_LR__c),
+ISCHANGED(FS_Dias_que_Aplica_LR__c)
+)
+)</errorConditionFormula>
+    <errorMessage>Privilegios insuficientes, no puede editar los campos de la seccion Detalles Financieros, si el caso no está en estado En Propuesta Económica.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_VistaTareasCasos</fullName>
+    <columns>FS_NumeroTareaLink__c</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>FS_Cuenta__c</columns>
+    <columns>WHO_NAME</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Task.FS_Casos</value>
+    </filters>
+    <label>Vista tareas Casos Kanban</label>
+</ListView>

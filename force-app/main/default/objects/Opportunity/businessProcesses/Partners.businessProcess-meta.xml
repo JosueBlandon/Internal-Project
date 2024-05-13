@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partners</fullName>
+    <description>Proceso de Ingreso de Partners</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Deal Dead or Delayed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Descubrimiento Partner</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Firma NDA</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Negociación</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Revisión Proudctos</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

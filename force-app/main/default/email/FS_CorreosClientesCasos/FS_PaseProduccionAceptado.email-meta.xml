@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Plantilla que se enviara cuando se acepte el pase a producción</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>FS_CasoClientes</letterhead>
+    <name>Pase a Producción Aceptado</name>
+    <style>freeForm</style>
+    <subject>Caso: {!Case.CaseNumber} Confirmación cliente realizó paso a producción de parche</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

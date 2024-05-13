@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Plantilla de notificación de creación de caso al PM</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>FS_CasoClientes</letterhead>
+    <name>Creación de Caso Notificación al PM</name>
+    <style>freeForm</style>
+    <subject>Caso: {!Case.CaseNumber} Apertura de caso</subject>
+    <textOnly>{!Case.FS_NombrePropietario__c},
+
+
+
+Se ha procedido a crear el caso N° {!Case.CaseNumber}
+
+Cliente: {!Case.FS_NombreCuenta__c}
+
+Asunto: {!Case.Subject}
+
+Tipo de Caso: {!Case.FS_NombreTipoRegistro__c}
+
+Estado: {!Case.Status}
+
+
+
+Saludos
+
+
+Professional Services Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

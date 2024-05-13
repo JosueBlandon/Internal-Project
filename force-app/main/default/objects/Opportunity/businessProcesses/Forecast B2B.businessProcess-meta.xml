@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecast B2B</fullName>
+    <description>Proceso comercial de proyección</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Clientes B2B</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Deal Dead or Delayed</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

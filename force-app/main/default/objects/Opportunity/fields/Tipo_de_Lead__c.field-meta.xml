@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_de_Lead__c</fullName>
+    <externalId>false</externalId>
+    <label>Tipo de Lead</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Banco</fullName>
+                <default>false</default>
+                <label>Banco</label>
+            </value>
+            <value>
+                <fullName>Financiera</fullName>
+                <default>false</default>
+                <label>Financiera</label>
+            </value>
+            <value>
+                <fullName>Cooperativa</fullName>
+                <default>false</default>
+                <label>Cooperativa</label>
+            </value>
+            <value>
+                <fullName>Fondos de Inversión</fullName>
+                <default>false</default>
+                <label>Fondos de Inversión</label>
+            </value>
+            <value>
+                <fullName>Fintech</fullName>
+                <default>false</default>
+                <label>Fintech</label>
+            </value>
+            <value>
+                <fullName>Consultor</fullName>
+                <default>false</default>
+                <label>Consultor</label>
+            </value>
+            <value>
+                <fullName>Empresa Tecnología</fullName>
+                <default>false</default>
+                <label>Empresa Tecnología</label>
+            </value>
+            <value>
+                <fullName>Institución Gubernamental</fullName>
+                <default>false</default>
+                <label>Institución Gubernamental</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Aseguadora</fullName>
+                <default>false</default>
+                <label>Aseguadora</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

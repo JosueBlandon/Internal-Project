@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Atención QA - Omnia</name>
+    <queueMembers>
+        <users>
+            <user>adriana.tabango@fisagrp.com</user>
+            <user>christian.bonilla@fisagrp.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>FS_AtencionQAOmnia</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

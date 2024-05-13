@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Soluci_n_CORE_actual_Oportunidad__c</fullName>
+    <description>Identificar la solución de CORE</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the name of the existing core banking system. Enter &quot;None&quot; in case the bank does not share the information.</inlineHelpText>
+    <label>Solución CORE actual</label>
+    <length>100</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

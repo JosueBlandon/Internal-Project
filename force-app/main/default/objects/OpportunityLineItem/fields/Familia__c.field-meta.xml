@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Familia__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Familia</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <filterItems>
+            <field>Product2.Family</field>
+            <operation>equals</operation>
+            <value>FISA System</value>
+        </filterItems>
+        <filterItems>
+            <field>Product2.Family</field>
+            <operation>equals</operation>
+            <value>Omnia</value>
+        </filterItems>
+        <filterItems>
+            <field>Product2.Family</field>
+            <operation>equals</operation>
+            <value>Fisa Credit Card</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Family</relationshipLabel>
+    <relationshipName>Producto_de_oportunidad</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pa_s__c</fullName>
+    <description>País al que pertenece la institución del candidato</description>
+    <externalId>false</externalId>
+    <label>País</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Argentina</fullName>
+                <default>false</default>
+                <label>Argentina</label>
+            </value>
+            <value>
+                <fullName>Bolivia</fullName>
+                <default>false</default>
+                <label>Bolivia</label>
+            </value>
+            <value>
+                <fullName>Brasil</fullName>
+                <default>false</default>
+                <label>Brasil</label>
+            </value>
+            <value>
+                <fullName>Chile</fullName>
+                <default>false</default>
+                <label>Chile</label>
+            </value>
+            <value>
+                <fullName>Colombia</fullName>
+                <default>false</default>
+                <label>Colombia</label>
+            </value>
+            <value>
+                <fullName>Costa Rica</fullName>
+                <default>false</default>
+                <label>Costa Rica</label>
+            </value>
+            <value>
+                <fullName>Ecuador</fullName>
+                <default>false</default>
+                <label>Ecuador</label>
+            </value>
+            <value>
+                <fullName>El Salvador</fullName>
+                <default>false</default>
+                <label>El Salvador</label>
+            </value>
+            <value>
+                <fullName>Guatemala</fullName>
+                <default>false</default>
+                <label>Guatemala</label>
+            </value>
+            <value>
+                <fullName>Honduras</fullName>
+                <default>false</default>
+                <label>Honduras</label>
+            </value>
+            <value>
+                <fullName>Mexico</fullName>
+                <default>false</default>
+                <label>Mexico</label>
+            </value>
+            <value>
+                <fullName>Nicaragua</fullName>
+                <default>false</default>
+                <label>Nicaragua</label>
+            </value>
+            <value>
+                <fullName>Panamá</fullName>
+                <default>false</default>
+                <label>Panamá</label>
+            </value>
+            <value>
+                <fullName>Paraguay</fullName>
+                <default>false</default>
+                <label>Paraguay</label>
+            </value>
+            <value>
+                <fullName>Perú</fullName>
+                <default>false</default>
+                <label>Perú</label>
+            </value>
+            <value>
+                <fullName>República Dominicana</fullName>
+                <default>false</default>
+                <label>República Dominicana</label>
+            </value>
+            <value>
+                <fullName>Uruguay</fullName>
+                <default>false</default>
+                <label>Uruguay</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

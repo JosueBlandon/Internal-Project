@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_MotivoInsatisfaccion__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivo de Calificación</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>FS_ResultadoEncuesta__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Información Incompleta</fullName>
+                <default>false</default>
+                <label>Información Incompleta</label>
+            </value>
+            <value>
+                <fullName>No se ofrece alternativas</fullName>
+                <default>false</default>
+                <label>No se ofrece alternativas</label>
+            </value>
+            <value>
+                <fullName>Entrega tiene errores</fullName>
+                <default>false</default>
+                <label>Entrega tiene errores</label>
+            </value>
+            <value>
+                <fullName>Desconocimiento del negocio</fullName>
+                <default>false</default>
+                <label>Desconocimiento del negocio</label>
+            </value>
+            <value>
+                <fullName>Servicio</fullName>
+                <default>false</default>
+                <label>Servicio</label>
+            </value>
+            <value>
+                <fullName>Información completa</fullName>
+                <default>false</default>
+                <label>Información completa</label>
+            </value>
+            <value>
+                <fullName>Servicio y calidad</fullName>
+                <default>false</default>
+                <label>Servicio y calidad</label>
+            </value>
+            <value>
+                <fullName>Conocimiento del negocio</fullName>
+                <default>false</default>
+                <label>Conocimiento del negocio</label>
+            </value>
+            <value>
+                <fullName>Brindaron alternativas de solución</fullName>
+                <default>false</default>
+                <label>Brindaron alternativas de solución</label>
+            </value>
+            <value>
+                <fullName>Tiempo de entrega</fullName>
+                <default>false</default>
+                <label>Tiempo de entrega</label>
+            </value>
+            <value>
+                <fullName>Precio</fullName>
+                <default>false</default>
+                <label>Precio</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Muy Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Neutral</controllingFieldValue>
+            <valueName>Información Incompleta</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Muy Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Neutral</controllingFieldValue>
+            <valueName>No se ofrece alternativas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Muy Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Neutral</controllingFieldValue>
+            <valueName>Entrega tiene errores</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Muy Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Neutral</controllingFieldValue>
+            <valueName>Desconocimiento del negocio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Muy Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Neutral</controllingFieldValue>
+            <valueName>Servicio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Muy Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Neutral</controllingFieldValue>
+            <controllingFieldValue>Satisfecho</controllingFieldValue>
+            <controllingFieldValue>Muy Satisfecho</controllingFieldValue>
+            <valueName>Tiempo de entrega</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Muy Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Insatisfecho</controllingFieldValue>
+            <controllingFieldValue>Neutral</controllingFieldValue>
+            <controllingFieldValue>Satisfecho</controllingFieldValue>
+            <controllingFieldValue>Muy Satisfecho</controllingFieldValue>
+            <valueName>Precio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Satisfecho</controllingFieldValue>
+            <controllingFieldValue>Muy Satisfecho</controllingFieldValue>
+            <valueName>Información completa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Satisfecho</controllingFieldValue>
+            <controllingFieldValue>Muy Satisfecho</controllingFieldValue>
+            <valueName>Servicio y calidad</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Satisfecho</controllingFieldValue>
+            <controllingFieldValue>Muy Satisfecho</controllingFieldValue>
+            <valueName>Conocimiento del negocio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Satisfecho</controllingFieldValue>
+            <controllingFieldValue>Muy Satisfecho</controllingFieldValue>
+            <valueName>Brindaron alternativas de solución</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

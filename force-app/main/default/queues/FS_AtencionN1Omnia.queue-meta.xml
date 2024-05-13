@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Atención N1 - Omnia</name>
+    <queueMembers>
+        <users>
+            <user>alexis.vallejo@fisagrp.com</user>
+            <user>barbara.morantes@fisagrp.com</user>
+            <user>juan.balderramo@fisagrp.com</user>
+            <user>lander.chicaiza@fisagrp.com</user>
+            <user>roberto.alvarado@fisagrp.com</user>
+            <user>tito.jaramillo@fisagrp.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>FS_AtencionN1Omnia</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

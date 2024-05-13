@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Plantilla para notificar aprobación del cliente</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>FS_CasoClientes</letterhead>
+    <name>Cliente Aprueba Notificación</name>
+    <style>freeForm</style>
+    <subject>Caso: {!Case.CaseNumber} Aprobación de {!Case.FS_Notificaciones__c}</subject>
+    <textOnly>{!Case.FS_NombrePropietario__c}.
+
+
+
+Hemos recibido la respuesta del
+
+caso {!Case.CaseNumber} del
+
+cliente {!Case.FS_NombreCuenta__c}.
+
+
+Asunto: {!Case.Subject}
+
+Estado: {!Case.Status}
+
+Descripción: {!Case.Description}
+
+Fecha de creación del caso: {!Case.CreatedDate}
+
+
+¡Gracias!
+
+
+Fisa Group</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

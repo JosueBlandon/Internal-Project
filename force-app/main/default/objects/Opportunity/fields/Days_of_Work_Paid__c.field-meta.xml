@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_of_Work_Paid__c</fullName>
+    <description>Dias hombre contratados</description>
+    <externalId>false</externalId>
+    <label>Days of Work Paid</label>
+    <summarizedField>OpportunityLineItem.Dias_Hombre__c</summarizedField>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

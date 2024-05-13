@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#CCCCCC</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#cccccc</color>
+        <height>0</height>
+    </bottomLine>
+    <description>Membrete para uso de correos de servicios.</description>
+    <footer>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>0</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>Calificacindecuenta/FS_LogoFisaServicios.png</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#cccccc</color>
+        <height>0</height>
+    </middleLine>
+    <name>Caso Clientes</name>
+    <topLine>
+        <color>#cccccc</color>
+        <height>0</height>
+    </topLine>
+</Letterhead>

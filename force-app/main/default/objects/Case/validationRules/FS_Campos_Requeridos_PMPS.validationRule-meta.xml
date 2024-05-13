@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Campos_Requeridos_PMPS</fullName>
+    <active>true</active>
+    <description>Regla para llenar campos requeridos en tipo de caso Requerimiento.</description>
+    <errorConditionFormula>AND(
+$Profile.Name == &apos;PM-PS&apos;,
+RecordType.DeveloperName = &apos;FS_Requerimiento&apos;,				
+ISNEW(),
+OR(
+ISBLANK(Subject), 
+ISPICKVAL(Status, &apos;&apos;),
+ISPICKVAL(FS_OrigenCaso__c, &apos;&apos;),
+ISPICKVAL(Priority, &apos;&apos;),
+ISBLANK(Contact.Id),
+IF(FS_DescripcionCliente__c = &apos;&apos;, true, false)
+)
+)</errorConditionFormula>
+    <errorMessage>Debe ingresar todos los campos requeridos para crear el caso de tipo Requerimiento:
+Asunto, Estado, Origen del Caso, Prioridad, Nombre del Contacto y Descripción Cliente.</errorMessage>
+</ValidationRule>

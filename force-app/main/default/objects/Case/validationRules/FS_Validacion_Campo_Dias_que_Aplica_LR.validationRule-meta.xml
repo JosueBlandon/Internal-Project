@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Validacion_Campo_Dias_que_Aplica_LR</fullName>
+    <active>true</active>
+    <description>Regla para validar campo Días que Aplica LR, para que el valor ingresado sea mayor a cero y menor o igual al campo Días Aprobados.</description>
+    <errorConditionFormula>AND(
+$Profile.Name == &apos;PM-PS&apos;,
+RecordType.DeveloperName = &apos;FS_Requerimiento&apos;,				
+ISCHANGED(FS_Dias_que_Aplica_LR__c),
+OR(
+FS_Dias_que_Aplica_LR__c &lt; 0,
+FS_Dias_que_Aplica_LR__c &gt; FS_Dias_Aprobados__c
+)
+)</errorConditionFormula>
+    <errorMessage>Debe ingresar un valor mayor a cero y menor o igual al campo Días Aprobados.</errorMessage>
+</ValidationRule>

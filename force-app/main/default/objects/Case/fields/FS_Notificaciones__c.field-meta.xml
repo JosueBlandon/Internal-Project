@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Notificaciones__c</fullName>
+    <externalId>false</externalId>
+    <label>Notificaciones</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Estimación Macro</fullName>
+                <default>false</default>
+                <label>Estimación Macro</label>
+            </value>
+            <value>
+                <fullName>Documento de Especificación Funcional</fullName>
+                <default>false</default>
+                <label>Documento de Especificación Funcional</label>
+            </value>
+            <value>
+                <fullName>En Propuesta Económica</fullName>
+                <default>false</default>
+                <label>En Propuesta Económica</label>
+            </value>
+            <value>
+                <fullName>En Espera de Respuesta del Cliente</fullName>
+                <default>false</default>
+                <label>En Espera de Respuesta del Cliente</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Validacion_Campos_En_Blanco</fullName>
+    <active>true</active>
+    <description>Regla para validar si ¿Aplica Licencia Recurrente? es igual a No, los campos ¿Cuándo Aplica LR? y Días que Aplica LR deben estar vacíos.</description>
+    <errorConditionFormula>AND(
+$Profile.Name == &apos;PM-PS&apos;,
+RecordType.DeveloperName = &apos;FS_Requerimiento&apos;,				
+ISPICKVAL(FS_Aplica_Licencia_Recurrente__c, &apos;No&apos;), 
+OR(
+NOT(ISBLANK(TEXT(FS_Cuando_Aplica_LR__c))),
+NOT(ISBLANK(FS_Dias_que_Aplica_LR__c))
+)
+)</errorConditionFormula>
+    <errorMessage>Los campos ¿Cuándo Aplica LR? y Días que Aplica LR, deben estar vacíos porque seleccionó que el campo ¿Aplica Licencia Recurrente? es igual a No</errorMessage>
+</ValidationRule>
