@@ -68,6 +68,7 @@ public class DataFactory {
         p.FS_Producto__c = prod;
         p.FS_Modulo__c = mod;
         p.FS_SubModulo__c = subM;
+        p.FS_Esta_activo__c = true;
         insert p;
         return p;
     }

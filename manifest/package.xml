@@ -1,62 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>CaseTriggerHandler</members>
-		<members>CaseTriggerHelper</members>
-		<members>CaseTriggerHelperPMPS</members>
-		<members>CaseTriggerHelperPMPSTest</members>
 		<members>CaseTriggerHelper_Test</members>
-		<members>ChangePasswordController</members>
-		<members>ChangePasswordControllerTest</members>
-		<members>CommunitiesLandingController</members>
-		<members>CommunitiesLandingControllerTest</members>
-		<members>CommunitiesLoginController</members>
-		<members>CommunitiesLoginControllerTest</members>
-		<members>CommunitiesSelfRegConfirmController</members>
-		<members>CommunitiesSelfRegConfirmControllerTest</members>
-		<members>CommunitiesSelfRegController</members>
-		<members>CommunitiesSelfRegControllerTest</members>
-		<members>ControladorCrearCaso</members>
-		<members>ControladorCrearCaso_Test</members>
-		<members>ControladorEncuesta</members>
-		<members>ControladorEncuesta_Test</members>
+		<members>ControladorBaseConocimientos</members>
+		<members>ControladorBaseConocimientos_Test</members>
 		<members>DataFactory</members>
-		<members>FeedCommentTriggerHandler</members>
-		<members>FeedCommentTriggerHelper</members>
-		<members>FeedCommentTriggerHelper_Test</members>
-		<members>FeedItemTriggerHandler</members>
-		<members>FeedItemTriggerHelper</members>
-		<members>ForgotPasswordController</members>
-		<members>ForgotPasswordControllerTest</members>
-		<members>GestorCuentaTriggerHandler</members>
-		<members>GestorCuentaTriggerHelper</members>
-		<members>GestorCuentaTriggerHelperTest</members>
-		<members>JobValidacionRespuesta</members>
-		<members>JobValidacionRespuesta_Test</members>
-		<members>MicrobatchSelfRegController</members>
-		<members>MicrobatchSelfRegControllerTest</members>
-		<members>MyProfilePageController</members>
-		<members>MyProfilePageControllerTest</members>
-		<members>SiteLoginController</members>
-		<members>SiteLoginControllerTest</members>
-		<members>SiteRegisterController</members>
-		<members>SiteRegisterControllerTest</members>
-		<members>TaskTriggerHandler</members>
-		<members>TaskTriggerHelper</members>
-		<members>TaskTriggerHelperTest</members>
-		<members>TrabajoAgenteHandler</members>
-		<members>TrabajoAgenteHelper</members>
-		<members>TrabajoAgenteHelper_Test</members>
 		<name>ApexClass</name>
 	</types>
-	<types>
-		<members>CaseTrigger</members>
-		<members>FeedCommentTrigger</members>
-		<members>FeedItemTrigger</members>
-		<members>GestorCuentaTrigger</members>
-		<members>TaskTrigger</members>
-		<members>TrabajoAgenteTrigger</members>
-		<name>ApexTrigger</name>
-	</types>
-	<version>58.0</version>
+	<version>59.0</version>
 </Package>

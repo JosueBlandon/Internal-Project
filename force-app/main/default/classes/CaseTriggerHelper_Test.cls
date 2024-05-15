@@ -33,8 +33,18 @@ public class CaseTriggerHelper_Test {
     
     @isTest
     static void CasoConsulta() {
-        Case caso =  [Select Id, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
+        Case caso =  [Select Id, AccountId, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
         
+        Account cuenta = [Select Id From Account Where Id =: caso.AccountId Limit 1];
+
+        FS_ProductoAdquirido__c prod = new FS_ProductoAdquirido__c();
+        prod.FS_Cuenta__c = cuenta.Id;
+        prod.FS_Producto__c = 'FISA System';
+        prod.FS_Modulo__c = 'Núcleo del Sistema';
+        prod.FS_SubModulo__c = 'Seguridades (Modulo 90)';
+        prod.FS_Esta_activo__c = true;
+        Insert prod;
+
         caso.FS_InformacionCompleta__c = 'No';
         update caso;
         
@@ -59,6 +69,7 @@ public class CaseTriggerHelper_Test {
         caso.FS_Producto__c = null;
         actualizarCasoError(caso);
         caso.FS_Producto__c = 'FISA System';
+        caso.FS_Modulo__c = 'Núcleo del Sistema';
         caso.FS_SubModulo__c = 'Seguridades (Modulo 90)';
         update caso;
         
