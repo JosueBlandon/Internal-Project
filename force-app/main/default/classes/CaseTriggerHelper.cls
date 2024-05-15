@@ -3,15 +3,21 @@
 * @author           Intellect Systems href=<infor@intellectsystems.net>
 * @project          Fisa Ecuador - Implementación CRM
 * @name             ControladorCrearCaso
-* @description      Class to create case since community
+* @description      Class helper to CaseTriggerHandler
 * @changes
 * ----------   ---------------------------   -----------------------------------------------------------------
 * Date         Author                        Description
 * ----------   ---------------------------   -----------------------------------------------------------------
-* 2023-18-07   Intellect Systems             Initial version.
-* 2024-24-03   Intellect Systems             Methods are eliminated: validationChatter and deleteChatter, after reviewing that they are unnecessary.
+* 2023-07-18   Intellect Systems             Initial version.
+* 2024-03-24   Intellect Systems             Methods are eliminated: validationChatter and deleteChatter, after reviewing that they are unnecessary.
+* 2024-03-20   Intellect Systems             Validation of Fecha de Compromiso de Entrega field is removed, in informacionCompleta method.
+* 2024-03-20   Intellect Systems             Method adjustments: solventarPregunta, aprobacionConsSolic, enviarNotificacion
+* 2024-03-26   Intellect Systems             New method called: assignDeliveryDate
+* 2024-04-26   Intellect Systems             Modify method called: validacionProducto, to validate products related to account.  
+* 2024-05-02   Intellect Systems             Se añade validación en el método: validacionUser, se incluye perfil: Servicio al Cliente.
 **************************************************************************************************************
 */
+
 public without sharing class CaseTriggerHelper {
 
     public static final String COLA_ATENCION_N1_CORE ='FS_AtencionN1Core';
@@ -119,9 +125,9 @@ public without sharing class CaseTriggerHelper {
     
     public static Boolean validacionUser(Boolean userComunity){
         User u = mapUser.get(UserInfo.getUserId());
-        Boolean flagPerfil = u.Profile.Name == 'Administrador del sistema' || u.Profile.Name == 'System Administrator';
+        Boolean flagPerfil = u.Profile.Name == 'Administrador del sistema' || u.Profile.Name == 'System Administrator' || u.Profile.Name == 'Servicio al Cliente';
         flagPerfil = flagPerfil || (u.UserRole.DeveloperName != null && u.UserRole.DeveloperName.contains('FS_Jefe'));
-        flagPerfil = flagPerfil || Label.FS_IdUsuarioJira == u.Id || (u.Profile.Name == 'Customer Community User' && userComunity);
+        flagPerfil = flagPerfil || Label.FS_IdUsuarioJira == u.Id || ((u.Profile.Name == 'Customer Community User' || u.Profile.Name == 'Customer Community Plus User') && userComunity);
         flagPerfil = flagPerfil || u.Name.contains('invitado al sitio Web');
         return flagPerfil;
         
@@ -139,8 +145,16 @@ public without sharing class CaseTriggerHelper {
         }
     }
     
-    public static void validacionProducto(List<Case> newCaseList, Map<Id, Case> oldCaseMap){
+    /**
+     * @method      validacionProducto
+     * @description Method to validate products related to account
+     * @author      Intellect Systems - 2023-07-18
+     * @param       newCaseList
+     * @param       oldCaseMap
+     */
+    public static void validacionProducto(List<Case> newCaseList, Map<Id, Case> oldCaseMap) {
         Boolean flag = false;
+        Boolean isActive = true;
         List<String> listAccount = new  List<String>();
 
         for(Case item: newCaseList){
@@ -152,69 +166,97 @@ public without sharing class CaseTriggerHelper {
         }
 
         if(flag){
-            List<FS_ProductoAdquirido__c> productos = [Select FS_Cuenta__c, FS_Producto__c, FS_Modulo__c, FS_SubModulo__c from FS_ProductoAdquirido__c Where FS_Cuenta__c in :listAccount];
-            for(Case item: newCaseList){
+            List<FS_ProductoAdquirido__c> productos = [     SELECT  FS_Cuenta__c, FS_Producto__c, FS_Modulo__c, FS_SubModulo__c, FS_Esta_activo__c 
+                                                            FROM    FS_ProductoAdquirido__c 
+                                                            WHERE   FS_Cuenta__c in: listAccount    ];
+
+            for(Case item: newCaseList) {
                 flag = false;
-                for(FS_ProductoAdquirido__c p :productos){
+                isActive = true;
+                for(FS_ProductoAdquirido__c p :productos) {
                     if(item.AccountId == p.FS_Cuenta__c && item.FS_Producto__c == p.FS_Producto__c && item.FS_Modulo__c == p.FS_Modulo__c && item.FS_SubModulo__c == p.FS_SubModulo__c){
                         flag = true;
                     }
+                    if(item.AccountId == p.FS_Cuenta__c && item.FS_Producto__c == p.FS_Producto__c && item.FS_Modulo__c == p.FS_Modulo__c && item.FS_SubModulo__c == p.FS_SubModulo__c && p.FS_Esta_activo__c == false) {
+                        isActive = false;
+                    }
                 }
-                if(!flag){
+
+                if(!flag) {
                     item.addError('El cliente no tiene la combinación de productos seleccionados');
-                }else{
+                } else {
                     Case caso = oldCaseMap.get(item.Id);
-                    if(caso.FS_Producto__c != item.FS_Producto__c){
+                    if(caso.FS_Producto__c != item.FS_Producto__c) {
                         Boolean esCore = productoCore(item) ;
                         item.FS_Area__c = esCore ? 'N1. CORE' : 'N1. OMNIA';
-                        item.OwnerId = [Select Id from Group Where DeveloperName = :(esCore ? COLA_ATENCION_N1_CORE : COLA_ATENCION_N1_OMNIA) and Type = 'Queue'].Id;
+                        item.OwnerId = [    SELECT  Id 
+                                            FROM    Group 
+                                            WHERE   DeveloperName =: (esCore ? COLA_ATENCION_N1_CORE : COLA_ATENCION_N1_OMNIA) and Type = 'Queue'].Id;
+
                         validarTareas(item);
                     }
                 }
+
+                if(!isActive) {
+                    item.addError('El producto seleccionado está inactivo');
+                }
             }      
-        }
-        
-    }
-    
-    public static void informacionCompleta(List<Case> newCaseList, Map<Id, Case> oldCaseMap){
+        }   
+    }   
+
+    /**
+     * @method      informacionCompleta
+     * @description Method to validate required case data, assign values to specific fields and send notifications emails.
+     * @author      Intellect Systems - 2023-07-18
+     * @param       newCaseList
+     * @param       oldCaseMap
+     */
+    public static void informacionCompleta(List<Case> newCaseList, Map<Id, Case> oldCaseMap) {
         List<String> listAccount = new  List<String>();
         List<String> listProductos = new  List<String>();
+        
         for(Case item: newCaseList){
             Case caso = oldCaseMap.get(item.Id);
-            if(String.isBlank(item.FS_SubModulo__c)){
+
+            if(String.isBlank(item.FS_SubModulo__c)) {
                 listAccount.add(item.AccountId);
             }
         }
-        for(FS_ProductoAdquirido__c item: [Select FS_Cuenta__c, FS_Producto__c, FS_Modulo__c, FS_SubModulo__c from FS_ProductoAdquirido__c Where FS_Cuenta__c = :listAccount]){
+
+        for(FS_ProductoAdquirido__c item: [ SELECT  FS_Cuenta__c, FS_Producto__c, FS_Modulo__c, FS_SubModulo__c 
+                                            FROM    FS_ProductoAdquirido__c 
+                                            WHERE   FS_Cuenta__c = :listAccount ]) {
+
             String prod = item.FS_Cuenta__c  + item.FS_Producto__c + item.FS_Modulo__c + item.FS_SubModulo__c;
             listProductos.add(prod);
         }
-        for(Case item: newCaseList){
+
+        for(Case item: newCaseList) {
             Case caso = oldCaseMap.get(item.Id);
-            if(caso.FS_InformacionCompleta__c != item.FS_InformacionCompleta__c){
-                if(item.FS_InformacionCompleta__c == 'Si'){
+
+            if(caso.FS_InformacionCompleta__c != item.FS_InformacionCompleta__c) {
+                if(item.FS_InformacionCompleta__c == 'Si') {
                     String prod = item.AccountId  + item.FS_Producto__c + item.FS_Modulo__c + item.FS_SubModulo__c;
-                    String msjError = 'Debe Completar los siguientes campos ';
+                    String msjError = 'Debe Completar los siguientes campos: ';
                     msjError += String.isBlank(item.FS_Proyecto__c) ? 'Proyecto, ' : '';
-                    msjError += item.FS_FechaCompromisoEntrega__c == null && item.RecordTypeId != SOLICITUD_TIPO_REGISTRO ? 'Fecha de Compromiso de Entrega, ' : '';
                     msjError += String.isBlank(item.FS_SubModulo__c) && !listProductos.contains(prod) ? 'Sub Módulo, ' : '';
-                    if(msjError.length() > 37){
+                    
+                    if(msjError.length() > 38) {
                         item.addError(msjError.substring(0, msjError.length() - 2));
                     }
-                    if(item.FS_TipoIncidente__c != null && item.RecordTypeId == INCIDENTE_TIPO_REGISTRO){
+                    if(item.FS_TipoIncidente__c != null && item.RecordTypeId == INCIDENTE_TIPO_REGISTRO) {
                         item.FS_SubEstado__c = item.FS_TipoIncidente__c == 'Puntual' ? 'Desarrollo Incidente Puntual' : 'Desarrollo Incidente Definitivo';
                         item.Status = 'En Desarrollo';
-                    }else if(item.FS_NombreTipoRegistro__c  == 'Solicitud (Falla Operativa)'){
+                    } else if(item.FS_NombreTipoRegistro__c  == 'Solicitud (Falla Operativa)') {
                         item.FS_SubEstado__c = 'En Espera de Respuesta del Cliente';
                         item.Status = 'En Análisis';
                         item.FS_Acepta1erCosto__c = null;
                         envioCorreo(item, 'FS_AprobacionPrimerCosto', true);
-                    }else{
+                    } else {
                         item.FS_SubEstado__c = item.FS_Area__c == 'N2- CORE' || item.FS_Area__c == 'N2-OMNIA' ? 'Análisis N2' : 'Análisis N1';
-                        System.debug('Aquí se actualiza el estado');
                         item.Status = 'En Análisis';
                     }
-                }else if(item.FS_InformacionCompleta__c == 'No'){
+                } else if(item.FS_InformacionCompleta__c == 'No') {
                     item.FS_SubEstadoQueSePideInformacion__c = item.FS_SubEstado__c;
                     item.FS_SubEstado__c = 'En Espera de Respuesta del Cliente'; 
                     envioCorreo(item, 'FS_InformacionFaltante', true);
@@ -249,37 +291,51 @@ public without sharing class CaseTriggerHelper {
         }
     }
     
-    public static void solventarPregunta(List<Case> newCaseList, Map<Id, Case> oldCaseMap){
-        for(Case item: newCaseList){
+    /**
+     * @method      solventarPregunta
+     * @description Method to define actions based on field value: ¿Pude solventar?
+     * @author      Intellect Systems - 2023-07-18
+     * @param       newCaseList
+     * @param       oldCaseMap
+     */
+    public static void solventarPregunta(List<Case> newCaseList, Map<Id, Case> oldCaseMap) {
+        list<Case> updateCaseList = new list<Case>();
+        for(Case item: newCaseList) {
             Case caso = oldCaseMap.get(item.Id);
-            if(caso.FS_PudeSolventarPregunta__c != item.FS_PudeSolventarPregunta__c){
-                if(item.FS_PudeSolventarPregunta__c == 'Si'){
-                    if(item.FS_Area__c == 'N1. CORE' || item.FS_Area__c == 'N1. OMNIA'){
+            if(caso.FS_PudeSolventarPregunta__c != item.FS_PudeSolventarPregunta__c) {
+                Case record = new Case(Id = item.Id);
+                if(item.FS_PudeSolventarPregunta__c == 'Si') {
+                    if(item.FS_Area__c == 'N1. CORE' || item.FS_Area__c == 'N1. OMNIA') {
                         aprobacionConsSolic(item);
-                        item.FS_SubEstado__c = item.recordTypeId == CONSULTA_TIPO_REGISTRO ? 'Aprobación Consulta N2' : 'Aprobación Solicitud N2';
-                    }else{
-                        item.FS_SubEstado__c = 'Envío de respuesta';
-                        item.Status = 'Validación de Respuesta (Cliente)';
-                        item.FS_AceptaRespuesta__c = null;
+                        record.FS_SubEstado__c = item.recordTypeId == CONSULTA_TIPO_REGISTRO ? 'Aprobación Consulta N2' : 'Aprobación Solicitud N2';
+                        updateCaseList.add(record);
+                    } else {
+                        record.FS_SubEstado__c = 'Envío de respuesta';
+                        record.Status = 'Validación de Respuesta (Cliente)';
+                        record.FS_AceptaRespuesta__c = null;
+                        updateCaseList.add(record);
                         envioCorreo(item, 'FS_ValidacionInformacion', true);
                     }
                     validarTareas(item);
-                }else if(item.FS_PudeSolventarPregunta__c == 'No'){
+                } else if(item.FS_PudeSolventarPregunta__c == 'No') {
                     Boolean esCore = productoCore(item) ;
-                    item.OwnerId =  String.isBlank(item.FS_UsuarioAprobadorSolucion__c) ? mapColas.get(esCore ? COLA_ATENCION_N2_CORE : COLA_ATENCION_N2_OMNIA) : item.FS_UsuarioAprobadorSolucion__c;
-                    item.FS_Area__c =  esCore ? 'N2- CORE' : 'N2-OMNIA';
-                    item.FS_SubEstado__c = String.isBlank(item.FS_UsuarioAprobadorSolucion__c) ? 'Escalado a N2' : 'Análisis N2'; 
-                    item.IsEscalated = true;
-                    item.FS_InformacionCompleta__c = null;
+                    record.OwnerId =  String.isBlank(item.FS_UsuarioAprobadorSolucion__c) ? mapColas.get(esCore ? COLA_ATENCION_N2_CORE : COLA_ATENCION_N2_OMNIA) : item.FS_UsuarioAprobadorSolucion__c;
+                    record.FS_Area__c =  esCore ? 'N2- CORE' : 'N2-OMNIA';
+                    record.FS_SubEstado__c = String.isBlank(item.FS_UsuarioAprobadorSolucion__c) ? 'Escalado a N2' : 'Análisis N2'; 
+                    record.IsEscalated = true;
+                    record.FS_InformacionCompleta__c = null;
+                    updateCaseList.add(record);
                     validarTareas(item);
-                    if(item.FS_UsuarioAprobadorSolucion__c != null){
+                    if(item.FS_UsuarioAprobadorSolucion__c != null) {
                         String titulo = 'Asignación de caso No '+item.CaseNumber;
                         String descripcion = 'El agente ' + UserInfo.getName() + ' ha escalado el caso '+item.CaseNumber +' \nPor favor dar seguimiento.';
                         enviarNotificacion(item.OwnerId, item.Id, titulo, descripcion);
                     }
                 }
-                
             }
+        }
+        if(!updateCaseList.isEmpty()) {
+            update updateCaseList;
         }
     }
     
@@ -326,6 +382,10 @@ public without sharing class CaseTriggerHelper {
                     item.FS_SubEstado__c = item.RecordTypeId == SOLICITUD_TIPO_REGISTRO ? 'Análisis Falla Operativa' : item.FS_SubEstado__c ;
                     item.FS_PudeSolventarPregunta__c = null;
                     item.FS_NumeroHorasSolicitud__c = null;
+                    item.FS_FechaCompromisoEntrega__c = null;
+                    item.FS_MotivoCambioFechaEntrega__c = null;
+                    item.FS_InformacionCompleta__c = null;
+
                     envioCorreo(item, 'FS_RechazoRespuesta', false);
                     
                     String titulo = 'RECHAZO DEL CLIENTE PARA EL CASO NÚMERO '+item.CaseNumber;
@@ -391,20 +451,50 @@ public without sharing class CaseTriggerHelper {
         }
     }
     
-    public static void aprobacionConsSolic(Case item){
+    /**
+     * @method      aprobacionConsSolic
+     * @description Method to send notification to approver.
+     * @author      Intellect Systems - 2023-07-18
+     * @param       item -- Record Case.
+     */
+    public static void aprobacionConsSolic(Case item) {
         String nombreRol = item.FS_Area__c == 'N1. CORE' ? 'FS_AgenteN2Core' : 'FS_AgenteN2Omnia';
-        if(item.FS_UsuarioAprobadorSolucion__c == null){
-            for(User usuario : [Select Id, FS_FechaUltimaAprobacion__c from User where UserRole.DeveloperName = :nombreRol And Id != :item.OwnerId and IsActive = true Order by FS_FechaUltimaAprobacion__c asc limit 1]){
-                usuario.FS_FechaUltimaAprobacion__c = System.now();
-                update usuario;
-                item.FS_UsuarioAprobadorSolucion__c = usuario.Id;
-            }
+        List<User> userRecord = new List<User>();
+        List<Case> caseRecord = new List<Case>();
+
+        List<User> userValue = [   SELECT      Id, FS_FechaUltimaAprobacion__c 
+                                    FROM        User 
+                                    WHERE       UserRole.DeveloperName =: nombreRol And Id !=: item.OwnerId and IsActive = true 
+                                    ORDER BY    FS_FechaUltimaAprobacion__c ASC 
+                                    LIMIT       1   ];
+
+        for(User usuario : userValue) {
+            usuario.FS_FechaUltimaAprobacion__c = System.now();
+            userRecord.add(usuario);
         }
-        String titulo = 'Aprobación de solución para caso '+item.CaseNumber;
-        String descripcion = 'El agente '+item.FS_NombrePropietario__c + ' necesita la aprobación de solución para el caso número '+item.CaseNumber +' \nPor favor dar seguimiento.';
-        enviarNotificacion(item.FS_UsuarioAprobadorSolucion__c, item.Id, titulo, descripcion);
-        item.FS_AprobacionSolucion__c = null;
-        item.FS_ComentariosRechazoSolucion__c = null;
+
+        if(!userRecord.isEmpty()) {
+            update userRecord;
+            Case record = new Case(Id = Item.Id);
+            
+            record.FS_UsuarioAprobadorSolucion__c = userRecord[0].Id;
+            record.FS_AprobacionSolucion__c = null;
+            record.FS_ComentariosRechazoSolucion__c = null;
+            caseRecord.add(record);
+        
+            if(!caseRecord.isEmpty()) {
+                update caseRecord;
+            }
+
+            String titulo = 'Aprobación de solución para caso '+item.CaseNumber;
+            String descripcion = 'El agente '+item.FS_NombrePropietario__c + ' necesita la aprobación de solución para el caso número '+item.CaseNumber +' \nPor favor dar seguimiento.';
+
+            if(caseRecord[0].FS_UsuarioAprobadorSolucion__c != null) {
+                enviarNotificacion(caseRecord[0].FS_UsuarioAprobadorSolucion__c, caseRecord[0].Id, titulo, descripcion);
+            } 
+        }  else {
+            item.addError('No existe aprobador Agente N2 - Core');    
+        }    
     }
     
     public static void validacionFechaEntrega(List<Case> newCaseList, Map<Id, Case> oldCaseMap){
@@ -804,7 +894,6 @@ public without sharing class CaseTriggerHelper {
                     item.OwnerId = item.FS_AgenteN2__c;
                     String titulo = 'Rechazo de Instalación de Parche para caso No '+item.CaseNumber;
                     String descripcion = 'El cliente ' + item.FS_NombreCuenta__c  + ' ha rechazado la Instalación de Parche para el caso número '+item.CaseNumber +' \nPor favor dar seguimiento.';
-                    System.debug('Datos son: '+item.OwnerId+'*'+item.Id+'*'+titulo+'*'+descripcion);
                     enviarNotificacion(item.OwnerId, item.Id, titulo, descripcion);
                 }
             }
@@ -1014,7 +1103,6 @@ public without sharing class CaseTriggerHelper {
     }
     
     public static void envioCorreo(Case caso, String nombrePlantilla, Boolean esContacto){
-        System.debug('DEBUG::: ENVIANDO CORREO '+esContacto);
         if(esContacto && caso.FS_OrigenCaso__c != 'Web'){
             return;
         }
@@ -1033,10 +1121,10 @@ public without sharing class CaseTriggerHelper {
         mail.setHtmlBody(html);
         mail.saveAsActivity = esContacto;
         mail.setOrgWideEmailAddressId(owea.Id);
-        System.debug('html: '+html);
+
         if(esContacto){
             User usuario = mapUser.get(userInfo.getUserId());
-            if(usuario.Profile.Name != 'Customer Community User'){
+            if(usuario.Profile.Name != 'Customer Community User' || usuario.Profile.Name != 'Customer Community Plus User'){
                 mail.setWhatId(caso.Id);
             }
 
@@ -1048,7 +1136,6 @@ public without sharing class CaseTriggerHelper {
                 }else{
                     allMails = caso.FS_CorreosNotificacionesServicios__c;
                 }                
-                System.debug('CORREOS A ENVIAR ----' + allMails);
                 mail.setCcAddresses(allMails.split(','));
             }
         } else {
@@ -1066,8 +1153,16 @@ public without sharing class CaseTriggerHelper {
         }
     }
     
-    public static void enviarNotificacion(String usuarioId, String recordId, String titulo, String descripcion){
-        //Id notificacionId = .Id;
+    /**
+     * @method      enviarNotificacion
+     * @description Method to send email notification
+     * @author      Intellect Systems - 2023-07-18
+     * @param       usuarioId
+     * @param       recordId
+     * @param       titulo
+     * @param       descripcion
+     */
+    public static void enviarNotificacion(String usuarioId, String recordId, String titulo, String descripcion) {
         Messaging.CustomNotification notification = new Messaging.CustomNotification();
         notification.setTitle(titulo);
         notification.setBody(descripcion);
@@ -1095,7 +1190,6 @@ public without sharing class CaseTriggerHelper {
         mail.setOrgWideEmailAddressId(owea.Id);
         
         try{
-            //Test.IsRunningTest
             User usuario = !Test.isRunningTest() ? mapUser.get(usuarioId) : new User(Email = Label.FS_CorreoElectronicoServicio);
             mail.setBccAddresses(  new List<String>{usuario.Email});
             MessageList.add(mail);          
@@ -1219,7 +1313,7 @@ public without sharing class CaseTriggerHelper {
     }//fin proceso entitlementCaseId
 
     public static void esCliente(List<Case> newCaseList) {
-        /*try{
+        try{
             set<Id> caseId = new set<id>();
             set<Id> accId = new set<id>();
             String SubEstado;
@@ -1255,9 +1349,23 @@ public without sharing class CaseTriggerHelper {
                 }
             }    
         } catch(Exception ex) {
-            System.debug('Error en helper de casos: '+ex.getLineNumber());
-        }*/
+            System.debug('Error en helper de casos: '+ex.getLineNumber()+'--'+ex.getMessage());
+        }
 
     }//fin proceso esCliente
     
+    /**
+     * @method      assignDeliveryDate
+     * @description Method that assigns value in the called field: Fecha de entrega. 
+     * @author      Intellect Systems - 2024-03-26
+     * @param       newCaseList
+     * @param       oldCaseMap 
+     */
+    public static void assignDeliveryDate(List<Case> newCaseList, Map<Id, Case> oldCaseMap) {
+        for(Case record : newCaseList) {
+            if(record.FS_Fecha_de_entrega__c == null && record.Status == 'Validación de Respuesta (Cliente)') {
+                record.FS_Fecha_de_entrega__c = record.LastModifiedDate.date();
+            }
+        }
+    }
 }

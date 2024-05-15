@@ -24,18 +24,21 @@ public without sharing class FeedCommentTriggerHelper {
         List<String> listFeedItemIds = new List<String>();
         List<String> listCasosIds = new List<String>();
         List<Case> listCasosUpdate = new List<Case>();
+
         for(Profile p: [    SELECT  Id 
                             FROM    Profile 
-                            WHERE   Name = 'Customer Community User' and Id =:UserInfo.getProfileId()    ]){
+                            WHERE   (Name = 'Customer Community User' or Name = 'Customer Community Plus User') and Id =:UserInfo.getProfileId()    ]){
             for(FeedComment item: newFeedCommentList){
                 listFeedItemids.add(item.FeedItemId);
             } 
         }
+
         for(FeedItem item: [    SELECT  ParentId 
                                 FROM    FeedItem 
                                 WHERE   Id in :listFeedItemids    ]){
             listCasosIds.add(item.ParentId);
         }
+        
         for(Case item: [    SELECT  FS_SubEstado__c, FS_SubEstadoQueSePideInformacion__c, FS_InformacionCompleta__c 
                             FROM    Case 
                             WHERE   Id IN : listCasosIds and FS_SubEstadoQueSePideInformacion__c != null    ]){

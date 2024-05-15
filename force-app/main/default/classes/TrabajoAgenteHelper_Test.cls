@@ -29,7 +29,6 @@ public class TrabajoAgenteHelper_Test {
         TrabajoAgenteHelper.asignarCaso(caso);
         caso.FS_SubEstado__c = 'Escalado a QA';
         TrabajoAgenteHelper.asignarCaso(caso);
-        //update caso;
     }
 
 }

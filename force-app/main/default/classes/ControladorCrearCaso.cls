@@ -8,10 +8,11 @@
 * ----------   ---------------------------   -----------------------------------------------------------------
 * Date         Author                        Description
 * ----------   ---------------------------   -----------------------------------------------------------------
-* 2023-18-07   Intellect Systems             Initial version.
-* 2024-25-01   Intellect Systems             Se añade asignación al Project Manager para casos de tipo de Requerimiento desde la comunidad, ajuste en el Método: guardarCaso.
-* 2024-26-01   Intellect Systems             Se añade el paso de los correos al campo en el caso , para el envio de los correos en la cuentas listadas.
-* 2024-29-01   Intellect Systems             Se añade área PS, si el caso es de tipo: Requerimiento.
+* 2023-07-18   Intellect Systems             Initial version.
+* 2024-01-25   Intellect Systems             Se añade asignación al Project Manager para casos de tipo de Requerimiento desde la comunidad, ajuste en el Método: guardarCaso.
+* 2024-01-26   Intellect Systems             Se añade el paso de los correos al campo en el caso , para el envio de los correos en la cuentas listadas.
+* 2024-01-29   Intellect Systems             Se añade área PS, si el caso es de tipo: Requerimiento.
+* 2024-04-26   Intellect Systems             Se añade filtro en método: getProductosAdquiridos, para mostrar solo los productos activos.
 **************************************************************************************************************
 */
 
@@ -34,14 +35,20 @@ public without sharing class ControladorCrearCaso {
         respuesta.cuentaId = usuario.Contact.AccountId;
         respuesta.listTodosProductos = new List<Producto>();
         respuesta.listTiporegistro = new List<PickListOption>();
-        for(FS_ProductoAdquirido__c item: [Select FS_Producto__c, FS_Modulo__c, FS_SubModulo__c from FS_ProductoAdquirido__c where FS_Cuenta__c =:respuesta.cuentaId]){
+        for(FS_ProductoAdquirido__c item: [ SELECT  FS_Producto__c, FS_Modulo__c, FS_SubModulo__c 
+                                            FROM    FS_ProductoAdquirido__c 
+                                            WHERE   FS_Cuenta__c =: respuesta.cuentaId and FS_Esta_activo__c = true ]) {
+
             Producto p = new Producto();
             p.producto = item.FS_Producto__c;
             p.modulo = item.FS_Modulo__c;
             p.subModulo = item.FS_SubModulo__c;
             respuesta.listTodosProductos.add(p);
         }
-        for(RecordType item : [Select Name, Id from RecordType Where SObjectType = 'Case' and IsActive = true Order by Name asc]) {
+        for(RecordType item : [ SELECT  Id, Name 
+                                FROM    RecordType 
+                                WHERE   SObjectType = 'Case' and IsActive = true Order by Name asc  ]) {
+
             PickListOption p = new PickListOption();
             p.value = item.Id;
             p.label = item.Name;

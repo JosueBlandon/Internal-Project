@@ -1,13 +1,17 @@
 /**
- * @description       : 
- * @author            : Intellect Systems href=<infor@intellectsystems.net>
- * @group             : 
- * @last modified on  : 01-27-2024
- * @last modified by  : Intellect Systems href=<infor@intellectsystems.net>
- * Modifications Log
- * Ver   Date         Author                                                Modification
- * 1.0   01-26-2024   Intellect Systems href=<infor@intellectsystems.net>   Initial Version
-**/
+**************************************************************************************************************
+* @author           Intellect Systems href=<infor@intellectsystems.net>
+* @project          Fisa Ecuador - Implementación CRM
+* @name             CaseTriggerHelper_Test
+* @description      Test class to CaseTriggerHelper
+* @changes
+* ----------   ---------------------------   -----------------------------------------------------------------
+* Date         Author                        Description
+* ----------   ---------------------------   -----------------------------------------------------------------
+* 2023-04-09   Intellect Systems             Initial version.
+**************************************************************************************************************
+*/
+
 @isTest
 public class CaseTriggerHelper_Test {
 
@@ -40,6 +44,7 @@ public class CaseTriggerHelper_Test {
         caso.FS_InformacionCompleta__c = 'Si';
         actualizarCasoError(caso);
         caso.FS_Proyecto__c = 'FSHD001 - Fisa System Help desk';
+        caso.FS_PudeSolventarPregunta__c = 'Si';
         caso.FS_FechaCompromisoEntrega__c = Date.today();
         update caso;
         
@@ -81,7 +86,8 @@ public class CaseTriggerHelper_Test {
         caso.FS_InformacionCompleta__c = 'Si';
         actualizarCasoError(caso);
         caso.FS_Proyecto__c = 'FSHD001 - Fisa System Help desk';
-        //caso.FS_FechaCompromisoEntrega__c = Date.today();
+        caso.FS_FechaCompromisoEntrega__c = Date.today();
+        caso.FS_FechaAprobacion1erCosto__c = Date.today();
         update caso;
         
         caso.FS_Acepta1erCosto__c = 'No';

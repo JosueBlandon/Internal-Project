@@ -39,7 +39,7 @@ public class FeedCommentTriggerHelper_Test {
      */
     @isTest
     static void FeedCommentUserCommunty() {
-        User u = [Select Id from User Where Profile.Name = 'Customer Community User' and IsActive = true limit 1];
+        User u = [Select Id from User Where (Profile.Name = 'Customer Community User' or Profile.Name = 'Customer Community Plus User') and IsActive = true limit 1];
         Case caso =  [Select Id, RecordType.DeveloperName, FS_SubEstadoQueSePideInformacion__c, FS_SubEstado__c from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
         caso.FS_SubEstado__c = 'Apertura de caso';
         caso.FS_SubEstadoQueSePideInformacion__c = caso.FS_SubEstado__c;
@@ -100,7 +100,7 @@ public class FeedCommentTriggerHelper_Test {
      */
     @isTest
     static void FeedCommentCaseStatus() {
-        User u = [Select Id from User Where Profile.Name = 'Customer Community User' and IsActive = true limit 1];
+        User u = [Select Id from User Where (Profile.Name = 'Customer Community User' or Profile.Name = 'Customer Community Plus User') and IsActive = true limit 1];
         Case caso =  [Select Id, RecordType.DeveloperName, FS_SubEstadoQueSePideInformacion__c, FS_SubEstado__c from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
         caso.Status = 'Cerrado';
         update caso;

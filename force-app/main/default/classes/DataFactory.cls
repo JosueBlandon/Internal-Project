@@ -10,11 +10,19 @@ public class DataFactory {
         Integer randomInt = Integer.valueOf(math.rint(math.random()*1000000));
         String uniqueName = orgId + dateString + randomInt;
 
-        Profile profile = [SELECT Id FROM Profile WHERE Name =: profileName LIMIT 1]; System.debug('profile: '+profile);
+        UserRole userrole = [   SELECT  Id, DeveloperName 
+                                FROM    UserRole 
+                                WHERE   DeveloperName = 'Presidente' Limit 1   ];
+
+        Profile profile = [ SELECT  Id 
+                            FROM    Profile 
+                            WHERE   Name =: profileName 
+                            LIMIT 1 ];
 
         User user = new User(
             firstName = USER_FIRST_NAME,
             lastName = USER_LAST_NAME,
+            UserRoleId = userRole.Id,
             profileId = profile.id,
             username = USER_EMAIL,
             email = USER_EMAIL,
@@ -75,28 +83,35 @@ public class DataFactory {
     }
     
     public static User insertUserCommunity(Contact cont){
+
+        UserRole userrole = [   SELECT  Id, DeveloperName 
+                                FROM    UserRole 
+                                WHERE   DeveloperName = 'Presidente' Limit 1   ];
+
+        User adminUser = [  SELECT  Id, UserRoleId 
+                            FROM    User 
+                            WHERE   (Profile.Name='Administrador del sistema' or  Profile.Name='System Administrator') and IsActive = true
+                            LIMIT 1 ];
+
+        adminUser.UserRoleId = userRole.Id;
+        update adminUser;
+
         User u = new User();
-        u.Alias = 'tes'; 
-        u.Email='test@myorg.com'; 
-        u.EmailEncodingKey='UTF-8'; 
-        u.LastName='Testing'; 
-        u.LanguageLocaleKey='en_US'; 
-        u.ContactId = cont.Id;
-        u.LocaleSidKey='en_US'; 
-        u.ProfileId = [Select Id from Profile Where Name = 'Customer Community User' limit 1].Id;
-        u.TimeZoneSidKey='America/New_York';
-        u.UserName= 'test@myorg.com';
-        insert u;
+
+        System.runAs(adminUser) {
+            u.Alias = 'tes'; 
+            u.Email='test@myorg.com'; 
+            u.EmailEncodingKey='UTF-8'; 
+            u.LastName='Testing'; 
+            u.LanguageLocaleKey='en_US'; 
+            u.ContactId = cont.Id;
+            u.LocaleSidKey='en_US'; 
+            u.ProfileId = [Select Id from Profile Where Name = 'Customer Community User' or Name = 'Customer Community Plus User' limit 1].Id;
+            u.TimeZoneSidKey='America/New_York';
+            u.UserName= 'test@myorg.com';
+            insert u;
+        }
         return u;
     }
-    
-    /*public static FS_BaseConocimiento__c inserBaseConocimientos(FS_ProductoAdquirido__c p){
-        FS_BaseConocimiento__c bc = new FS_BaseConocimiento__c();
-        bc.FS_Activo__c = true;
-        bc.FS_ProductoAdquirido__c = p.Id;
-        bc.Name = 'Test';
-        insert bc;
-        return bc;
-    }*/
     
 }
