@@ -6,7 +6,7 @@ public class ControladorBaseConocimientos_Test {
         Account acc = DataFactory.insertAccount();
         Contact cont = DataFactory.insertContact(acc);
         DataFactory.insertUserCommunity(cont);
-        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'Colocaciones (Módulo 6)', 'Crédito Hipotecario', '');
+        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Colocaciones (Módulo 6)', 'Crédito Hipotecario');
         DataFactory.insertCase(acc, cont, p, 'FS_Consulta');
         DataFactory.insertCase(acc, cont, p, 'FS_Solicitud');
         DataFactory.insertCase(acc, cont, p, 'FS_Incidente');

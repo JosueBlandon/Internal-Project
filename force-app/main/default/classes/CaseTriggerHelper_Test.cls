@@ -55,6 +55,10 @@ public class CaseTriggerHelper_Test {
         
         caso.FS_InformacionCompleta__c = 'Si';
         actualizarCasoError(caso);
+        caso.FS_Producto__c = 'FISA System';
+        caso.FS_Modulo__c = 'Núcleo del Sistema';
+        caso.FS_SubModulo__c = 'Seguridades (Modulo 90)';
+        update caso;
         caso.FS_Proyecto__c = 'FSHD001 - Fisa System Help desk';
         caso.FS_PudeSolventarPregunta__c = 'Si';
         caso.FS_FechaCompromisoEntrega__c = Date.today();
@@ -70,10 +74,6 @@ public class CaseTriggerHelper_Test {
         actualizarCasoError(caso);
         caso.FS_Producto__c = null;
         actualizarCasoError(caso);
-        caso.FS_Producto__c = 'FISA System';
-        caso.FS_Modulo__c = 'Núcleo del Sistema';
-        caso.FS_SubModulo__c = 'Seguridades (Modulo 90)';
-        update caso;
         
         caso.FS_PudeSolventarPregunta__c = 'No';
         update caso;
