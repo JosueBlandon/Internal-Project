@@ -40,8 +40,14 @@ public class DataFactory {
     }
     
     public static Account insertAccount(){
+        User adminUser = [  SELECT  Id, UserRoleId 
+                            FROM    User 
+                            WHERE   (Profile.Name='Administrador del sistema' or  Profile.Name='System Administrator') and IsActive = true
+                            LIMIT 1 ];
+
         Account acc = new Account();
         acc.Name = 'Account Test';
+        acc.OwnerId = adminUser.Id;
         insert acc;
         return acc;
     }
