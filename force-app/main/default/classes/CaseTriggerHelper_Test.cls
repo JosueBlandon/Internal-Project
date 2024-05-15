@@ -35,10 +35,12 @@ public class CaseTriggerHelper_Test {
     static void CasoConsulta() {
         Case caso =  [Select Id, AccountId, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
         
-        Account cuenta = [Select Id From Account Where Id =: caso.AccountId Limit 1];
+        Account acc = DataFactory.insertAccount();
+        caso.AccountId = acc.Id;
+        update caso;
 
         FS_ProductoAdquirido__c prod = new FS_ProductoAdquirido__c();
-        prod.FS_Cuenta__c = cuenta.Id;
+        prod.FS_Cuenta__c = acc.Id;
         prod.FS_Producto__c = 'FISA System';
         prod.FS_Modulo__c = 'Núcleo del Sistema';
         prod.FS_SubModulo__c = 'Seguridades (Modulo 90)';
