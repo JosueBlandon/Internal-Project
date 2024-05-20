@@ -101,7 +101,12 @@ public class DataFactory {
                             LIMIT 1 ];
 
         adminUser.UserRoleId = userRole.Id;
+        
+        try {
         update adminUser;
+        } catch (Exception e) {
+           System.debug('An error occurred');
+        }     
 
         User u = new User();
 

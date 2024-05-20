@@ -1317,10 +1317,6 @@ public without sharing class CaseTriggerHelper {
             set<Id> caseId = new set<id>();
             set<Id> accId = new set<id>();
             String SubEstado;
-            List<Entitlement> ltsEntitlement = new List<Entitlement>();
-
-            ltsEntitlement = [  SELECT  Id, Name 
-                                FROM    Entitlement    ];
 
             for(Case lstCase: newCaseList) {
                 if(REQUERIMIENTO_TIPO_REGISTRO != lstCase.RecordTypeId) {
