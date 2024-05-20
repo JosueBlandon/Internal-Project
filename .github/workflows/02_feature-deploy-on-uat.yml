@@ -1,14 +1,15 @@
 # Unique name for this workflow
-name: Features / 01. Validate in UAT
+name: Features / 02. Deploy in UAT
 
 # Definition when the workflow should run
 on:
     # The workflow will run whenever an event happens on a pull request
-    push:
+    pull_request:
+      types: [ closed ]
       # The branches filter allows to specify that this workflow should only
       # run if the branch name is "develop". This way we prevent this workflow
       # from running when PRs are opened on other branches
-      branches: [ feature/*, Feature/* ]
+      branches: [ develop ]
       # We only care about changes to the force-app directory, which is the
       # root directory of the sfdx project. This prevents the job from running
       # when changing non-salesforce files (like this yml file).
@@ -18,7 +19,7 @@ on:
 
 # Jobs to be executed
 jobs:
-    deploy-branch-to-build-org:
+    run-deployment-on-sit-org:
         runs-on: ubuntu-latest
         environment: uat
         if: ${{ github.actor != 'dependabot[bot]' }}
@@ -78,8 +79,8 @@ jobs:
                 openssl enc -nosalt -aes-256-cbc -d -in devops/server.key.enc -out devops/server.key -base64 -K ${{ secrets.NONPROD_DECRYPTIONKEY }} -iv ${{ secrets.NONPROD_DECRYPTIONIV }}
 
             # Authenticate to org
-            - name: 'Authenticate to Build Org'
-              run: sf org login jwt --username ${{ vars.USERNAME }} --jwt-key-file devops/server.key --client-id ${{ secrets.CONSUMERKEY }} --alias ci-org --set-default --instance-url ${{ vars.INSTANCEURL }}
+            - name: 'Authenticate to SIT Org'
+              run: sf org login jwt --username ${{ vars.USERNAME }} --jwt-key-file devops/server.key --client-id ${{ secrets.CONSUMERKEY }} --alias sit-org --set-default --instance-url ${{ vars.INSTANCEURL }}
             
             - name: 'Convert Metadata'
               run: sf project convert mdapi --root-dir force-app --output-dir convert
@@ -88,8 +89,8 @@ jobs:
               run: sf project deploy preview --manifest ./manifest/package.xml --target-org ci-org --ignore-conflicts
 
             - name: 'Deploy the manifest package to Build org'
-              if: github.event.pull_request.merged == false
-              run: sf project deploy validate --manifest ./manifest/package.xml --target-org ci-org --test-level RunLocalTests
+              if: github.event.pull_request.merged == true
+              run: sf project deploy start --manifest ./manifest/package.xml --target-org ci-org --test-level RunLocalTests --ignore-conflicts
                 # sf project deploy start --source-dir force-app --target-org ci-org -l RunLocalTests --json
 
             # - name: 'Deploy destructive changes (if any) to Build org'
