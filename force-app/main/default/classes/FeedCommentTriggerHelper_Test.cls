@@ -29,7 +29,7 @@ public class FeedCommentTriggerHelper_Test {
         DataFactory.insertCase(acc, cont, p, 'FS_Consulta');
         DataFactory.insertCase(acc, cont, p, 'FS_Solicitud');
         DataFactory.insertCase(acc, cont, p, 'FS_Incidente');
-        DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
+        DataFactory.insertProduct(acc, 'FISA FISS', 'ECCO', '');
     }
     
     /**
