@@ -86,12 +86,12 @@ jobs:
               run: sf project convert mdapi --root-dir force-app --output-dir convert
 
             - name: 'Preview org deployment'
-              run: sf project deploy preview --manifest ./manifest/package.xml --target-org ci-org --ignore-conflicts
+              run: sf project deploy preview --manifest ./manifest/package.xml --target-org uat-org --ignore-conflicts
 
             - name: 'Deploy the manifest package to Build org'
               if: github.event.pull_request.merged == true
-              run: sf project deploy start --manifest ./manifest/package.xml --target-org ci-org --test-level RunLocalTests --ignore-conflicts
-                # sf project deploy start --source-dir force-app --target-org ci-org -l RunLocalTests --json
+              run: sf project deploy start --manifest ./manifest/package.xml --target-org uat-org --test-level RunLocalTests --ignore-conflicts
+                # sf project deploy start --source-dir force-app --target-org uat-org -l RunLocalTests --json
 
             # - name: 'Deploy destructive changes (if any) to Build org'
             #  run: |
