@@ -10,6 +10,8 @@
 		<members>DataFactory</members>
 		<members>FeedCommentTriggerHelper</members>
 		<members>FeedCommentTriggerHelper_Test</members>
+		<members>JobValidacionRespuesta_Test</members>
+		<members>TrabajoAgenteHelper_Test</members>
 		<name>ApexClass</name>
 	</types>
 	<version>60.0</version>
