@@ -8,6 +8,7 @@
 		<members>ControladorCrearCaso_Test</members>
 		<members>ControladorEncuesta_Test</members>
 		<members>DataFactory</members>
+		<members>FeedCommentTriggerHelper</members>
 		<members>FeedCommentTriggerHelper_Test</members>
 		<name>ApexClass</name>
 	</types>

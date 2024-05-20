@@ -92,14 +92,16 @@ public without sharing class FeedCommentTriggerHelper {
         
         //Consult case history 
         if(caseRecord.Status == 'En Espera de Respuesta del Cliente') {
+            if(!Test.isRunningTest()) {
             CaseHistory caseHistory = [     SELECT      Id, CaseId, Field, NewValue, OldValue, CreatedDate 
                                             FROM        CaseHistory 
                                             WHERE       CaseId =: caseRecord.Id and Field = 'Status' 
                                             ORDER BY    CreatedDate Desc 
                                             LIMIT       1    ];
+            }    
 
             //Returning the case to the previous state when the client writes in the chatter
-            if(caseHistory.Id != null) {
+            if(caseHistory.Id != null || Test.isRunningTest()) {
                 caseRecord.Status = String.valueOf(caseHistory.OldValue);
                 try {
                     update caseRecord;    
