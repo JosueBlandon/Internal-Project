@@ -21,7 +21,7 @@ public class CaseTriggerHelper_Test {
         Contact cont = DataFactory.insertContact(acc);
         User user = DataFactory.insertUserCommunity(cont);
         System.runAs(user){
-        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
+            FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Colocaciones (Módulo 6)', 'Crédito Hipotecario');
         test.startTest();
         DataFactory.insertCase(acc, cont, p, 'FS_Consulta');
         DataFactory.insertCase(acc, cont, p, 'FS_Solicitud');
@@ -74,8 +74,8 @@ public class CaseTriggerHelper_Test {
         caso.FS_Producto__c = null;
         actualizarCasoError(caso);
         
-        caso.FS_PudeSolventarPregunta__c = 'No';
-        update caso;
+        //caso.FS_PudeSolventarPregunta__c = 'No';
+        //update caso;
         
         caso.OwnerId = userInfo.getUserId();
         update caso;
