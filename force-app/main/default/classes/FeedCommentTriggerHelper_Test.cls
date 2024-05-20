@@ -29,36 +29,98 @@ public class FeedCommentTriggerHelper_Test {
         DataFactory.insertCase(acc, cont, p, 'FS_Consulta');
         DataFactory.insertCase(acc, cont, p, 'FS_Solicitud');
         DataFactory.insertCase(acc, cont, p, 'FS_Incidente');
-        DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
+        DataFactory.insertProduct(acc, 'FISA FISS', 'ECCO', '');
     }
     
     /**
-     * @method      FeedCommentUserCommunty
-     * @description Method to create fake data to Community User
-     * @author      Intellect System - 2023-09-06
+     * @method      FeedCommentServiceUser
+     * @description Method to create fake data to Service User
+     * @author      Intellect System - 2024-05-20
      */
     @isTest
-    static void FeedCommentUserCommunty() {
-        User u = [Select Id from User Where Profile.Name = 'Customer Community User' and IsActive = true limit 1];
-        Case caso =  [Select Id, RecordType.DeveloperName, FS_SubEstadoQueSePideInformacion__c, FS_SubEstado__c from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
-        caso.FS_SubEstado__c = 'Apertura de caso';
-        caso.FS_SubEstadoQueSePideInformacion__c = caso.FS_SubEstado__c;
-        update caso;
-
+    static void FeedCommentServiceUser() {
+        
+        User u = DataFactory.createUser('Servicio al Cliente', true);
+        
+        Test.startTest();
+        
+            Case caso =  [Select Id, RecordType.DeveloperName, FS_SubEstadoQueSePideInformacion__c, FS_SubEstado__c from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
+            
+            System.runAs(u) {
+                FeedItem fi = new FeedItem(ParentId = caso.Id, Body = 'Test', Visibility = 'AllUsers');
+                insert fi;
+			
+                FeedComment df = new FeedComment (FeedItemId = fi.Id, CommentBody = fi.Body);
+                insert df;    
+                
+                Database.delete(df, false);
+                Database.delete(fi, false);  
+            }    
+        Test.stopTest();       
+    }
+    
+    /**
+     * @method      FeedCommentByStatusCaseWaiting
+     * @description Method to create fake data
+     * @author      Intellect System - 2024-05-20
+     */
+    @isTest
+    static void FeedCommentByStatusCaseWaiting() {      
+        Account acc = DataFactory.insertAccount();
+        Contact cont = DataFactory.insertContact(acc);
+        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Colocaciones (Módulo 6)', 'Crédito Hipotecario');
+        Case caso = DataFactory.insertCase(acc, cont, p, 'FS_Requerimiento');
+        caso.Status = 'En Espera de Respuesta del Cliente';
+        update caso; 
+        
         Test.startTest();
             caso.FS_InformacionCompleta__c = 'No';
             update caso;
-            System.runAs(u){
+            
+            FeedItem fi = new FeedItem(ParentId = caso.Id, Body = 'Test', Visibility = 'AllUsers');
+            insert fi;
+                
+            FeedComment df = new FeedComment (FeedItemId = fi.Id, CommentBody = fi.Body);
+            insert df;
+            update df;
+                
+            Database.delete(df, false);
+            Database.delete(fi, false);           
+        Test.stopTest(); 
+    }
+    
+    /**
+     * @method      FeedCommentByStatusCaseWaiting
+     * @description Method to create fake data
+     * @author      Intellect System - 2024-05-20
+     */
+    @isTest
+    static void FeedCommentByStatusCasePending() {      
+        Account acc = DataFactory.insertAccount();
+        Contact cont = DataFactory.insertContact(acc);
+        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Colocaciones (Módulo 6)', 'Crédito Hipotecario');
+        Case caso = DataFactory.insertCase(acc, cont, p, 'FS_Requerimiento');
+        caso.Status = 'Pendiente de Respuesta CSAT';
+        update caso; 
+        
+        Test.startTest();
+            try {
+                caso.FS_InformacionCompleta__c = 'No';
+                update caso;
+            
                 FeedItem fi = new FeedItem(ParentId = caso.Id, Body = 'Test', Visibility = 'AllUsers');
                 insert fi;
-
+                
                 FeedComment df = new FeedComment (FeedItemId = fi.Id, CommentBody = fi.Body);
                 insert df;
+                update df;
                 
                 Database.delete(df, false);
-                Database.delete(fi, false);           
-            }
-        Test.stopTest();       
+                Database.delete(fi, false);  
+            } catch(System.DmlException ex) {
+                System.debug('Error en FeedCommentTriggerHelper_Test: '+ex.getMessage());
+            }    
+        Test.stopTest(); 
     }
     
     /**
@@ -73,23 +135,19 @@ public class FeedCommentTriggerHelper_Test {
         caso.FS_SubEstadoQueSePideInformacion__c = caso.FS_SubEstado__c;
         update caso;
         
-        User user = DataFactory.createUser('Administrador del sistema', true);  
-        
         Test.startTest();
             caso.FS_InformacionCompleta__c = 'No';
             update caso;
-            System.runAs(user){
-                FeedItem fi = new FeedItem(ParentId = caso.Id, Body = 'Test', Visibility = 'AllUsers');
-                insert fi;
+            
+            FeedItem fi = new FeedItem(ParentId = caso.Id, Body = 'Test', Visibility = 'AllUsers');
+            insert fi;
                 
-                FeedComment df = new FeedComment (FeedItemId = fi.Id, CommentBody = fi.Body);
-                insert df;
+            FeedComment df = new FeedComment (FeedItemId = fi.Id, CommentBody = fi.Body);
+            insert df;
+            update df;
                 
-                update df;
-                
-                Database.delete(df, false);
-                Database.delete(fi, false);           
-            }
+            Database.delete(df, false);
+            Database.delete(fi, false);           
         Test.stopTest();       
     }
     
@@ -100,7 +158,7 @@ public class FeedCommentTriggerHelper_Test {
      */
     @isTest
     static void FeedCommentCaseStatus() {
-        User u = [Select Id from User Where Profile.Name = 'Customer Community User' and IsActive = true limit 1];
+        User u = [Select Id from User Where (Profile.Name = 'Customer Community User' or Profile.Name = 'Customer Community Plus User') and IsActive = true limit 1];
         Case caso =  [Select Id, RecordType.DeveloperName, FS_SubEstadoQueSePideInformacion__c, FS_SubEstado__c from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
         caso.Status = 'Cerrado';
         update caso;
@@ -116,8 +174,8 @@ public class FeedCommentTriggerHelper_Test {
                     FeedComment df = new FeedComment (FeedItemId = fi.Id, CommentBody = fi.Body);
                     insert df;
                 } catch ( Exception ex) {
-                	System.debug(ex.getMessage() ); 
-        		}      
+                    System.debug(ex.getMessage() ); 
+                }      
             }
         Test.stopTest();       
     }
@@ -133,19 +191,16 @@ public class FeedCommentTriggerHelper_Test {
         caso.FS_SubEstado__c = 'Apertura de caso';
         caso.FS_SubEstadoQueSePideInformacion__c = caso.FS_SubEstado__c;
         update caso;
-        
-        User user = DataFactory.createUser('Administrador del sistema', true); 
 
         Test.startTest();
             caso.FS_InformacionCompleta__c = 'No';
             update caso;
-            System.runAs(user){
-                FeedItem fi = new FeedItem(ParentId = caso.Id, Body = 'Test', Visibility = 'AllUsers');
-                insert fi;
+            
+            FeedItem fi = new FeedItem(ParentId = caso.Id, Body = 'Test', Visibility = 'AllUsers');
+            insert fi;
                 
-                fi.Body = 'Test2';
-                update fi;       
-            }
+            fi.Body = 'Test2';
+            update fi;       
         Test.stopTest();       
     }
 

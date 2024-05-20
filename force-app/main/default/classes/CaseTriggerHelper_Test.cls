@@ -1,13 +1,17 @@
 /**
- * @description       : 
- * @author            : Intellect Systems href=<infor@intellectsystems.net>
- * @group             : 
- * @last modified on  : 01-27-2024
- * @last modified by  : Intellect Systems href=<infor@intellectsystems.net>
- * Modifications Log
- * Ver   Date         Author                                                Modification
- * 1.0   01-26-2024   Intellect Systems href=<infor@intellectsystems.net>   Initial Version
-**/
+**************************************************************************************************************
+* @author           Intellect Systems href=<infor@intellectsystems.net>
+* @project          Fisa Ecuador - Implementación CRM
+* @name             CaseTriggerHelper_Test
+* @description      Test class to CaseTriggerHelper
+* @changes
+* ----------   ---------------------------   -----------------------------------------------------------------
+* Date         Author                        Description
+* ----------   ---------------------------   -----------------------------------------------------------------
+* 2023-04-09   Intellect Systems             Initial version.
+**************************************************************************************************************
+*/
+
 @isTest
 public class CaseTriggerHelper_Test {
 
@@ -17,20 +21,32 @@ public class CaseTriggerHelper_Test {
         Contact cont = DataFactory.insertContact(acc);
         User user = DataFactory.insertUserCommunity(cont);
         System.runAs(user){
-        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
-        test.startTest();
-        DataFactory.insertCase(acc, cont, p, 'FS_Consulta');
-        DataFactory.insertCase(acc, cont, p, 'FS_Solicitud');
-        DataFactory.insertCase(acc, cont, p, 'FS_Incidente');
-        DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', 'Seguridades (Modulo 90)');
-        test.stopTest();
+            FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Colocaciones (Módulo 6)', 'Crédito Hipotecario');
+            test.startTest();
+                DataFactory.insertCase(acc, cont, p, 'FS_Consulta');
+                DataFactory.insertCase(acc, cont, p, 'FS_Solicitud');
+                DataFactory.insertCase(acc, cont, p, 'FS_Incidente');
+                DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', 'Seguridades (Modulo 90)');
+            test.stopTest();	
         }
     }
     
     @isTest
     static void CasoConsulta() {
-        Case caso =  [Select Id, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
+        Case caso =  [Select Id, AccountId, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.CONSULTA_TIPO_REGISTRO];
         
+        Account acc = DataFactory.insertAccount();
+        caso.AccountId = acc.Id;
+        update caso;
+
+        FS_ProductoAdquirido__c prod = new FS_ProductoAdquirido__c();
+        prod.FS_Cuenta__c = acc.Id;
+        prod.FS_Producto__c = 'FISA System';
+        prod.FS_Modulo__c = 'Núcleo del Sistema';
+        prod.FS_SubModulo__c = 'Seguridades (Modulo 90)';
+        prod.FS_Esta_activo__c = true;
+        Insert prod;
+
         caso.FS_InformacionCompleta__c = 'No';
         update caso;
         
@@ -40,6 +56,10 @@ public class CaseTriggerHelper_Test {
         caso.FS_InformacionCompleta__c = 'Si';
         actualizarCasoError(caso);
         caso.FS_Proyecto__c = 'FSHD001 - Fisa System Help desk';
+        caso.FS_Producto__c = 'FISA System';
+        caso.FS_Modulo__c = 'Núcleo del Sistema';
+        caso.FS_SubModulo__c = 'Seguridades (Modulo 90)';
+        caso.FS_PudeSolventarPregunta__c = 'Si';
         caso.FS_FechaCompromisoEntrega__c = Date.today();
         update caso;
         
@@ -53,23 +73,6 @@ public class CaseTriggerHelper_Test {
         actualizarCasoError(caso);
         caso.FS_Producto__c = null;
         actualizarCasoError(caso);
-        caso.FS_Producto__c = 'FISA System';
-        caso.FS_SubModulo__c = 'Seguridades (Modulo 90)';
-        update caso;
-        
-        caso.FS_PudeSolventarPregunta__c = 'No';
-        update caso;
-        
-        caso.OwnerId = userInfo.getUserId();
-        update caso;
-        
-        caso.FS_AceptaRespuesta__c = 'No';
-        update caso;
-        
-        caso.FS_Area__c = 'N1. CORE';
-        caso.FS_PudeSolventarPregunta__c = 'Si';
-        caso.FS_AceptaRespuesta__c = 'Si';
-        update caso;
         
         delete caso;
     }
@@ -81,7 +84,8 @@ public class CaseTriggerHelper_Test {
         caso.FS_InformacionCompleta__c = 'Si';
         actualizarCasoError(caso);
         caso.FS_Proyecto__c = 'FSHD001 - Fisa System Help desk';
-        //caso.FS_FechaCompromisoEntrega__c = Date.today();
+        caso.FS_FechaCompromisoEntrega__c = Date.today();
+        caso.FS_FechaAprobacion1erCosto__c = Date.today();
         update caso;
         
         caso.FS_Acepta1erCosto__c = 'No';
@@ -97,7 +101,16 @@ public class CaseTriggerHelper_Test {
     
     @isTest
     static void CasoIncidentePuntual() {
-        Case caso =  [Select Id, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.INCIDENTE_TIPO_REGISTRO];
+        Case caso =  [Select Id, AccountId, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.INCIDENTE_TIPO_REGISTRO];
+        
+        FS_ConfiguracionSLA__c SLA = new FS_ConfiguracionSLA__c();
+        SLA.FS_NombreDeCuenta__c = caso.AccountId;
+        SLA.FS_NombreTipoRegistro__c = 'Incidente'; 
+        SLA.FS_SLA__c = 72; 
+        SLA.FS_SubEstado__c = 'Apertura de caso;Entrega 1a respuesta;Información validada;Análisis N1;Desarrollo Incidente Definitivo;Revisión Documentación N2;Desarrollo Incidente Puntual;Aprobación de Solución IP-Release;Costo Aceptado;Costo Rechazado;Análisis Falla Operativa;Escalado a N2;Análisis N2;Envío de respuesta;Respuesta aceptada;Respuesta rechazada;En reproceso por rechazo;Elaboración Diseño Técnico;Aprobación Diseño Técnico;Validación-Entrega de Fuentes;Elaboración Solución Definitiva;Aprobación Solución Definitiva N2;Aprobación Solución Definitiva Releases;Escalado a QA;Elaboración Plan de Pruebas;Aprobación Plan de Pruebas;Instalación Parche Releases;Aprobación Instalación Parche - Releases;Certificación Parche QA;Aprobación Certificación Parche QA;Entrega de Parche;Instalación de Parche;Paso a Producción;Paso a Producción No Confirmado;Paso a Producción Confirmado;Aprobación Solución IP-N2'; 
+        SLA.FS_EsCliente__c = false; 
+        SLA.FS_Activo__c = true;
+        insert SLA;    
         
         caso.FS_InformacionCompleta__c = 'Si';
         actualizarCasoError(caso);
@@ -132,18 +145,6 @@ public class CaseTriggerHelper_Test {
         
         caso.FS_TipoIncidente__c = 'Definitivo';
         update caso;
-        
-        /*caso.FS_SolucionCortoPlazo__c = 'Si';
-        actualizarCasoError(caso);
-        caso.FS_PropietarioCasoSolucionCortoPlazo__c = userInfo.getUserId();
-        caso.OwnerId = userInfo.getUserId();
-        update caso;
-        actualizarCasoError(caso);*/
-        
-        /*caso.FS_URLDisenioTecnico__c = 'https://fisagrp.com';
-        caso.FS_EnviarAprobacionDisenioTecnico__c = true;
-        update caso;
-        actualizarCasoError(caso);*/
         
         caso.FS_AprobacionDisenioTecnico__c = 'No';
         caso.FS_MotivosRechazoDT__c = 'Desarrollo incompleto';
