@@ -64,16 +64,12 @@ public class DataFactory {
     
     public static FS_ProductoAdquirido__c insertProduct(Account acc, String prod, String mod, String subM){
         FS_ProductoAdquirido__c p = new FS_ProductoAdquirido__c();
-        try { 
         p.FS_Cuenta__c = acc.Id;
         p.FS_Producto__c = prod;
         p.FS_Modulo__c = mod;
         p.FS_SubModulo__c = subM;
         p.FS_Esta_activo__c = true;
         insert p;
-        } catch (Exception ex) {
-            System.debug('Error al crear el producto', ex.getMessage());
-        }
         return p;
     }
     
