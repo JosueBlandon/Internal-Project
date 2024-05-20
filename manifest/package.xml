@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>CaseTriggerHandler</members>
 		<members>CaseTriggerHelper</members>
 		<members>CaseTriggerHelper_Test</members>
 		<members>ControladorBaseConocimientos</members>
 		<members>ControladorBaseConocimientos_Test</members>
+		<members>ControladorCrearCaso</members>
 		<members>ControladorCrearCaso_Test</members>
 		<members>ControladorEncuesta_Test</members>
 		<members>DataFactory</members>
