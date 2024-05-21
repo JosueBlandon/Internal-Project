@@ -211,8 +211,7 @@ public class CaseTriggerHelper_Test {
         update caso;
         caso.FS_MotivoRechazoEntregaParche__c = null;
         caso.FS_AprobacionCertificacionParcheQA__c = 'Si';
-        update caso;
-        
+        update caso;     
     }
     
     
@@ -237,7 +236,6 @@ public class CaseTriggerHelper_Test {
         update caso;
         caso.FS_AceptaPaseProducion__c = 'Si';
         update caso;
-        
     }
     
     @isTest
