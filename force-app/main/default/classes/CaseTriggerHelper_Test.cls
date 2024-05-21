@@ -214,7 +214,6 @@ public class CaseTriggerHelper_Test {
         update caso;     
     }
     
-    
     @isTest
     static void CasoIncidenteDefinitivo() {
         Case caso =  [Select Id, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.INCIDENTE_TIPO_REGISTRO];
