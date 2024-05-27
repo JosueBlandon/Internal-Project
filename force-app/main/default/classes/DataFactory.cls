@@ -48,8 +48,13 @@ public without sharing class DataFactory {
         );
 
         if(doInsert) {
-            insert user;
+            try {
+                insert user;    
+            } catch (Exception ex) {
+                System.debug('Erro al insetar usuario de prueba: '+ ex.getLineNumber() + '**' + ex.getMessage());
+            }
         }
+
         return user;
     }
     
