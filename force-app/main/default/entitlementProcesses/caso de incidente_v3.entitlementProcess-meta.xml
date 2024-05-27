@@ -9,7 +9,7 @@
         <operation>equals</operation>
         <value>true</value>
     </exitCriteriaFilterItems>
-    <isVersionDefault>false</isVersionDefault>
+    <isVersionDefault>true</isVersionDefault>
     <milestones>
         <businessHours>Horario de Oficina</businessHours>
         <milestoneCriteriaFilterItems>
@@ -31,9 +31,13 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>FS_VencimientoIncidenteDefinitivo</name>
+                <name>Case.FS_VencimientoSLAIncidenteDefinitivo</name>
                 <type>Alert</type>
             </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
             <timeLength>-48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
@@ -60,9 +64,13 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>FS_VencimientoPuntualInterno</name>
+                <name>Case.FS_VencimientoSLAPuntualInterno</name>
                 <type>Alert</type>
             </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
             <timeLength>-48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
@@ -87,6 +95,18 @@
         </milestoneCriteriaFilterItems>
         <milestoneName>Incidente Definitivo - Cliente</milestoneName>
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <timeTriggers>
+            <actions>
+                <name>Case.FS_VencimientoIncidenteDefinitivoClientes</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
         <useCriteriaStartTime>true</useCriteriaStartTime>
     </milestones>
     <milestones>
@@ -108,9 +128,21 @@
         </milestoneCriteriaFilterItems>
         <milestoneName>Incidente Puntual - Cliente</milestoneName>
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <timeTriggers>
+            <actions>
+                <name>Case.FS_VencimientoPuntualClientes</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
         <useCriteriaStartTime>true</useCriteriaStartTime>
     </milestones>
     <name>Caso de Incidente</name>
     <versionMaster>5526C0000004VYs</versionMaster>
-    <versionNumber>1</versionNumber>
+    <versionNumber>3</versionNumber>
 </EntitlementProcess>

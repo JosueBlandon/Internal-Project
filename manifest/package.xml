@@ -47,10 +47,12 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>caso de consulta</members>
-		<members>caso de consulta_v2</members>
-		<members>caso de incidente</members>
-		<members>caso de incidente_v2</members>
+		<members>unfiled$public/FS_TiempoEstimadoRespuestaClientes</members>
+		<name>EmailTemplate</name>
+	</types>
+	<types>
+		<members>caso de consulta_v3</members>
+		<members>caso de incidente_v3</members>
 		<name>EntitlementProcess</name>
 	</types>
 	<types>
@@ -60,6 +62,10 @@
 	<types>
 		<members>FS_Actualizar_campos_historial_producto_adquirido</members>
 		<name>Flow</name>
+	</types>
+	<types>
+		<members>FS_Grupo_notificaciones_SLA</members>
+		<name>Group</name>
 	</types>
 	<types>
 		<members>Account-Formato de cuentas</members>
@@ -133,6 +139,15 @@
 		<members>Case.FS_Validacion_Ingresar_Fecha_Compromiso</members>
 		<members>Case.FS_validacionCasoNuevoAgente</members>
 		<name>ValidationRule</name>
+	</types>
+	<types>
+		<members>Case.FS_VencimientoIncidenteDefinitivoClientes</members>
+		<members>Case.FS_VencimientoPuntualClientes</members>
+		<members>Case.FS_VencimientoSLAIncidenteDefinitivo</members>
+		<members>Case.FS_VencimientoSLAInterno</members>
+		<members>Case.FS_VencimientoSLAPuntualInterno</members>
+		<members>Case.FS_VencimientoSlaCliente</members>
+		<name>WorkflowAlert</name>
 	</types>
 	<version>60.0</version>
 </Package>

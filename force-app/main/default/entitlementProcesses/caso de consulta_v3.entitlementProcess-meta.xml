@@ -25,19 +25,19 @@
         <milestoneName>Consultas - Interno</milestoneName>
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
-            <timeLength>-10</timeLength>
-            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
-        </timeTriggers>
-        <timeTriggers>
             <timeLength>10</timeLength>
             <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
         </timeTriggers>
         <timeTriggers>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
             <actions>
-                <name>FS_VencimientoSlaConsulta</name>
+                <name>Case.FS_VencimientoSLAInterno</name>
                 <type>Alert</type>
             </actions>
-            <timeLength>-48</timeLength>
+            <timeLength>-18</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
         <useCriteriaStartTime>true</useCriteriaStartTime>
@@ -58,23 +58,23 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>Vencimiento_de_SLA_Interno</name>
+                <name>Case.FS_VencimientoSlaCliente</name>
                 <type>Alert</type>
             </actions>
-            <timeLength>10</timeLength>
-            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
         <timeTriggers>
             <timeLength>-48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
         <timeTriggers>
-            <timeLength>-48</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+            <timeLength>-13</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
         <useCriteriaStartTime>true</useCriteriaStartTime>
     </milestones>
     <name>Caso de Consulta</name>
     <versionMaster>5526C0000004VYn</versionMaster>
-    <versionNumber>2</versionNumber>
+    <versionNumber>3</versionNumber>
 </EntitlementProcess>
