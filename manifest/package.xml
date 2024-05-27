@@ -13,6 +13,8 @@
 		<members>FeedCommentTriggerHelper</members>
 		<members>FeedCommentTriggerHelper_Test</members>
 		<members>JobValidacionRespuesta_Test</members>
+		<members>MilestoneCalculator</members>
+		<members>MilestoneCalculatorTest</members>
 		<members>TaskTriggerHandler</members>
 		<members>TaskTriggerHelper</members>
 		<members>TaskTriggerHelperTest</members>
@@ -29,10 +31,29 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
+		<members>Case.FS_Es_cliente__c</members>
 		<members>Case.FS_Fecha_de_entrega__c</members>
+		<members>FS_HistorialCampos__c.FS_FechaCreacion__c</members>
 		<members>FS_ProductoAdquirido__c.FS_Fecha_activacion__c</members>
 		<members>FS_ProductoAdquirido__c.FS_Fecha_desactivacion__c</members>
 		<name>CustomField</name>
+	</types>
+	<types>
+		<members>FS_IncumplimientoSLA</members>
+		<name>CustomNotificationType</name>
+	</types>
+	<types>
+		<members>FS_ConfiguracionSLA__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>caso de consulta</members>
+		<members>caso de incidente</members>
+		<name>EntitlementProcess</name>
+	</types>
+	<types>
+		<members>FS_CasoPaginaRegistro</members>
+		<name>FlexiPage</name>
 	</types>
 	<types>
 		<members>FS_Actualizar_campos_historial_producto_adquirido</members>
@@ -42,6 +63,15 @@
 		<members>Account-Formato de cuentas</members>
 		<members>Case-Layout Cliente</members>
 		<name>Layout</name>
+	</types>
+	<types>
+		<members>Consultas - Cliente</members>
+		<members>Consultas - Interno</members>
+		<members>Incidente Definitivo - Cliente</members>
+		<members>Incidente Definitivo - Interno</members>
+		<members>Incidente Puntual - Cliente</members>
+		<members>Incidente Puntual - Interno</members>
+		<name>MilestoneType</name>
 	</types>
 	<types>
 		<members>FS_PermisosServicioCliente</members>
@@ -61,6 +91,10 @@
 		<members>Case.FS_CamposControlIncidenteDefinitivo</members>
 		<members>Case.FS_CamposControlSolicitud</members>
 		<name>QuickAction</name>
+	</types>
+	<types>
+		<members>BusinessHours</members>
+		<name>Settings</name>
 	</types>
 	<types>
 		<members>Case.FS_Campos_Requeridos_Encuesta</members>

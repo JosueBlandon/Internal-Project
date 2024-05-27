@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <businessHours>Horario de Oficina</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <milestones>
+        <businessHours>Horario de Oficina</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Incidente</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_Es_cliente__c</field>
+            <operation>equals</operation>
+            <value>false</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_TipoIncidente__c</field>
+            <operation>equals</operation>
+            <value>Definitivo</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Incidente Definitivo - Interno</milestoneName>
+        <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <timeTriggers>
+            <actions>
+                <name>FS_VencimientoIncidenteDefinitivo</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Horario de Oficina</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Incidente</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_Es_cliente__c</field>
+            <operation>equals</operation>
+            <value>false</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_TipoIncidente__c</field>
+            <operation>equals</operation>
+            <value>Puntual</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Incidente Puntual - Interno</milestoneName>
+        <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <timeTriggers>
+            <actions>
+                <name>FS_VencimientoPuntualInterno</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Horario de Oficina</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Incidente</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_Es_cliente__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_TipoIncidente__c</field>
+            <operation>equals</operation>
+            <value>Definitivo</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Incidente Definitivo - Cliente</milestoneName>
+        <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Horario de Oficina</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Incidente</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_Es_cliente__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_TipoIncidente__c</field>
+            <operation>equals</operation>
+            <value>Puntual</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Incidente Puntual - Cliente</milestoneName>
+        <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+</EntitlementProcess>

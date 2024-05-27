@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_SubEstado__c</fullName>
+    <externalId>false</externalId>
+    <label>Sub Estado</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Apertura de caso</fullName>
+                <default>false</default>
+                <label>Apertura de caso</label>
+            </value>
+            <value>
+                <fullName>Entrega 1a respuesta</fullName>
+                <default>false</default>
+                <label>Entrega 1a respuesta</label>
+            </value>
+            <value>
+                <fullName>Información validada</fullName>
+                <default>false</default>
+                <label>Información validada</label>
+            </value>
+            <value>
+                <fullName>Análisis N1</fullName>
+                <default>false</default>
+                <label>Análisis N1</label>
+            </value>
+            <value>
+                <fullName>Desarrollo Incidente Definitivo</fullName>
+                <default>false</default>
+                <label>Desarrollo Incidente Definitivo</label>
+            </value>
+            <value>
+                <fullName>Revisión Documentación N2</fullName>
+                <default>false</default>
+                <label>Revisión Documentación N2</label>
+            </value>
+            <value>
+                <fullName>Desarrollo Incidente Puntual</fullName>
+                <default>false</default>
+                <label>Desarrollo Incidente Puntual</label>
+            </value>
+            <value>
+                <fullName>Aprobación de Solución IP-Release</fullName>
+                <default>false</default>
+                <label>Aprobación de Solución IP-Release</label>
+            </value>
+            <value>
+                <fullName>Costo Aceptado</fullName>
+                <default>false</default>
+                <label>Costo Aceptado</label>
+            </value>
+            <value>
+                <fullName>Costo Rechazado</fullName>
+                <default>false</default>
+                <label>Costo Rechazado</label>
+            </value>
+            <value>
+                <fullName>Análisis Falla Operativa</fullName>
+                <default>false</default>
+                <label>Análisis Falla Operativa</label>
+            </value>
+            <value>
+                <fullName>Escalado a N2</fullName>
+                <default>false</default>
+                <label>Escalado a N2</label>
+            </value>
+            <value>
+                <fullName>Análisis N2</fullName>
+                <default>false</default>
+                <label>Análisis N2</label>
+            </value>
+            <value>
+                <fullName>Envío de respuesta</fullName>
+                <default>false</default>
+                <label>Envío de respuesta</label>
+            </value>
+            <value>
+                <fullName>Respuesta aceptada</fullName>
+                <default>false</default>
+                <label>Respuesta aceptada</label>
+            </value>
+            <value>
+                <fullName>Respuesta rechazada</fullName>
+                <default>false</default>
+                <label>Respuesta rechazada</label>
+            </value>
+            <value>
+                <fullName>En reproceso por rechazo</fullName>
+                <default>false</default>
+                <label>En reproceso por rechazo</label>
+            </value>
+            <value>
+                <fullName>En Espera de Respuesta del Cliente</fullName>
+                <default>false</default>
+                <label>En Espera de Respuesta del Cliente</label>
+            </value>
+            <value>
+                <fullName>Elaboración Diseño Técnico</fullName>
+                <default>false</default>
+                <label>Elaboración Diseño Técnico</label>
+            </value>
+            <value>
+                <fullName>Aprobación Diseño Técnico</fullName>
+                <default>false</default>
+                <label>Aprobación Diseño Técnico</label>
+            </value>
+            <value>
+                <fullName>Validación-Entrega de Fuentes</fullName>
+                <default>false</default>
+                <label>Validación-Entrega de Fuentes</label>
+            </value>
+            <value>
+                <fullName>Elaboración Solución Definitiva</fullName>
+                <default>false</default>
+                <label>Elaboración Solución Definitiva</label>
+            </value>
+            <value>
+                <fullName>Aprobación Solución Definitiva N2</fullName>
+                <default>false</default>
+                <label>Aprobación Solución Definitiva N2</label>
+            </value>
+            <value>
+                <fullName>Aprobación Solución Definitiva Releases</fullName>
+                <default>false</default>
+                <label>Aprobación Solución Definitiva Releases</label>
+            </value>
+            <value>
+                <fullName>Escalado a QA</fullName>
+                <default>false</default>
+                <label>Escalado a QA</label>
+            </value>
+            <value>
+                <fullName>Elaboración Plan de Pruebas</fullName>
+                <default>false</default>
+                <label>Elaboración Plan de Pruebas</label>
+            </value>
+            <value>
+                <fullName>Aprobación Plan de Pruebas</fullName>
+                <default>false</default>
+                <label>Aprobación Plan de Pruebas</label>
+            </value>
+            <value>
+                <fullName>Instalación Parche Releases</fullName>
+                <default>false</default>
+                <label>Instalación Parche Releases</label>
+            </value>
+            <value>
+                <fullName>Aprobación Instalación Parche - Releases</fullName>
+                <default>false</default>
+                <label>Aprobación Instalación Parche - Releases</label>
+            </value>
+            <value>
+                <fullName>Certificación Parche QA</fullName>
+                <default>false</default>
+                <label>Certificación Parche QA</label>
+            </value>
+            <value>
+                <fullName>Aprobación Certificación Parche QA</fullName>
+                <default>false</default>
+                <label>Aprobación Certificación Parche QA</label>
+            </value>
+            <value>
+                <fullName>Entrega de Parche</fullName>
+                <default>false</default>
+                <label>Entrega de Parche</label>
+            </value>
+            <value>
+                <fullName>Instalación de Parche</fullName>
+                <default>false</default>
+                <label>Instalación de Parche</label>
+            </value>
+            <value>
+                <fullName>Paso a Producción</fullName>
+                <default>false</default>
+                <label>Paso a Producción</label>
+            </value>
+            <value>
+                <fullName>Paso a Producción No Confirmado</fullName>
+                <default>false</default>
+                <label>Paso a Producción No Confirmado</label>
+            </value>
+            <value>
+                <fullName>Paso a Producción Confirmado</fullName>
+                <default>false</default>
+                <label>Paso a Producción Confirmado</label>
+            </value>
+            <value>
+                <fullName>Aprobación Solución IP-N2</fullName>
+                <default>false</default>
+                <label>Aprobación Solución IP-N2</label>
+            </value>
+            <value>
+                <fullName>Aprobación Consulta N2</fullName>
+                <default>false</default>
+                <label>Aprobación Consulta N2</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
