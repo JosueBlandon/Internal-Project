@@ -94,6 +94,7 @@
 	</types>
 	<types>
 		<members>BusinessHours</members>
+		<members>Entitlement</members>
 		<name>Settings</name>
 	</types>
 	<types>
