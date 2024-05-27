@@ -8,7 +8,7 @@
 * ----------   ---------------------------   -----------------------------------------------------------------
 * Date         Author                        Description
 * ----------   ---------------------------   -----------------------------------------------------------------
-* 2023-04-09   Intellect Systems             Initial version.
+* 2023-09-04   Intellect Systems             Initial version.
 **************************************************************************************************************
 */
 
@@ -38,14 +38,8 @@ public class CaseTriggerHelper_Test {
         Account acc = DataFactory.insertAccount();
         caso.AccountId = acc.Id;
         update caso;
-
-        FS_ProductoAdquirido__c prod = new FS_ProductoAdquirido__c();
-        prod.FS_Cuenta__c = acc.Id;
-        prod.FS_Producto__c = 'FISA System';
-        prod.FS_Modulo__c = 'Núcleo del Sistema';
-        prod.FS_SubModulo__c = 'Seguridades (Modulo 90)';
-        prod.FS_Esta_activo__c = true;
-        Insert prod;
+        
+        DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', 'Seguridades (Modulo 90)');
 
         caso.FS_InformacionCompleta__c = 'No';
         update caso;
@@ -103,14 +97,7 @@ public class CaseTriggerHelper_Test {
     static void CasoIncidentePuntual() {
         Case caso =  [Select Id, AccountId, RecordType.DeveloperName from Case Where RecordTypeId = :CaseTriggerHelper.INCIDENTE_TIPO_REGISTRO];
         
-        FS_ConfiguracionSLA__c SLA = new FS_ConfiguracionSLA__c();
-        SLA.FS_NombreDeCuenta__c = caso.AccountId;
-        SLA.FS_NombreTipoRegistro__c = 'Incidente'; 
-        SLA.FS_SLA__c = 72; 
-        SLA.FS_SubEstado__c = 'Apertura de caso;Entrega 1a respuesta;Información validada;Análisis N1;Desarrollo Incidente Definitivo;Revisión Documentación N2;Desarrollo Incidente Puntual;Aprobación de Solución IP-Release;Costo Aceptado;Costo Rechazado;Análisis Falla Operativa;Escalado a N2;Análisis N2;Envío de respuesta;Respuesta aceptada;Respuesta rechazada;En reproceso por rechazo;Elaboración Diseño Técnico;Aprobación Diseño Técnico;Validación-Entrega de Fuentes;Elaboración Solución Definitiva;Aprobación Solución Definitiva N2;Aprobación Solución Definitiva Releases;Escalado a QA;Elaboración Plan de Pruebas;Aprobación Plan de Pruebas;Instalación Parche Releases;Aprobación Instalación Parche - Releases;Certificación Parche QA;Aprobación Certificación Parche QA;Entrega de Parche;Instalación de Parche;Paso a Producción;Paso a Producción No Confirmado;Paso a Producción Confirmado;Aprobación Solución IP-N2'; 
-        SLA.FS_EsCliente__c = false; 
-        SLA.FS_Activo__c = true;
-        insert SLA;    
+        DataFactory.insertConfiguracionSLA(caso.AccountId);    
         
         caso.FS_InformacionCompleta__c = 'Si';
         actualizarCasoError(caso);

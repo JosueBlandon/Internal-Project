@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Validacion_Ingresar_Fecha_Compromiso</fullName>
+    <active>true</active>
+    <description>Regla para completar el campo Fecha Compromiso Entrega.</description>
+    <errorConditionFormula>OR(
+AND(			
+RecordType.DeveloperName = &apos;FS_Consulta&apos;, 
+ISPICKVAL(FS_PudeSolventarPregunta__c, &apos;Si&apos;),
+ISBLANK(FS_FechaCompromisoEntrega__c) 
+),
+AND(
+RecordType.DeveloperName = &apos;FS_Incidente&apos;,
+ISPICKVAL(FS_SubEstado__c, &apos;Desarrollo Incidente Puntual&apos;),
+ISPICKVAL(FS_TipoIncidente__c, &apos;Puntual&apos;),
+ISPICKVAL(FS_InformacionCompleta__c, &apos;Si&apos;),
+ISBLANK(FS_FechaCompromisoEntrega__c)
+),
+AND(
+RecordType.DeveloperName = &apos;FS_Incidente&apos;,
+ISPICKVAL(FS_SubEstado__c, &apos;Aprobación Plan de Pruebas&apos;),
+ISPICKVAL(FS_TipoIncidente__c, &apos;Definitivo&apos;),
+FS_EnviarAprobacionPlanPruebas__c = true,
+ISBLANK(FS_FechaCompromisoEntrega__c)
+)				
+)</errorConditionFormula>
+    <errorDisplayField>FS_FechaCompromisoEntrega__c</errorDisplayField>
+    <errorMessage>Debe completar el campo Fecha Compromiso Entrega.</errorMessage>
+</ValidationRule>

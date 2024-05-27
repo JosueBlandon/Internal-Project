@@ -26,13 +26,9 @@ public class TaskTriggerHelperTest {
     static void setupTestData(){ 
         Account acc = DataFactory.insertAccount();
         Contact cont = DataFactory.insertContact(acc);
-        User user = DataFactory.insertUserCommunity(cont);
-        System.runAs(user){
-            FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
-            test.startTest();
-            	DataFactory.insertCase(acc, cont, p, 'FS_Requerimiento');
-            test.stopTest();
-        }
+        User user = DataFactory.createUser('PM-PS', true);
+        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
+        DataFactory.insertCase(acc, cont, p, 'FS_Requerimiento');
     }
     
 	/**
@@ -46,21 +42,27 @@ public class TaskTriggerHelperTest {
                                             FROM 	Case 
                                             WHERE	RecordTypeId =: REQUERIMIENTO_TIPO_REGISTRO];
         
-        User user = DataFactory.createUser('PM-PS', true);
+        
+        
+        User user = [Select Id From User Where Profile.Name = 'PM-PS' and IsActive = true Limit 1];
         
         System.runAs(user) {
+            
+            Test.StartTest();
 			Task tarea = new Task();
             tarea.WhatId = casosRequerimiento[0].Id;
             tarea.Subject = 'Test Task';
-            
+            tarea.TaskSubType = 'Email'; 
+                
             insert tarea;
             
             try {
-            	tarea.Subject = 'Test Task Modify';
-            	update tarea;
+                tarea.Subject = 'Test Task Modify';
+                update tarea;
             } catch(Exception ex) {
                 System.debug(ex.getMessage());
-            }    
+            } 
+            Test.StopTest();
         }    
 	}  
 }

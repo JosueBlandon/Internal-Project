@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_ValidacionMotivoCambioFechaEntrega</fullName>
+    <active>true</active>
+    <description>Regla para validar ingreso del campo: Motivo de Cambio de Fecha Entrega.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(FS_FechaCompromisoEntrega__c),
+NOT(ISBLANK(FS_FechaCompromisoEntrega__c)),
+OR(
+RecordType.DeveloperName = &apos;FS_Consulta&apos;,
+RecordType.DeveloperName = &apos;FS_Incidente&apos;
+),				
+OR(
+NOT(ISBLANK(PRIORVALUE(FS_FechaCompromisoEntrega__c))), 
+NOT(ISNULL(PRIORVALUE(FS_FechaCompromisoEntrega__c))) 
+),
+ISPICKVAL(FS_MotivoCambioFechaEntrega__c, &apos;&apos;),
+OR(				
+ISBLANK(PRIORVALUE(FS_MotivoCambioFechaEntrega__c)), 
+ISNULL(PRIORVALUE(FS_MotivoCambioFechaEntrega__c))
+),
+NOT(ISPICKVAL(FS_InformacionCompleta__c, &apos;&apos;))
+)</errorConditionFormula>
+    <errorDisplayField>FS_MotivoCambioFechaEntrega__c</errorDisplayField>
+    <errorMessage>Debe eleigir una opcion en el campo Motivo de Cambio de Fecha Entrega, cuando la Fecha Compromiso Entrega cambia.</errorMessage>
+</ValidationRule>

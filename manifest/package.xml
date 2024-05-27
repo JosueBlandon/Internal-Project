@@ -13,8 +13,89 @@
 		<members>FeedCommentTriggerHelper</members>
 		<members>FeedCommentTriggerHelper_Test</members>
 		<members>JobValidacionRespuesta_Test</members>
+		<members>TaskTriggerHandler</members>
+		<members>TaskTriggerHelper</members>
+		<members>TaskTriggerHelperTest</members>
+		<members>TrabajoAgenteHandler</members>
+		<members>TrabajoAgenteHelper</members>
 		<members>TrabajoAgenteHelper_Test</members>
 		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>CaseTrigger</members>
+		<members>FeedCommentTrigger</members>
+		<members>TaskTrigger</members>
+		<members>TrabajoAgenteTrigger</members>
+		<name>ApexTrigger</name>
+	</types>
+	<types>
+		<members>Case.FS_Fecha_de_entrega__c</members>
+		<members>FS_ProductoAdquirido__c.FS_Fecha_activacion__c</members>
+		<members>FS_ProductoAdquirido__c.FS_Fecha_desactivacion__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>FS_Actualizar_campos_historial_producto_adquirido</members>
+		<name>Flow</name>
+	</types>
+	<types>
+		<members>Account-Formato de cuentas</members>
+		<members>Case-Layout Cliente</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>FS_PermisosServicioCliente</members>
+		<members>FS_PermisosServicioClientePlus</members>
+		<members>FS_Permisos_para_usuario_de_integracion_PowerBI</members>
+		<members>Permiso_PM_PS</members>
+		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>FS_Integracion_Jira</members>
+		<members>FS_Integracion_PowerBI</members>
+		<name>PermissionSetGroup</name>
+	</types>
+	<types>
+		<members>Case.FS_CamposControlConsulta</members>
+		<members>Case.FS_CamposControlIncidente</members>
+		<members>Case.FS_CamposControlIncidenteDefinitivo</members>
+		<members>Case.FS_CamposControlSolicitud</members>
+		<name>QuickAction</name>
+	</types>
+	<types>
+		<members>Case.FS_Campos_Requeridos_Encuesta</members>
+		<members>Case.FS_Campos_Requeridos_PMPS</members>
+		<members>Case.FS_Datos_Es_Precontratado</members>
+		<members>Case.FS_Datos_Licencia_Recurrente</members>
+		<members>Case.FS_PrevenirEditarCampoProyecto</members>
+		<members>Case.FS_PrevenirEditarDetallesFinancieros</members>
+		<members>Case.FS_PrevenirModificarCamposCaso</members>
+		<members>Case.FS_PrevenirModificarCamposCasoCare</members>
+		<members>Case.FS_ValidacionBorrarMotivoCambioFecha</members>
+		<members>Case.FS_ValidacionFechaCompromiso</members>
+		<members>Case.FS_ValidacionFechaCompromisoConsulta</members>
+		<members>Case.FS_ValidacionFechaCompromisoDesarrollo</members>
+		<members>Case.FS_ValidacionFechaCompromisoEntrega</members>
+		<members>Case.FS_ValidacionFechaCompromisoIncidente</members>
+		<members>Case.FS_ValidacionMotivoCambioFechaEntrega</members>
+		<members>Case.FS_ValidacionMotivoCambioFechaVacio</members>
+		<members>Case.FS_ValidacionRechazoCertificParcheQA</members>
+		<members>Case.FS_ValidacionRechazoDisenioTecnico</members>
+		<members>Case.FS_ValidacionRechazoIDRelease</members>
+		<members>Case.FS_ValidacionRechazoIPRelease</members>
+		<members>Case.FS_ValidacionRechazoInstalacionParcheRel</members>
+		<members>Case.FS_ValidacionRechazoPlanPruebas</members>
+		<members>Case.FS_ValidacionRechazoSolucion</members>
+		<members>Case.FS_ValidacionRechazoSolucionDefinitivaN2</members>
+		<members>Case.FS_ValidacionRechazoSolucionIPN2</members>
+		<members>Case.FS_ValidacionRespuestaCliente</members>
+		<members>Case.FS_ValidacionSolucionCortoPlazo</members>
+		<members>Case.FS_ValidacionTipoIncidente</members>
+		<members>Case.FS_Validacion_Campo_Dias_que_Aplica_LR</members>
+		<members>Case.FS_Validacion_Campos_En_Blanco</members>
+		<members>Case.FS_Validacion_Ingresar_Fecha_Compromiso</members>
+		<members>Case.FS_validacionCasoNuevoAgente</members>
+		<name>ValidationRule</name>
 	</types>
 	<version>60.0</version>
 </Package>
