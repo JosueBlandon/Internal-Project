@@ -13,8 +13,20 @@
 		<members>FeedCommentTriggerHelper</members>
 		<members>FeedCommentTriggerHelper_Test</members>
 		<members>JobValidacionRespuesta_Test</members>
+		<members>TaskTriggerHandler</members>
+		<members>TaskTriggerHelper</members>
+		<members>TaskTriggerHelperTest</members>
+		<members>TrabajoAgenteHandler</members>
+		<members>TrabajoAgenteHelper</members>
 		<members>TrabajoAgenteHelper_Test</members>
 		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>CaseTrigger</members>
+		<members>FeedCommentTrigger</members>
+		<members>TaskTrigger</members>
+		<members>TrabajoAgenteTrigger</members>
+		<name>ApexTrigger</name>
 	</types>
 	<types>
 		<members>Case.FS_Fecha_de_entrega__c</members>
