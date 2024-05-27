@@ -9,7 +9,7 @@
         <operation>equals</operation>
         <value>true</value>
     </exitCriteriaFilterItems>
-    <isVersionDefault>false</isVersionDefault>
+    <isVersionDefault>true</isVersionDefault>
     <milestones>
         <businessHours>Horario de Oficina</businessHours>
         <milestoneCriteriaFilterItems>
@@ -29,16 +29,16 @@
             <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
         </timeTriggers>
         <timeTriggers>
+            <timeLength>10</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
             <actions>
                 <name>FS_VencimientoSlaConsulta</name>
                 <type>Alert</type>
             </actions>
             <timeLength>-48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </timeTriggers>
-        <timeTriggers>
-            <timeLength>10</timeLength>
-            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
         </timeTriggers>
         <useCriteriaStartTime>true</useCriteriaStartTime>
     </milestones>
@@ -57,10 +57,6 @@
         <milestoneName>Consultas - Cliente</milestoneName>
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
-            <timeLength>-48</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </timeTriggers>
-        <timeTriggers>
             <actions>
                 <name>Vencimiento_de_SLA_Interno</name>
                 <type>Alert</type>
@@ -72,9 +68,13 @@
             <timeLength>-48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
+        <timeTriggers>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </timeTriggers>
         <useCriteriaStartTime>true</useCriteriaStartTime>
     </milestones>
     <name>Caso de Consulta</name>
     <versionMaster>5526C0000004VYn</versionMaster>
-    <versionNumber>1</versionNumber>
+    <versionNumber>2</versionNumber>
 </EntitlementProcess>

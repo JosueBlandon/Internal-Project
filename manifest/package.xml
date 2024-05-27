@@ -48,7 +48,9 @@
 	</types>
 	<types>
 		<members>caso de consulta</members>
+		<members>caso de consulta_v2</members>
 		<members>caso de incidente</members>
+		<members>caso de incidente_v2</members>
 		<name>EntitlementProcess</name>
 	</types>
 	<types>

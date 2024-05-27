@@ -9,7 +9,7 @@
         <operation>equals</operation>
         <value>true</value>
     </exitCriteriaFilterItems>
-    <isVersionDefault>false</isVersionDefault>
+    <isVersionDefault>true</isVersionDefault>
     <milestones>
         <businessHours>Horario de Oficina</businessHours>
         <milestoneCriteriaFilterItems>
@@ -112,5 +112,5 @@
     </milestones>
     <name>Caso de Incidente</name>
     <versionMaster>5526C0000004VYs</versionMaster>
-    <versionNumber>1</versionNumber>
+    <versionNumber>2</versionNumber>
 </EntitlementProcess>
