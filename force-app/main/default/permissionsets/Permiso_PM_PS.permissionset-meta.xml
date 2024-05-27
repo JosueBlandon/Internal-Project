@@ -406,6 +406,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.FS_Compromisos_internos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.FS_CorreosNotificacionesServicios__c</field>
         <readable>true</readable>
@@ -463,6 +468,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.FS_Es_Precontratado__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.FS_Es_cliente__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -528,6 +538,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.FS_Fecha_Puesta_en_Produccion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.FS_Fecha_de_entrega__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1258,6 +1273,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_ProductoAdquirido__c.FS_Cuenta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_ProductoAdquirido__c.FS_Esta_activo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_ProductoAdquirido__c.FS_Fecha_activacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_ProductoAdquirido__c.FS_Fecha_desactivacion__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

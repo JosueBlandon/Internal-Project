@@ -5,7 +5,10 @@
     <description>Regla de valida que un usuario PM-PS no puede editar ciertos campos del caso en Customer Care.</description>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+OR(
 CreatedBy.Profile.Name = &apos;Customer Community User&apos;,
+CreatedBy.Profile.Name = &apos;Customer Community Plus User&apos;
+),
 OR(
 RecordType.DeveloperName = &apos;FS_Consulta&apos;,
 RecordType.DeveloperName = &apos;FS_Incidente&apos;,

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_ValidacionMotivoCambioFechaVacio</fullName>
+    <active>true</active>
+    <description>Regla para validar ingreso del campo: Motivo de Cambio de Fecha Entrega cuando la Fecha Compromiso Entrega no está vacía.</description>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &apos;FS_Consulta&apos;,
+RecordType.DeveloperName = &apos;FS_Incidente&apos;
+),
+NOT(ISCHANGED(FS_FechaCompromisoEntrega__c)),			
+ISCHANGED(FS_MotivoCambioFechaEntrega__c)
+)</errorConditionFormula>
+    <errorDisplayField>FS_MotivoCambioFechaEntrega__c</errorDisplayField>
+    <errorMessage>No puede modificar este campo.</errorMessage>
+</ValidationRule>

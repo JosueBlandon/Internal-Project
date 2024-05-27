@@ -9,7 +9,31 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ControladorBaseConocimientos</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ControladorCrearCaso</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeedCommentTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeedCommentTriggerHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeedCommentTriggerHelper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeedItemTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeedItemTriggerHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <fieldPermissions>
@@ -280,6 +304,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.FS_FechaSubEstadoActual__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.FS_Fecha_de_entrega__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -814,6 +843,41 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>FS_BaseConocimiento__c.FS_Activo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_BaseConocimiento__c.FS_Contenido__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_BaseConocimiento__c.FS_Cuenta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_BaseConocimiento__c.FS_Modulo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_BaseConocimiento__c.FS_ProductoAdquirido__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_BaseConocimiento__c.FS_Producto__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_BaseConocimiento__c.FS_SubModulo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>FS_Encuesta__c.FS_Caso__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -880,6 +944,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>FS_ProductoAdquirido__c.FS_Cuenta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_ProductoAdquirido__c.FS_Esta_activo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_ProductoAdquirido__c.FS_Fecha_activacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_ProductoAdquirido__c.FS_Fecha_desactivacion__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -991,6 +1070,15 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>FS_BaseConocimiento__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
@@ -1046,6 +1134,10 @@
         <recordType>Task.FS_Casos</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabSettings>
+        <tab>FS_BaseConocimiento__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
     <tabSettings>
         <tab>standard-Case</tab>
         <visibility>Visible</visibility>

@@ -1,4 +1,18 @@
-public class DataFactory {
+/**
+**************************************************************************************************************
+* @author           Intellect Systems href=<infor@intellectsystems.net>
+* @project          Fisa Ecuador - Implementación CRM
+* @name             DataFactory
+* @description      Class to create fake data test
+* @changes
+* ----------   ---------------------------   -----------------------------------------------------------------
+* Date         Author                        Description
+* ----------   ---------------------------   -----------------------------------------------------------------
+* 2023-09-04   Intellect Systems             Initial version.
+**************************************************************************************************************
+*/
+
+public without sharing class DataFactory {
     
     private static final String USER_FIRST_NAME = 'TestUser';
     private static final String USER_LAST_NAME = 'TestLastName';
@@ -105,7 +119,7 @@ public class DataFactory {
         try {
         update adminUser;
         } catch (Exception e) {
-           System.debug('An error occurred');
+            System.debug('An error occurred');
         }     
 
         User u = new User();
@@ -125,5 +139,18 @@ public class DataFactory {
         }
         return u;
     }
+    
+    public static FS_ConfiguracionSLA__c insertConfiguracionSLA(String acc) {
+        FS_ConfiguracionSLA__c SLA = new FS_ConfiguracionSLA__c();
+        SLA.FS_NombreDeCuenta__c = acc;
+        SLA.FS_NombreTipoRegistro__c = 'Incidente'; 
+        SLA.FS_SLA__c = 72; 
+        SLA.FS_SubEstado__c = 'Apertura de caso;Entrega 1a respuesta;Información validada;Análisis N1;Desarrollo Incidente Definitivo;Revisión Documentación N2;Desarrollo Incidente Puntual;Aprobación de Solución IP-Release;Costo Aceptado;Costo Rechazado;Análisis Falla Operativa;Escalado a N2;Análisis N2;Envío de respuesta;Respuesta aceptada;Respuesta rechazada;En reproceso por rechazo;Elaboración Diseño Técnico;Aprobación Diseño Técnico;Validación-Entrega de Fuentes;Elaboración Solución Definitiva;Aprobación Solución Definitiva N2;Aprobación Solución Definitiva Releases;Escalado a QA;Elaboración Plan de Pruebas;Aprobación Plan de Pruebas;Instalación Parche Releases;Aprobación Instalación Parche - Releases;Certificación Parche QA;Aprobación Certificación Parche QA;Entrega de Parche;Instalación de Parche;Paso a Producción;Paso a Producción No Confirmado;Paso a Producción Confirmado;Aprobación Solución IP-N2'; 
+        SLA.FS_EsCliente__c = false; 
+        SLA.FS_Activo__c = true;
+        insert SLA;
+        
+        return SLA;
+    }    
     
 }
