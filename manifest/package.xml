@@ -93,6 +93,10 @@
 		<name>Layout</name>
 	</types>
 	<types>
+		<members>fs_Inicio</members>
+		<name>LightningComponentBundle</name>
+	</types>
+	<types>
 		<members>Consultas - Cliente</members>
 		<members>Consultas - Interno</members>
 		<members>Incidente Definitivo - Cliente</members>
