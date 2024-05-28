@@ -34,7 +34,7 @@
         </timeTriggers>
         <timeTriggers>
             <actions>
-                <name>Case.FS_VencimientoSLAInterno</name>
+                <name>FS_VencimientoSLAInterno</name>
                 <type>Alert</type>
             </actions>
             <timeLength>-18</timeLength>
@@ -58,7 +58,7 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>Case.FS_VencimientoSlaCliente</name>
+                <name>FS_VencimientoSlaCliente</name>
                 <type>Alert</type>
             </actions>
             <timeLength>-18</timeLength>

@@ -31,7 +31,7 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>Case.FS_VencimientoSLAIncidenteDefinitivo</name>
+                <name>FS_VencimientoSLAIncidenteDefinitivo</name>
                 <type>Alert</type>
             </actions>
             <timeLength>-18</timeLength>
@@ -64,7 +64,7 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>Case.FS_VencimientoSLAPuntualInterno</name>
+                <name>FS_VencimientoSLAPuntualInterno</name>
                 <type>Alert</type>
             </actions>
             <timeLength>-18</timeLength>
@@ -97,7 +97,7 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>Case.FS_VencimientoIncidenteDefinitivoClientes</name>
+                <name>FS_VencimientoIncidenteDefinitivoClientes</name>
                 <type>Alert</type>
             </actions>
             <timeLength>-18</timeLength>
@@ -130,7 +130,7 @@
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
         <timeTriggers>
             <actions>
-                <name>Case.FS_VencimientoPuntualClientes</name>
+                <name>FS_VencimientoPuntualClientes</name>
                 <type>Alert</type>
             </actions>
             <timeLength>-18</timeLength>

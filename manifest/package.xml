@@ -141,12 +141,7 @@
 		<name>ValidationRule</name>
 	</types>
 	<types>
-		<members>Case.FS_VencimientoIncidenteDefinitivoClientes</members>
-		<members>Case.FS_VencimientoPuntualClientes</members>
-		<members>Case.FS_VencimientoSLAIncidenteDefinitivo</members>
-		<members>Case.FS_VencimientoSLAInterno</members>
-		<members>Case.FS_VencimientoSLAPuntualInterno</members>
-		<members>Case.FS_VencimientoSlaCliente</members>
+		<members>*</members>
 		<name>WorkflowAlert</name>
 	</types>
 	<version>60.0</version>
