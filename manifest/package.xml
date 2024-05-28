@@ -31,11 +31,24 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
+		<members>Case.FS_Compromisos_internos__c</members>
 		<members>Case.FS_Es_cliente__c</members>
 		<members>Case.FS_Fecha_de_entrega__c</members>
+		<members>FS_BaseConocimiento__c.FS_Activo__c</members>
+		<members>FS_BaseConocimiento__c.FS_Contenido__c</members>
+		<members>FS_BaseConocimiento__c.FS_Cuenta__c</members>
+		<members>FS_BaseConocimiento__c.FS_Modulo__c</members>
+		<members>FS_BaseConocimiento__c.FS_ProductoAdquirido__c</members>
+		<members>FS_BaseConocimiento__c.FS_Producto__c</members>
+		<members>FS_BaseConocimiento__c.FS_SubModulo__c</members>
 		<members>FS_HistorialCampos__c.FS_FechaCreacion__c</members>
+		<members>FS_ProductoAdquirido__c.FS_Cuenta__c</members>
+		<members>FS_ProductoAdquirido__c.FS_Esta_activo__c</members>
 		<members>FS_ProductoAdquirido__c.FS_Fecha_activacion__c</members>
 		<members>FS_ProductoAdquirido__c.FS_Fecha_desactivacion__c</members>
+		<members>FS_ProductoAdquirido__c.FS_Modulo__c</members>
+		<members>FS_ProductoAdquirido__c.FS_Producto__c</members>
+		<members>FS_ProductoAdquirido__c.FS_SubModulo__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -43,8 +56,14 @@
 		<name>CustomNotificationType</name>
 	</types>
 	<types>
+		<members>FS_BaseConocimiento__c</members>
 		<members>FS_ConfiguracionSLA__c</members>
+		<members>FS_ProductoAdquirido__c</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>FS_BaseConocimiento__c</members>
+		<name>CustomTab</name>
 	</types>
 	<types>
 		<members>unfiled$public/FS_TiempoEstimadoRespuestaClientes</members>
@@ -98,6 +117,7 @@
 		<members>Case.FS_CamposControlIncidente</members>
 		<members>Case.FS_CamposControlIncidenteDefinitivo</members>
 		<members>Case.FS_CamposControlSolicitud</members>
+		<members>Case.Reuniones_internas</members>
 		<name>QuickAction</name>
 	</types>
 	<types>

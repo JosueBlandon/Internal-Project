@@ -146,23 +146,26 @@
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
+    <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <gender>Masculine</gender>
-    <label>Producto Adquirido</label>
+    <label>Base de Conocimiento</label>
     <nameField>
-        <displayFormat>PA-{00000000}</displayFormat>
-        <label>Nombre de Categoría</label>
-        <trackHistory>true</trackHistory>
-        <type>AutoNumber</type>
+        <label>Nombre de Base de Conocimiento</label>
+        <type>Text</type>
     </nameField>
-    <pluralLabel>Productos Adquiridos</pluralLabel>
-    <searchLayouts></searchLayouts>
-    <sharingModel>Read</sharingModel>
+    <pluralLabel>Bases de Conocimientos</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>OBJECT_ID</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FS_Cuenta__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FS_Modulo__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FS_Producto__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
