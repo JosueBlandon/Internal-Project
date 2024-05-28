@@ -1,0 +1,95 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Destacado">
+            <lightning-layout vertical-align="stretch" multiple-rows="true">
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <iframe width="350" height="220" src={data.urlVideo1} title={data.tituloVideo1} frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <h2 style="width: 350px;text-align: center;"><b>{data.tituloVideo1}</b></h2>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <iframe width="350" height="220" src={data.urlVideo2} title={data.tituloVideo2} frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <h2 style="width: 350px;text-align: center;"><b>{data.tituloVideo2}</b></h2>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <iframe width="350" height="220" src={data.urlVideo3} title={data.tituloVideo3} frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <h2 style="width: 350px;text-align: center;"><b>{data.tituloVideo3}</b></h2>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <iframe width="350" height="220" src={data.urlVideo4} title={data.tituloVideo4} frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <h2 style="width: 350px;text-align: center;"><b>{data.tituloVideo4}</b></h2>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-tab>
+        <lightning-tab label="Noticias">
+            <iframe width="100%" height="800px" src={data.urlPaginaNoticias} frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        </lightning-tab>
+        <lightning-tab if:true={data.mostrarBaseCon} label="Base de Conocimiento">
+            <lightning-layout vertical-align="stretch" multiple-rows="true">
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="8">
+                    <lightning-layout vertical-align="stretch" multiple-rows="true">
+                        <lightning-layout-item flexibility="auto" padding="around-small" size="3">
+                            <lightning-combobox label="Producto" placeholder="Seleccione un producto"
+                            options={data.listProductos} value={data.productoSelect} onchange={onchangeProduct} ></lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" size="3">
+                            <lightning-combobox label="Módulo" placeholder="Seleccione un módulo"
+                            options={data.listModulos} value={data.moduloSelect} onchange={onchangeModulo} ></lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" size="3">
+                            <lightning-combobox label="Sub Módulo" placeholder="Seleccione un sub módulo"
+                            options={data.listSubModulos} value={data.subModuloSelect} onchange={onchangeSubModulo} ></lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" size="3">
+                            <lightning-combobox label="Knowledge" placeholder="Seleccione un Knowledge"
+                            options={data.listPickListBase} value={data.knowledgeSelect} onchange={onchangeKnowledge} ></lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" size="9">
+                            <lightning-input type="search" value={data.valorABuscar}
+                            placeholder="Buscar en Base de Conocmiento..." onchange={onchangeSearch}  >
+                        </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small" size="3">
+                            <br />
+                            <lightning-button label="Ver todo" value="Ver todo" variant="brand" onclick={onclickAllShow} ></lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                   <br />
+                    <template for:each={data.listBaseShow} for:item="item" if:true={data.hayResultado} >
+                        <lightning-formatted-rich-text key={item.id} value={item.contenido}>
+                        </lightning-formatted-rich-text>
+                        <br key={item.id} />
+                        <br key={item.id} />
+                        <br key={item.id} />
+                    </template>
+                    <div if:false={data.hayResultado} style="text-align: center;">
+                        <font style="font-size: 25px;" > <b> No se encontraron resultados.</b></font>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-tab>
+    </lightning-tabset>
+
+    <template if:true={showSpinner}>
+        <div id="activityIndicator" class="slds-spinner_container">
+            <div class="slds-spinner--brand slds-spinner slds-spinner--large" role="alert">
+                <span class="slds-assistive-text">Loading, Please Wait...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </template>
+
+</template>
