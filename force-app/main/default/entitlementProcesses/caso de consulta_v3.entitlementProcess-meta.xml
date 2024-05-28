@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <businessHours>Horario de Oficina</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <businessHours>Horario de Oficina</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_NombreTipoRegistro__c</field>
+            <operation>equals</operation>
+            <value>Consulta</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_Es_cliente__c</field>
+            <operation>equals</operation>
+            <value>false</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Consultas - Interno</milestoneName>
+        <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <timeTriggers>
+            <timeLength>10</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>FS_VencimientoSLAInterno</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Horario de Oficina</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_Es_cliente__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.FS_NombreTipoRegistro__c</field>
+            <operation>equals</operation>
+            <value>Consulta</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Consultas - Cliente</milestoneName>
+        <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
+        <timeTriggers>
+            <actions>
+                <name>FS_VencimientoSlaCliente</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-18</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <timeLength>-48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <timeLength>-13</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>Caso de Consulta</name>
+    <versionMaster>5526C0000004VYn</versionMaster>
+    <versionNumber>3</versionNumber>
+</EntitlementProcess>
