@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
     <SObjectType>Case</SObjectType>
-    <active>Verdadero</active>
+    <active>true</active>
     <businessHours>Horario de Oficina</businessHours>
     <entryStartDateField>Case.CreatedDate</entryStartDateField>
     <exitCriteriaFilterItems>
         <field>Case.IsClosed</field>
         <operation>equals</operation>
-        <value>Verdadero</value>
+        <value>true</value>
     </exitCriteriaFilterItems>
-    <isVersionDefault>Verdadero</isVersionDefault>
+    <isVersionDefault>true</isVersionDefault>
     <milestones>
         <businessHours>Horario de Oficina</businessHours>
         <milestoneCriteriaFilterItems>
@@ -20,7 +20,7 @@
         <milestoneCriteriaFilterItems>
             <field>Case.FS_Es_cliente__c</field>
             <operation>equals</operation>
-            <value>falso</value>
+            <value>false</value>
         </milestoneCriteriaFilterItems>
         <milestoneName>Consultas - Interno</milestoneName>
         <minutesCustomClass>MilestoneCalculator</minutesCustomClass>
@@ -40,14 +40,14 @@
             <timeLength>-18</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
-        <useCriteriaStartTime>Verdadero</useCriteriaStartTime>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
     </milestones>
     <milestones>
         <businessHours>Horario de Oficina</businessHours>
         <milestoneCriteriaFilterItems>
             <field>Case.FS_Es_cliente__c</field>
             <operation>equals</operation>
-            <value>Verdadero</value>
+            <value>true</value>
         </milestoneCriteriaFilterItems>
         <milestoneCriteriaFilterItems>
             <field>Case.FS_NombreTipoRegistro__c</field>
@@ -72,7 +72,7 @@
             <timeLength>-13</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </timeTriggers>
-        <useCriteriaStartTime>Verdadero</useCriteriaStartTime>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
     </milestones>
     <name>Caso de Consulta</name>
     <versionMaster>5527d000001R9m1</versionMaster>
