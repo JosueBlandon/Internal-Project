@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>FS_Cuenta__c</fullName>
-    <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
+    <formula>FS_ProductoAdquirido__r.FS_Cuenta__r.Name</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Cuenta</label>
-    <referenceTo>Account</referenceTo>
-    <relationshipLabel>Productos Adquiridos</relationshipLabel>
-    <relationshipName>ProductosAdquiridos</relationshipName>
     <required>false</required>
-    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Lookup</type>
+    <type>Text</type>
+    <unique>false</unique>
 </CustomField>
