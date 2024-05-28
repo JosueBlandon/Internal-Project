@@ -45,7 +45,6 @@ public without sharing class CaseTriggerHandler {
             CaseTriggerHelper.validacionProducto(newCaseList, oldCaseMap);
             CaseTriggerHelper.informacionCompleta(newCaseList, oldCaseMap);
             CaseTriggerHelper.validacionTipo(newCaseList, oldCaseMap);
-            CaseTriggerHelper.solventarPregunta(newCaseList, oldCaseMap);
             CaseTriggerHelper.aceptaRespuesta(newCaseList, oldCaseMap);
             CaseTriggerHelper.actualizacionDescripcion(newCaseList, oldCaseMap);
             CaseTriggerHelper.horasSolicitud(newCaseList, oldCaseMap);
@@ -76,6 +75,7 @@ public without sharing class CaseTriggerHandler {
             CaseTriggerHelper.asignarAprobadorActual(newCaseList, oldCaseMap);
             CaseTriggerHelper.llenarOrigen(newCaseList, oldCaseMap);
             CaseTriggerHelper.mapeoFechaEstado(newCaseList, oldCaseMap);
+            CaseTriggerHelper.assignDeliveryDate(newCaseList, oldCaseMap);
         } else {
             CaseTriggerHelperPMPS.sendToJiraPMPS(newCaseList, oldCaseMap);
             CaseTriggerHelperPMPS.sendNotification(newCaseList, oldCaseMap);
@@ -84,8 +84,20 @@ public without sharing class CaseTriggerHandler {
     }
     
     public static void afterUpdate(List<Case> newCaseList, Map<Id, Case> oldCaseMap) {
+        Boolean executeFlag = true;
+
+        for(Case record : newCaseList) {
+            if(record.RecordTypeId == REQUERIMIENTO_TIPO_REGISTRO) {
+                executeFlag = false;
+            }
+        }
+
         CaseTriggerHelper.historialCaso(newCaseList, oldCaseMap);
-        CaseTriggerHelper.upsertCaseJira(newCaseList, oldCaseMap);     
+        
+        if(executeFlag) {
+            CaseTriggerHelper.solventarPregunta(newCaseList, oldCaseMap);
+            CaseTriggerHelper.upsertCaseJira(newCaseList, oldCaseMap);
+        }
     }
     
     public static void afterDelete(List<Case> newCaseList) {

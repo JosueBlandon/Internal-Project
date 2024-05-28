@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Módulo</label>
     <required>false</required>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
@@ -151,11 +152,6 @@
                 <default>false</default>
                 <label>IMS</label>
             </value>
-            <value>
-                <fullName>Flujos</fullName>
-                <default>false</default>
-                <label>Flujos</label>
-            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>FISA System</controllingFieldValue>
@@ -256,10 +252,6 @@
         <valueSettings>
             <controllingFieldValue>OMNIA</controllingFieldValue>
             <valueName>Rapid Cash</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>OMNIA</controllingFieldValue>
-            <valueName>Flujos</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>FISA FISS</controllingFieldValue>

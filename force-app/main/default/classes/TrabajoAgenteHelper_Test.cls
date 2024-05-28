@@ -5,11 +5,11 @@ public class TrabajoAgenteHelper_Test {
     static void setup(){
         Account acc = DataFactory.insertAccount();
         Contact cont = DataFactory.insertContact(acc);
-        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
+        FS_ProductoAdquirido__c p = DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', 'Parametros Generales (Módulo 1)');
         DataFactory.insertCase(acc, cont, p, 'FS_Consulta');
         DataFactory.insertCase(acc, cont, p, 'FS_Solicitud');
         DataFactory.insertCase(acc, cont, p, 'FS_Incidente');
-        DataFactory.insertProduct(acc, 'FISA System', 'Núcleo del Sistema', '');
+        DataFactory.insertProduct(acc, 'FISA FISS', 'IMS', '');
     }
     
     @isTest

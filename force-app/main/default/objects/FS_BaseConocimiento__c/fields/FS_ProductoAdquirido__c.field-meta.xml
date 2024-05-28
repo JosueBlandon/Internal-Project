@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_ProductoAdquirido__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Producto Adquirido</label>
+    <referenceTo>FS_ProductoAdquirido__c</referenceTo>
+    <relationshipLabel>Bases de Conocimientos</relationshipLabel>
+    <relationshipName>Bases_de_Conocimientos</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

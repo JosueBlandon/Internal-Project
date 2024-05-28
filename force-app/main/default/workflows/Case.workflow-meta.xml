@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>FS_VencimientoIncidenteDefinitivoClientes</fullName>
+        <description>Vencimiento de SLA Cliente</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <recipient>FS_Grupo_notificaciones_SLA</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>smfisahelpdesk@fisagrp.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/FS_TiempoEstimadoRespuestaClientes</template>
+    </alerts>
+    <alerts>
+        <fullName>FS_VencimientoPuntualClientes</fullName>
+        <description>Vencimiento de SLA Cliente</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <recipient>FS_Grupo_notificaciones_SLA</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>smfisahelpdesk@fisagrp.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/FS_TiempoEstimadoRespuestaClientes</template>
+    </alerts>
+    <alerts>
+        <fullName>FS_VencimientoSLAIncidenteDefinitivo</fullName>
+        <description>Vencimiento de SLA Interno</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <recipient>FS_Grupo_notificaciones_SLA</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>smfisahelpdesk@fisagrp.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/FS_TiempoEstimadoRespuesta</template>
+    </alerts>
+    <alerts>
+        <fullName>FS_VencimientoSLAInterno</fullName>
+        <description>Vencimiento de SLA Interno</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <recipient>FS_Grupo_notificaciones_SLA</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>smfisahelpdesk@fisagrp.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/FS_TiempoEstimadoRespuesta</template>
+    </alerts>
+    <alerts>
+        <fullName>FS_VencimientoSLAPuntualInterno</fullName>
+        <description>Vencimiento de SLA Interno</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <recipient>FS_Grupo_notificaciones_SLA</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>smfisahelpdesk@fisagrp.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/FS_TiempoEstimadoRespuesta</template>
+    </alerts>
+    <alerts>
+        <fullName>FS_VencimientoSlaCliente</fullName>
+        <description>Vencimiento de SLA  Cliente</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <recipient>FS_Grupo_notificaciones_SLA</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>smfisahelpdesk@fisagrp.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/FS_TiempoEstimadoRespuestaClientes</template>
+    </alerts>
+</Workflow>

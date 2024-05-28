@@ -2,10 +2,10 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>FS_ValidacionSolucionCortoPlazo</fullName>
     <active>true</active>
-    <errorConditionFormula>AND( 
-  !ISNEW(),
-  ISCHANGED(FS_SolucionCortoPlazo__c),
-  ISCHANGED(FS_InformacionCompleta__c)  
+    <errorConditionFormula>AND(
+!ISNEW(),
+ISCHANGED(FS_SolucionCortoPlazo__c),
+ISCHANGED(FS_InformacionCompleta__c)
 )</errorConditionFormula>
     <errorDisplayField>FS_SolucionCortoPlazo__c</errorDisplayField>
     <errorMessage>No puede seleccionar esta campo todavía.</errorMessage>

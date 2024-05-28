@@ -1,0 +1,104 @@
+# Unique name for this workflow
+name: Release / 03. Validate Release/Hotfix On Prod
+
+# Definition when the workflow should run
+on:
+    # The workflow will run whenever an event happens on a pull request
+    pull_request:
+      types: [ opened, synchronize ]
+      # The branches filter allows to specify that this workflow should only
+      # run if the branch name is "develop". This way we prevent this workflow
+      # from running when PRs are opened on other branches
+      branches: [ main ]
+      # We only care about changes to the force-app directory, which is the
+      # root directory of the sfdx project. This prevents the job from running
+      # when changing non-salesforce files (like this yml file).
+      # paths:
+      #  - 'force-app/**'
+
+
+# Jobs to be executed
+jobs:
+    validate-deployment-on-prod-org:
+        runs-on: ubuntu-latest
+        environment: production
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        steps:
+            # Checkout the source code
+            - name: 'Checkout source code'
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+
+            # Set Up Node JS v20
+            - name: 'Set up Node JS'
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
+            # Install Salesforce CLI
+            - name: 'Install Salesforce CLI'
+              run: | 
+                  npm install @salesforce/cli --global
+                  sf version
+                # wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+                # mkdir ~/sfdx
+                # tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+                # echo "$HOME/sfdx/bin" >> $GITHUB_PATH
+                # ~/sfdx/bin/sfdx version
+
+            # Install SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
+            - name: 'Installing sfdx git delta'
+              run: |
+                    echo y | sf plugins install sfdx-git-delta
+                    sf plugins
+                  # echo y | sfdx plugins:install sfdx-git-delta
+                  # sfdx plugins
+
+            # Create a Delta Package
+            # - name: 'Create delta packages for new, modified or deleted metadata'
+            #  run: |
+            #      mkdir changed-sources
+            #      sf sgd source delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/
+                # sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/
+
+            # Action Secrets and Vars used
+            - name: 'Action Secrets and Vars used'
+              run: |
+                echo 'Server Key in b64 (for serialization) and Encoded: ' ${{ secrets.NONPROD_SERVERKEY }}
+                echo 'Decryption Key: ' ${{ secrets.NONPROD_DECRYPTIONKEY }}
+                echo 'Decryption IV: ' ${{ secrets.NONPROD_DECRYPTIONIV }}
+                echo 'Instance URL: ' ${{ vars.INSTANCEURL }}
+                echo 'Username: ' ${{ vars.USERNAME }}
+                echo 'Consumer Key: ' ${{ secrets.CONSUMERKEY }}
+
+            # Decrypt server.key for authentication
+            - name: 'Decrypt server.key for authentication'
+              run: |
+                base64 -d <<< "${{ secrets.NONPROD_SERVERKEY }}" > devops/server.key.enc
+                openssl enc -nosalt -aes-256-cbc -d -in devops/server.key.enc -out devops/server.key -base64 -K ${{ secrets.NONPROD_DECRYPTIONKEY }} -iv ${{ secrets.NONPROD_DECRYPTIONIV }}
+
+            # Authenticate to org
+            - name: 'Authenticate to Prod Org'
+              run: sf org login jwt --username ${{ vars.USERNAME }} --jwt-key-file devops/server.key --client-id ${{ secrets.CONSUMERKEY }} --alias prod-org --set-default --instance-url ${{ vars.INSTANCEURL }}
+            
+            - name: 'Convert Metadata'
+              run: sf project convert mdapi --root-dir force-app --output-dir convert
+
+            - name: 'Preview org deployment'
+              run: sf project deploy preview --manifest ./manifest/package.xml --target-org prod-org --ignore-conflicts
+
+            - name: 'Validate the manifest package to prod org'
+              if: github.event.pull_request.merged == false
+              run: sf project deploy validate --manifest ./manifest/package.xml --target-org prod-org --test-level RunLocalTests
+                # sf project deploy start --source-dir force-app --target-org prod-org -l RunLocalTests --json
+
+            # - name: 'Deploy destructive changes (if any) to uat org'
+            #  run: |
+            #    if grep -Fq "<types>" changed-sources/destructiveChanges/destructiveChanges.xml
+            #    then
+            #      echo "Deploying destructive changes"
+            #      sf project deploy start --manifest changed-sources/destructiveChanges/package.xml --post-destructive-changes changed-sources/destructiveChanges/destructiveChanges.xml --dry-run --ignore-conflicts --ignore-warnings
+            #    else
+            #      echo "No destructive changes to deploy"
+            #    fi

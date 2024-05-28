@@ -39,6 +39,11 @@
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
+                <field>FS_Fecha_de_entrega__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
                 <field>FS_Referencia__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
