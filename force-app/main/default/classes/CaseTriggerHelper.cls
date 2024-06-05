@@ -460,7 +460,6 @@ public without sharing class CaseTriggerHelper {
     public static void aprobacionConsSolic(Case item) {
         String nombreRol = item.FS_Area__c == 'N1. CORE' ? 'FS_AgenteN2Core' : 'FS_AgenteN2Omnia';
         List<User> userRecord = new List<User>();
-        List<Case> caseRecord = new List<Case>();
 
         List<User> userValue = [   SELECT      Id, FS_FechaUltimaAprobacion__c 
                                     FROM        User 
@@ -477,20 +476,15 @@ public without sharing class CaseTriggerHelper {
             update userRecord;
             Case record = new Case(Id = Item.Id);
             
-            record.FS_UsuarioAprobadorSolucion__c = userRecord[0].Id;
-            record.FS_AprobacionSolucion__c = null;
-            record.FS_ComentariosRechazoSolucion__c = null;
-            caseRecord.add(record);
-        
-            if(!caseRecord.isEmpty()) {
-                update caseRecord;
-            }
+            item.FS_UsuarioAprobadorSolucion__c = userRecord[0].Id;
+            item.FS_AprobacionSolucion__c = null;
+            item.FS_ComentariosRechazoSolucion__c = null;
 
             String titulo = 'Aprobación de solución para caso '+item.CaseNumber;
             String descripcion = 'El agente '+item.FS_NombrePropietario__c + ' necesita la aprobación de solución para el caso número '+item.CaseNumber +' \nPor favor dar seguimiento.';
 
-            if(caseRecord[0].FS_UsuarioAprobadorSolucion__c != null) {
-                enviarNotificacion(caseRecord[0].FS_UsuarioAprobadorSolucion__c, caseRecord[0].Id, titulo, descripcion);
+            if(item.FS_UsuarioAprobadorSolucion__c != null) {
+                enviarNotificacion(item.FS_UsuarioAprobadorSolucion__c, item.Id, titulo, descripcion);
             } 
         }  else {
             item.addError('No existe aprobador Agente N2 - Core');    
