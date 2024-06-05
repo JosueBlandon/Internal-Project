@@ -76,11 +76,13 @@
 		<name>EntitlementProcess</name>
 	</types>
 	<types>
+		<members>FS_AccountPage</members>
 		<members>FS_CasoPaginaRegistro</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
 		<members>FS_Actualizar_campos_historial_producto_adquirido</members>
+		<members>Send_SLA_Notification</members>
 		<name>Flow</name>
 	</types>
 	<types>
@@ -90,6 +92,7 @@
 	<types>
 		<members>Account-Formato de cuentas</members>
 		<members>Case-Layout Cliente</members>
+		<members>FS_ProductoAdquirido__c-Formato Producto Adquirido</members>
 		<name>Layout</name>
 	</types>
 	<types>
@@ -124,6 +127,10 @@
 		<members>Case.FS_CamposControlSolicitud</members>
 		<members>Case.Reuniones_internas</members>
 		<name>QuickAction</name>
+	</types>
+	<types>
+		<members>unfiled$public/Encuestas_Contestadas_por_Cliente_PMPS</members>
+		<name>Report</name>
 	</types>
 	<types>
 		<members>BusinessHours</members>
