@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Encuesta__c</columns>
+    <columns>Pregunta__c</columns>
+    <columns>Nombre_de_la_Cuenta__c</columns>
+    <columns>Respuesta_Pregunta__c</columns>
+    <columns>Respuesta__c</columns>
+    <columns>FS_Producto_1__c</columns>
+    <columns>FS_Producto2__c</columns>
+    <columns>FS_Producto3__c</columns>
+    <columns>FS_Producto4__c</columns>
+    <columns>FS_PMPSPrincipal__c</columns>
+    <columns>FS_PMPSSecundario__c</columns>
+    <columns>FS_PMCore__c</columns>
+    <columns>FS_PMOmnia__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>
