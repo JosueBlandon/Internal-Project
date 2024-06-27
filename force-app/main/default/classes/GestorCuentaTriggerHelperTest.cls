@@ -23,20 +23,17 @@ public class GestorCuentaTriggerHelperTest {
     @isTest
     static void createRecordGestor() {
         
-        Account RECORD_ACCOUNT = DataFactory.insertAccount();
+        //Account RECORD_ACCOUNT = DataFactory.insertAccount();
+        Account acc = DataFactory.insertAccount();
+        Contact cont = DataFactory.insertContact(acc);
+        List<FS_Gestor_Cuenta__c> gs = DataFactory.insertManager(acc);
         
         Account cuenta =  [    SELECT	Id, Name  
                                FROM 	Account 
-                               WHERE	Id =: RECORD_ACCOUNT.Id    ];
+                               WHERE	Id =: acc.Id    ];
         
-        FS_Gestor_Cuenta__c gestor = new FS_Gestor_Cuenta__c();
-        gestor.FS_Cuenta__c = cuenta.Id;
-        gestor.FS_Project_Manager__c = userInfo.getUserId();
-        gestor.FS_Principal__c = true;
-                
-        insert gestor;
+        update gs;
+        delete gs;
         
-        gestor.FS_Principal__c = false;
-        update gestor;
 	}     
 }
