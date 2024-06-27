@@ -37,7 +37,10 @@
 	</types>
 	<types>
 		<members>CaseTrigger</members>
+		<members>ContactTrigger</members>
 		<members>FeedCommentTrigger</members>
+		<members>GestorCuentaTrigger</members>
+		<members>ProductsPurchasedTrigger</members>
 		<members>TaskTrigger</members>
 		<members>TrabajoAgenteTrigger</members>
 		<name>ApexTrigger</name>
@@ -55,6 +58,7 @@
 		<members>Contact.FS_Producto_2__c</members>
 		<members>Contact.FS_Producto_3__c</members>
 		<members>Contact.FS_Producto_4__c</members>
+		<members>Contact.FS_Tipo_de_Contacto__c</members>
 		<members>FS_BaseConocimiento__c.FS_Activo__c</members>
 		<members>FS_BaseConocimiento__c.FS_Contenido__c</members>
 		<members>FS_BaseConocimiento__c.FS_Cuenta__c</members>
