@@ -118,18 +118,12 @@ public without sharing class DataFactory {
         gestor4.FS_Area__c = 'PM-PS';
         gestor4.FS_Principal__c = true;
         
-        FS_Gestor_Cuenta__c gestor5 = new FS_Gestor_Cuenta__c();
-        gestor5.FS_Cuenta__c = cuenta.Id;
-        gestor5.FS_Project_Manager__c = userInfo.getUserId();
-        gestor5.FS_Area__c = 'PM-PS';
-        gestor5.FS_Principal__c = true;
         
         insert gestor;
         insert gestor1;
         insert gestor2;
         insert gestor3;
         insert gestor4;
-        insert gestor5;
         
         List<FS_Gestor_Cuenta__c> ltsRecords = new List<FS_Gestor_Cuenta__c>();
         ltsRecords.add(gestor);
