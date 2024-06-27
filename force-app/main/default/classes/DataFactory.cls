@@ -131,9 +131,6 @@ public without sharing class DataFactory {
         insert gestor4;
         insert gestor5;
         
-        gestor3.FS_Principal__c = true;
-        update gestor3;
-        
         List<FS_Gestor_Cuenta__c> ltsRecords = new List<FS_Gestor_Cuenta__c>();
         ltsRecords.add(gestor);
         ltsRecords.add(gestor1);
