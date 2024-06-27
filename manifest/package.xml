@@ -4,6 +4,7 @@
 		<members>CaseTriggerHandler</members>
 		<members>CaseTriggerHelper</members>
 		<members>CaseTriggerHelper_Test</members>
+		<members>ContactTriggerHandler</members>
 		<members>ContactTriggerHelper</members>
 		<members>ContactTriggerHelper_Test</members>
 		<members>ControladorBaseConocimientos</members>
@@ -85,6 +86,7 @@
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto3__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto4__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto_1__c</members>
+		<members>SurveySubject.FS_Contacto__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
