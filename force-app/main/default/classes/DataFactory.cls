@@ -81,6 +81,59 @@ public without sharing class DataFactory {
         return contc;
     }
     
+    public static List<FS_Gestor_Cuenta__c> insertManager(Account acc){
+        
+        Account cuenta =  [    SELECT	Id, Name  
+                               FROM 	Account 
+                               WHERE	Id =: acc.Id    ];
+        
+        
+        FS_Gestor_Cuenta__c gestor = new FS_Gestor_Cuenta__c();
+        gestor.FS_Cuenta__c = cuenta.Id;
+        gestor.FS_Project_Manager__c = userInfo.getUserId();
+        gestor.FS_Area__c = 'Core';
+        gestor.FS_Principal__c = false;
+        
+        FS_Gestor_Cuenta__c gestor1 = new FS_Gestor_Cuenta__c();
+        gestor1.FS_Cuenta__c = cuenta.Id;
+        gestor1.FS_Project_Manager__c = userInfo.getUserId();
+        gestor1.FS_Area__c = 'Omnia';
+        gestor1.FS_Principal__c = false;
+        
+        FS_Gestor_Cuenta__c gestor2 = new FS_Gestor_Cuenta__c();
+        gestor2.FS_Cuenta__c = cuenta.Id;
+        gestor2.FS_Project_Manager__c = userInfo.getUserId();
+        gestor2.FS_Area__c = 'KAM';
+        gestor2.FS_Principal__c = false;
+        
+        FS_Gestor_Cuenta__c gestor3 = new FS_Gestor_Cuenta__c();
+        gestor3.FS_Cuenta__c = cuenta.Id;
+        gestor3.FS_Project_Manager__c = userInfo.getUserId();
+        gestor3.FS_Area__c = 'PM-PS';
+        gestor3.FS_Principal__c = false;
+        
+        FS_Gestor_Cuenta__c gestor4 = new FS_Gestor_Cuenta__c();
+        gestor4.FS_Cuenta__c = cuenta.Id;
+        gestor4.FS_Project_Manager__c = userInfo.getUserId();
+        gestor4.FS_Area__c = 'PM-PS';
+        gestor4.FS_Principal__c = true;
+        
+        
+        insert gestor;
+        insert gestor1;
+        insert gestor2;
+        insert gestor3;
+        insert gestor4;
+        
+        List<FS_Gestor_Cuenta__c> ltsRecords = new List<FS_Gestor_Cuenta__c>();
+        ltsRecords.add(gestor);
+        ltsRecords.add(gestor1);
+        ltsRecords.add(gestor2);
+        ltsRecords.add(gestor3);
+        ltsRecords.add(gestor4);
+        return ltsRecords;
+    }
+    
     public static FS_ProductoAdquirido__c insertProduct(Account acc, String prod, String mod, String subM){
         FS_ProductoAdquirido__c p = new FS_ProductoAdquirido__c();
         p.FS_Cuenta__c = acc.Id;

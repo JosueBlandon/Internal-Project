@@ -4,6 +4,9 @@
 		<members>CaseTriggerHandler</members>
 		<members>CaseTriggerHelper</members>
 		<members>CaseTriggerHelper_Test</members>
+		<members>ContactTriggerHandler</members>
+		<members>ContactTriggerHelper</members>
+		<members>ContactTriggerHelper_Test</members>
 		<members>ControladorBaseConocimientos</members>
 		<members>ControladorBaseConocimientos_Test</members>
 		<members>ControladorCrearCaso</members>
@@ -12,9 +15,19 @@
 		<members>DataFactory</members>
 		<members>FeedCommentTriggerHelper</members>
 		<members>FeedCommentTriggerHelper_Test</members>
+		<members>GestorCuentaTriggerHandler</members>
+		<members>GestorCuentaTriggerHelper</members>
+		<members>GestorCuentaTriggerHelperTest</members>
 		<members>JobValidacionRespuesta_Test</members>
 		<members>MilestoneCalculator</members>
 		<members>MilestoneCalculatorTest</members>
+		<members>ProductsPurchasedTriggerHandler</members>
+		<members>ProductsPurchasedTriggerHelper</members>
+		<members>ProductsPurchasedTriggerHelper_Test</members>
+		<members>SurveyQuestionFlow</members>
+		<members>SurveyQuestionFlow_Test</members>
+		<members>SurveyQuestionResponseFlow</members>
+		<members>SurveyQuestionResponseFlow_Test</members>
 		<members>TaskTriggerHandler</members>
 		<members>TaskTriggerHelper</members>
 		<members>TaskTriggerHelperTest</members>
@@ -25,7 +38,10 @@
 	</types>
 	<types>
 		<members>CaseTrigger</members>
+		<members>ContactTrigger</members>
 		<members>FeedCommentTrigger</members>
+		<members>GestorCuentaTrigger</members>
+		<members>ProductsPurchasedTrigger</members>
 		<members>TaskTrigger</members>
 		<members>TrabajoAgenteTrigger</members>
 		<name>ApexTrigger</name>
@@ -34,6 +50,16 @@
 		<members>Case.FS_Compromisos_internos__c</members>
 		<members>Case.FS_Es_cliente__c</members>
 		<members>Case.FS_Fecha_de_entrega__c</members>
+		<members>Contact.FS_KAM__c</members>
+		<members>Contact.FS_PMCore__c</members>
+		<members>Contact.FS_PMOmnia__c</members>
+		<members>Contact.FS_PMPSPrincipal__c</members>
+		<members>Contact.FS_PMPSSecundario__c</members>
+		<members>Contact.FS_Producto_1__c</members>
+		<members>Contact.FS_Producto_2__c</members>
+		<members>Contact.FS_Producto_3__c</members>
+		<members>Contact.FS_Producto_4__c</members>
+		<members>Contact.FS_Tipo_de_Contacto__c</members>
 		<members>FS_BaseConocimiento__c.FS_Activo__c</members>
 		<members>FS_BaseConocimiento__c.FS_Contenido__c</members>
 		<members>FS_BaseConocimiento__c.FS_Cuenta__c</members>
@@ -41,6 +67,8 @@
 		<members>FS_BaseConocimiento__c.FS_ProductoAdquirido__c</members>
 		<members>FS_BaseConocimiento__c.FS_Producto__c</members>
 		<members>FS_BaseConocimiento__c.FS_SubModulo__c</members>
+		<members>FS_Gestor_Cuenta__c.FS_Area__c</members>
+		<members>FS_Gestor_Cuenta__c.FS_Producto__c</members>
 		<members>FS_HistorialCampos__c.FS_FechaCreacion__c</members>
 		<members>FS_ProductoAdquirido__c.FS_Cuenta__c</members>
 		<members>FS_ProductoAdquirido__c.FS_Esta_activo__c</members>
@@ -49,6 +77,16 @@
 		<members>FS_ProductoAdquirido__c.FS_Modulo__c</members>
 		<members>FS_ProductoAdquirido__c.FS_Producto__c</members>
 		<members>FS_ProductoAdquirido__c.FS_SubModulo__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_KAM__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_PMCore__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_PMOmnia__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_PMPSPrincipal__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_PMPSSecundario__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto2__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto3__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto4__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto_1__c</members>
+		<members>SurveySubject.FS_Contacto__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -59,6 +97,8 @@
 		<members>FS_BaseConocimiento__c</members>
 		<members>FS_ConfiguracionSLA__c</members>
 		<members>FS_ProductoAdquirido__c</members>
+		<members>Preguntas_de_Encuesta__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -83,6 +123,7 @@
 	<types>
 		<members>FS_Actualizar_campos_historial_producto_adquirido</members>
 		<members>Send_SLA_Notification</members>
+		<members>SurveyQuestionResponseClone</members>
 		<name>Flow</name>
 	</types>
 	<types>
@@ -92,12 +133,19 @@
 	<types>
 		<members>Account-Formato de cuentas</members>
 		<members>Case-Layout Cliente</members>
+		<members>Contact-Formato de contactos</members>
+		<members>FS_Gestor_Cuenta__c-Formato Gestor Cuenta</members>
 		<members>FS_ProductoAdquirido__c-Formato Producto Adquirido</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c-Respuestas a la preguntas de encuestas Layout</members>
 		<name>Layout</name>
 	</types>
 	<types>
 		<members>fs_Inicio</members>
 		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.All</members>
+		<name>ListView</name>
 	</types>
 	<types>
 		<members>Consultas - Cliente</members>

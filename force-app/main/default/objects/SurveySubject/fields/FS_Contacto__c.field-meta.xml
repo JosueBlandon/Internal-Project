@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Contacto__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Contacto</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Contactos</relationshipLabel>
+    <relationshipName>Contactos</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>
