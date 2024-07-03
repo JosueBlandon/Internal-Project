@@ -62,6 +62,18 @@
                 <identifier>RecordFS_Product_Manager_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.FS_Area__c</fieldItem>
+                <identifier>RecordFS_Area__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.FS_Producto__c</fieldItem>
+                <identifier>RecordFS_Producto__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-eb5677c3-7ee4-43c3-baa7-9634f655a97d</name>
         <type>Facet</type>
     </flexiPageRegions>
