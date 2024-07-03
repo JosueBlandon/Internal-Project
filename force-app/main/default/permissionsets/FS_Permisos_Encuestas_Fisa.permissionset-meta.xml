@@ -99,11 +99,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.FS_CategoriaContacto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Contact.FS_KAM__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -672,6 +667,14 @@
         <recordType>Contact.Prospectos</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabSettings>
+        <tab>Preguntas_de_Encuesta__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Respuestas_a_la_preguntas_de_encuestas__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
     <tabSettings>
         <tab>standard-Survey</tab>
         <visibility>Visible</visibility>
