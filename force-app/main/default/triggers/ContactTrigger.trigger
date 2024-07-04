@@ -18,4 +18,10 @@ trigger ContactTrigger on Contact (before insert, before update, before delete, 
             ContactTriggerHandler.beforeInsert(trigger.new);
         }
     }
+    
+    if(trigger.isUpdate){
+        if(trigger.isBefore) {
+            ContactTriggerHandler.beforeInsert(trigger.new);
+        }
+    }
 }

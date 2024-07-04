@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Encuesta de Servicio al Cliente FISA.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>FS_CasoClientes</letterhead>
+    <name>Plantilla de Encuesta FISA</name>
+    <style>formalLetter</style>
+    <subject>Invitación de Encuesta Cliente Fisa.</subject>
+    <textOnly>Estimado/a {!Contact.Name},
+
+El Departamento de Customer Service de Fisa Group se complace en invitarte a participar en nuestra encuesta de satisfacción 2024. Nuestro objetivo es evaluar y mejorar continuamente la calidad de nuestros servicios y la experiencia de nuestros clientes. Esta encuesta se enfoca en tu nivel de satisfacción con diversos aspectos de nuestra colaboración durante los últimos seis meses.
+
+En la encuesta, serán tomados en cuenta los siguientes temas:
+
+1. Tu experiencia general con Fisa Group.
+2. Satisfacción con las soluciones que utiliza tu Institución
+3. Eficiencia y calidad en la respuesta a tus incidentes y requerimientos.
+
+Agradecemos enormemente tu colaboración al completar esta encuesta {!SurveyInvitation.Link}
+
+Tus comentarios son esenciales para ayudarnos a mejorar nuestra tu experiencia con nuestro servicio.
+Atentamente,
+
+Fisa Group</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
