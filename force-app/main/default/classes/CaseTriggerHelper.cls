@@ -15,6 +15,7 @@
 * 2024-03-26   Intellect Systems             New method called: assignDeliveryDate
 * 2024-04-26   Intellect Systems             Modify method called: validacionProducto, to validate products related to account.  
 * 2024-05-02   Intellect Systems             Se añade validación en el método: validacionUser, se incluye perfil: Servicio al Cliente.
+* 2027-07-24   Intellect Systems             Se remueve bloqué de código del método: validacionFechaEntrega.
 **************************************************************************************************************
 */
 
@@ -498,9 +499,7 @@ public without sharing class CaseTriggerHelper {
                 if(item.RecordTypeId == SOLICITUD_TIPO_REGISTRO){
                     item.Status = 'Análisis Falla Operativa';
                     item.FS_SubEstado__c = 'Análisis Falla Operativa';
-                }else if(item.RecordTypeId == INCIDENTE_TIPO_REGISTRO){
-                    item.Status = 'En Análisis';                    
-                }else if(item.RecordTypeId == CONSULTA_TIPO_REGISTRO){
+                } else if(item.RecordTypeId == CONSULTA_TIPO_REGISTRO){
                     item.Status = 'En Análisis';        
                     item.FS_SubEstado__c = item.FS_Area__c == 'N2- CORE' || item.FS_Area__c == 'N2-OMNIA' ? 'Análisis N2' : 'Análisis N1';
                 }
