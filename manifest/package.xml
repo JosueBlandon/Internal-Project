@@ -103,6 +103,8 @@
 	</types>
 	<types>
 		<members>FS_BaseConocimiento__c</members>
+		<members>Preguntas_de_Encuesta__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c</members>
 		<name>CustomTab</name>
 	</types>
 	<types>
