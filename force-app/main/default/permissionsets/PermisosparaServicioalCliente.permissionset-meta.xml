@@ -61,94 +61,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>JCFS__API</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__Analytics</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__BatchableRetry</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__ConnectionController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__ConnectionStore</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__Event</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__Events</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__FireEventsRetryable</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__FireEventsSchedulable</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__GenericObjectController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__Helper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__HttpClient</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__JiraTriggerTestHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__JobResult</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__Logger</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__Models</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__RemoteProxyController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__RetryScheduler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__Retryable</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__RetryableMock</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__TestFixtures</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>JCFS__TestSuite</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ProductsPurchasedTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -174,30 +86,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SurveyQuestionResponseFlow_Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>lwcc__ChartDataProvider</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>lwcc__ChartDataProviderTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>lwcc__CustomDataProviderDataSourceProvider</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>lwcc__CustomDataProviderDataSourceProviderTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>lwcc__SOQLDataProvider</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>lwcc__SOQLDataProviderTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <description>Created from the Permisos Servicio al Cliente profile</description>
