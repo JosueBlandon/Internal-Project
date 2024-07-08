@@ -1050,11 +1050,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Contact.FS_CategoriaContacto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Contact.FS_KAM__c</field>
         <readable>true</readable>
     </fieldPermissions>

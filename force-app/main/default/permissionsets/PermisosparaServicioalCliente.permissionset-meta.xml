@@ -177,14 +177,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>lwcc__ChartBuilderController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>lwcc__ChartBuilderControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>lwcc__ChartDataProvider</apexClass>
         <enabled>true</enabled>
     </classAccesses>
