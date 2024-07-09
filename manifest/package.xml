@@ -165,9 +165,12 @@
 		<members>FS_Permisos_Encuestas_Fisa</members>
 		<members>FS_Permisos_para_usuario_de_integracion_PowerBI</members>
 		<members>Permiso_PM_PS</members>
+		<members>PermisosparaGerente</members>
+		<members>PermisosparaServicioalCliente</members>
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>FS_Encuestas_Fisa</members>
 		<members>FS_Integracion_Jira</members>
 		<members>FS_Integracion_PowerBI</members>
 		<name>PermissionSetGroup</name>
