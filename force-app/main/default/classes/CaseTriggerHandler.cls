@@ -38,6 +38,7 @@ public without sharing class CaseTriggerHandler {
         CaseTriggerHelperPMPS.validateChangeRecordType(newCaseList, oldCaseMap);
         CaseTriggerHelper.validacionEstado(newCaseList, oldCaseMap);
         CaseTriggerHelperPMPS.preventChangeCaseValues(newCaseList, oldCaseMap);
+        CaseTriggerHelper.validacionAgenteN2(newCaseList);
 
         if(executeFlag) {
             CaseTriggerHelper.validacionSubEstado(newCaseList, oldCaseMap);
