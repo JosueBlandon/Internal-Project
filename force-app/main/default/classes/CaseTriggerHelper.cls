@@ -491,7 +491,7 @@ public without sharing class CaseTriggerHelper {
             item.addError('No existe aprobador Agente N2 - Core');    
         }    
     }
-    
+ 
     public static void validacionFechaEntrega(List<Case> newCaseList, Map<Id, Case> oldCaseMap){
         for(Case item: newCaseList){
             Case caso = oldCaseMap.get(item.Id);
@@ -1354,6 +1354,15 @@ public without sharing class CaseTriggerHelper {
         for(Case record : newCaseList) {
             if(record.FS_Fecha_de_entrega__c == null && record.Status == 'Validación de Respuesta (Cliente)') {
                 record.FS_Fecha_de_entrega__c = record.LastModifiedDate.date();
+            }
+        }
+    }
+    
+    public static void validacionAgenteN2(List<Case> newCaseList) {
+        
+        for(Case record : newCaseList) {
+            if(record.OwnerId.getSobjectType() != Group.SobjectType){
+                record.FS_AgenteN2__c = record.OwnerId;
             }
         }
     }

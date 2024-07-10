@@ -50,6 +50,7 @@
 		<members>Case.FS_Compromisos_internos__c</members>
 		<members>Case.FS_Es_cliente__c</members>
 		<members>Case.FS_Fecha_de_entrega__c</members>
+		<members>Case.FS_SurveyAnswered__c</members>
 		<members>Contact.FS_KAM__c</members>
 		<members>Contact.FS_PMCore__c</members>
 		<members>Contact.FS_PMOmnia__c</members>
@@ -125,6 +126,7 @@
 	</types>
 	<types>
 		<members>FS_Actualizar_campos_historial_producto_adquirido</members>
+		<members>FS_CustomSurveyFlow</members>
 		<members>Send_SLA_Notification</members>
 		<members>SurveyQuestionResponseClone</members>
 		<name>Flow</name>
@@ -180,6 +182,7 @@
 		<members>Case.FS_CamposControlIncidente</members>
 		<members>Case.FS_CamposControlIncidenteDefinitivo</members>
 		<members>Case.FS_CamposControlSolicitud</members>
+		<members>Case.FS_DatosEncuesta</members>
 		<members>Case.Reuniones_internas</members>
 		<name>QuickAction</name>
 	</types>
