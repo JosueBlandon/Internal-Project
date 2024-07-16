@@ -70,6 +70,10 @@
                 <behavior>Edit</behavior>
                 <field>FS_Referencia__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>FS_SurveyAnswered__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
