@@ -307,7 +307,7 @@ public without sharing class CaseTriggerHelper {
                 Case record = new Case(Id = item.Id);
                 if(item.FS_PudeSolventarPregunta__c == 'Si') {
                     if(item.FS_Area__c == 'N1. CORE' || item.FS_Area__c == 'N1. OMNIA') {
-                        aprobacionConsSolic(item);
+                        aprobacionConsSolic2(item);
                         record.FS_SubEstado__c = item.recordTypeId == CONSULTA_TIPO_REGISTRO ? 'Aprobación Consulta N2' : 'Aprobación Solicitud N2';
                         updateCaseList.add(record);
                     } else {
@@ -438,7 +438,7 @@ public without sharing class CaseTriggerHelper {
             Case caso = oldCaseMap.get(item.Id);
             if(caso.FS_NumeroHorasSolicitud__c  != item.FS_NumeroHorasSolicitud__c && item.FS_NumeroHorasSolicitud__c != null){
                 if(item.FS_Area__c == 'N1. CORE' || item.FS_Area__c == 'N1. OMNIA'){
-                    aprobacionConsSolic(item);
+                    aprobacionConsSolic2(item);
                     validarTareas(item);
                     item.FS_SubEstado__c = 'Aprobación Solicitud N2';
                 }else{
@@ -454,7 +454,7 @@ public without sharing class CaseTriggerHelper {
     
     /**
      * @method      aprobacionConsSolic
-     * @description Method to send notification to approver.
+     * @description Method to send notification to approver. Execute beforeUpdate.
      * @author      Intellect Systems - 2023-07-18
      * @param       item -- Record Case.
      */
@@ -491,7 +491,53 @@ public without sharing class CaseTriggerHelper {
             item.addError('No existe aprobador Agente N2 - Core');    
         }    
     }
- 
+
+    /**
+     * @method      aprobacionConsSolic2
+     * @description Method to send notification to approver. Execute afterUpdate.
+     * @author      Intellect Systems - 2024-06-06
+     * @param       item -- Record Case.
+     */
+    public static void aprobacionConsSolic2(Case item) {
+        String nombreRol = item.FS_Area__c == 'N1. CORE' ? 'FS_AgenteN2Core' : 'FS_AgenteN2Omnia';
+        List<User> userRecord = new List<User>();
+        List<Case> caseRecord = new List<Case>();
+
+        List<User> userValue = [   SELECT      Id, FS_FechaUltimaAprobacion__c 
+                                    FROM        User 
+                                    WHERE       UserRole.DeveloperName =: nombreRol And Id !=: item.OwnerId and IsActive = true 
+                                    ORDER BY    FS_FechaUltimaAprobacion__c ASC 
+                                    LIMIT       1   ];
+
+        for(User usuario : userValue) {
+            usuario.FS_FechaUltimaAprobacion__c = System.now();
+            userRecord.add(usuario);
+        }
+
+        if(!userRecord.isEmpty()) {                            
+            update userRecord;
+            Case record = new Case(Id = Item.Id);
+
+            record.FS_UsuarioAprobadorSolucion__c = userRecord[0].Id;
+            record.FS_AprobacionSolucion__c = null;
+            record.FS_ComentariosRechazoSolucion__c = null;
+            caseRecord.add(record);
+
+            if(!caseRecord.isEmpty()) {
+                update caseRecord;
+            }
+
+            String titulo = 'Aprobación de solución para caso '+item.CaseNumber;
+            String descripcion = 'El agente '+item.FS_NombrePropietario__c + ' necesita la aprobación de solución para el caso número '+item.CaseNumber +' \nPor favor dar seguimiento.';
+
+            if(caseRecord[0].FS_UsuarioAprobadorSolucion__c != null) {
+                enviarNotificacion(caseRecord[0].FS_UsuarioAprobadorSolucion__c, caseRecord[0].Id, titulo, descripcion);
+            } 
+        }  else {
+            item.addError('No existe aprobador Agente N2 - Core');    
+        }    
+    }
+    
     public static void validacionFechaEntrega(List<Case> newCaseList, Map<Id, Case> oldCaseMap){
         for(Case item: newCaseList){
             Case caso = oldCaseMap.get(item.Id);
