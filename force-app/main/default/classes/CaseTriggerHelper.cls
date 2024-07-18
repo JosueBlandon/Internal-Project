@@ -438,7 +438,7 @@ public without sharing class CaseTriggerHelper {
             Case caso = oldCaseMap.get(item.Id);
             if(caso.FS_NumeroHorasSolicitud__c  != item.FS_NumeroHorasSolicitud__c && item.FS_NumeroHorasSolicitud__c != null){
                 if(item.FS_Area__c == 'N1. CORE' || item.FS_Area__c == 'N1. OMNIA'){
-                    aprobacionConsSolic2(item);
+                    aprobacionConsSolic(item);
                     validarTareas(item);
                     item.FS_SubEstado__c = 'Aprobación Solicitud N2';
                 }else{
