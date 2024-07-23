@@ -83,10 +83,13 @@
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_PMOmnia__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_PMPSPrincipal__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_PMPSSecundario__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Preguntas_Encuesta__c</members>	
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto2__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto3__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto4__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto_1__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Version_Encuesta__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.Pregunta__c</members>
 		<members>SurveySubject.FS_Contacto__c</members>
 		<name>CustomField</name>
 	</types>
@@ -98,7 +101,6 @@
 		<members>FS_BaseConocimiento__c</members>
 		<members>FS_ConfiguracionSLA__c</members>
 		<members>FS_ProductoAdquirido__c</members>
-		<members>Preguntas_de_Encuesta__c</members>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c</members>
 		<name>CustomObject</name>
 	</types>
@@ -145,6 +147,7 @@
 	</types>
 	<types>
 		<members>Respuestas_a_la_preguntas_de_encuestas__c.All</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.Today</members>
 		<name>ListView</name>
 	</types>
 	<types>

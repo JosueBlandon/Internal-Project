@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Pregunta_de_encuestra__c</fullName>
+    <fullName>FS_Version_Encuesta__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
-    <label>Pregunta de encuestra</label>
-    <referenceTo>SurveyQuestion</referenceTo>
-    <relationshipLabel>Preguntas de Encuesta</relationshipLabel>
-    <relationshipName>Preguntas_de_Encuesta</relationshipName>
+    <label>Encuesta</label>
+    <referenceTo>SurveyVersion</referenceTo>
+    <relationshipLabel>Respuestas a la preguntas de encuestas</relationshipLabel>
+    <relationshipName>Respuestas_a_la_preguntas_de_encuestas</relationshipName>
     <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

@@ -37,10 +37,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SurveyQuestionFlow</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SurveyQuestionFlow_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1340,22 +1336,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Preguntas_de_Encuesta__c.Pregunta_de_encuestra__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Preguntas_de_Encuesta__c.Version_de_Encuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Respuestas_a_la_preguntas_de_encuestas__c.Contacto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Respuestas_a_la_preguntas_de_encuestas__c.Encuesta__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1385,6 +1366,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Respuestas_a_la_preguntas_de_encuestas__c.FS_Preguntas_Encuesta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Respuestas_a_la_preguntas_de_encuestas__c.FS_Producto2__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1405,17 +1391,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Respuestas_a_la_preguntas_de_encuestas__c.FS_Version_Encuesta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Respuestas_a_la_preguntas_de_encuestas__c.Nombre_de_la_Cuenta__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Respuestas_a_la_preguntas_de_encuestas__c.Pregunta__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Respuestas_a_la_preguntas_de_encuestas__c.Preguntas_de_Encuesta__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1565,15 +1551,6 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Preguntas_de_Encuesta__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>Respuestas_a_la_preguntas_de_encuestas__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -1615,10 +1592,6 @@
     </recordTypeVisibilities>
     <tabSettings>
         <tab>FS_Gestor_Cuenta__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Preguntas_de_Encuesta__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
