@@ -13,7 +13,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preguntas_de_Encuesta__c</field>
+                <field>FS_Version_Encuesta__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FS_Preguntas_Encuesta__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -22,10 +26,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Pregunta__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Encuesta__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
