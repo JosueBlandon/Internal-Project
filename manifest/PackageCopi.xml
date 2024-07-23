@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>SurveyQuestionResponseFlow</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.FS_Preguntas_Encuesta__c</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.Pregunta__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c-Respuestas a la preguntas de encuestas Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.All</members>
+		<members>Respuestas_a_la_preguntas_de_encuestas__c.Today</members>
+		<name>ListView</name>
+	</types>
+	<types>
+		<members>FS_Permisos_Encuestas_Fisa</members>
+		<members>FS_Permisos_para_usuario_de_integracion_PowerBI</members>
+		<members>Permiso_PM_PS</members>
+		<name>PermissionSet</name>
+	</types>
+	<version>60.0</version>
+</Package>

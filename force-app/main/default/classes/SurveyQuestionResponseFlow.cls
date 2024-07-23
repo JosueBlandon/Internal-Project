@@ -24,7 +24,7 @@ public without sharing class SurveyQuestionResponseFlow {
     public static void createClone(List<String> values) {
         
         List<SurveyQuestionResponse> records = new List<SurveyQuestionResponse>();
-        records = [	SELECT	Id, QuestionId, ResponseId, ResponseValue, Response.SubmitterId 
+        records = [	SELECT	Id, QuestionId, ResponseId, ResponseValue, Response.SubmitterId, SurveyVersionId
                    	FROM	SurveyQuestionResponse
                   	WHERE Id In: values];
         
@@ -42,33 +42,10 @@ public without sharing class SurveyQuestionResponseFlow {
         Map<Id, Contact> contactMap = new Map<Id, Contact>(contactList);
         //End - Get related contact records
         
-        //Start - Get related Preguntas_de_Encuesta__c records
-        Set<Id> questionId = new Set<Id>(); 
-        for(SurveyQuestionResponse record : records) {
-        	questionId.add(record.QuestionId);    
-        }
-
-        List<Preguntas_de_Encuesta__c> questionsList = new List<Preguntas_de_Encuesta__c>(); 
-        questionsList = [	SELECT	Id, Pregunta_de_encuestra__c
-                        	FROM	Preguntas_de_Encuesta__c	
-                        	WHERE	Pregunta_de_encuestra__c IN: questionId	];
-        
-        Map<Id, Preguntas_de_Encuesta__c> questionsMap = new Map<Id, Preguntas_de_Encuesta__c>(questionsList);
-        //End - Get related Preguntas_de_Encuesta__c records
-        
-        
-        
         List<Respuestas_a_la_preguntas_de_encuestas__c> responseList = new List<Respuestas_a_la_preguntas_de_encuestas__c>();
         for(SurveyQuestionResponse record : records) {
         	Respuestas_a_la_preguntas_de_encuestas__c response = new Respuestas_a_la_preguntas_de_encuestas__c();
             response.Respuesta_Pregunta__c = record.ResponseId;
-            
-           
-            for(Id key : questionsMap.keySet()) {
-                if(questionsMap.get(key).Pregunta_de_encuestra__c == record.QuestionId) {
-            		response.Preguntas_de_Encuesta__c = questionsMap.get(key).Id;	        
-                }    
-            }
             
             for(Id key : contactMap.keySet()) {
                 if(contactMap.get(key).Id == record.Response.SubmitterId) {
@@ -78,6 +55,9 @@ public without sharing class SurveyQuestionResponseFlow {
             }
             
             response.Respuesta__c = record.ResponseValue;
+            response.FS_Preguntas_Encuesta__c = record.QuestionId;
+            response.FS_Version_Encuesta__c = record.SurveyVersionId;
+
             responseList.add(response);
         }
         

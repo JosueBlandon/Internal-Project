@@ -1355,11 +1355,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Respuestas_a_la_preguntas_de_encuestas__c.Encuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Respuestas_a_la_preguntas_de_encuestas__c.FS_KAM__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1415,7 +1410,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Respuestas_a_la_preguntas_de_encuestas__c.Preguntas_de_Encuesta__c</field>
+        <field>Respuestas_a_la_preguntas_de_encuestas__c.FS_Preguntas_Encuesta__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
