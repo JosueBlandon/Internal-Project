@@ -568,6 +568,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Respuestas_a_la_preguntas_de_encuestas__c.FS_Version_Encuesta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>SurveySubject.FS_Contacto__c</field>
         <readable>true</readable>
