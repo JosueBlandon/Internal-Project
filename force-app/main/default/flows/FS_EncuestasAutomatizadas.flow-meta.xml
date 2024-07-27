@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>EnviarNotificacion</name>
+        <label>Enviar notificación</label>
+        <locationX>50</locationX>
+        <locationY>468</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Contact.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>$Label.FS_CorreoElectronicoServicio</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Recordatorio de encuesta</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Tienes una encuesta pendiente de responder</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <name>diaValido</name>
+        <label>Dia de la semana</label>
+        <locationX>380</locationX>
+        <locationY>252</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>es_valido</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>dayInWeek</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Id_del_contacto</targetReference>
+            </connector>
+            <label>es valido?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Id_del_contacto</name>
+        <label>Id del contacto</label>
+        <locationX>182</locationX>
+        <locationY>360</locationY>
+        <defaultConnectorLabel>Falso</defaultConnectorLabel>
+        <rules>
+            <name>Verdadero</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Contacto</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EnviarNotificacion</targetReference>
+            </connector>
+            <label>Verdadero</label>
+        </rules>
+    </decisions>
+    <description>Flujo automatizado para el envío de encuestas no contestadas.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>devuelve true si el dia de la semana es Miercoles o Viernes de lo contrario devuelve false.</description>
+        <name>dayInWeek</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+OR(
+WEEKDAY(TODAY()) = 4,
+WEEKDAY(TODAY()) = 6 ), 
+true, false)</expression>
+    </formulas>
+    <interviewLabel>Encuestas Automatizadas {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Encuestas Automatizadas</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>diaValido</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ResponseStatus</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NotStarted</stringValue>
+            </value>
+        </filters>
+        <object>SurveyInvitation</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2024-05-28</startDate>
+            <startTime>09:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>Contacto</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Record.ContactId</elementReference>
+        </value>
+    </variables>
+</Flow>
