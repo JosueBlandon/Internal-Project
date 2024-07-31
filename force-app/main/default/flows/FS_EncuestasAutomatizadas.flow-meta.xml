@@ -4,7 +4,7 @@
         <name>EnviarNotificacion</name>
         <label>Enviar notificación</label>
         <locationX>50</locationX>
-        <locationY>468</locationY>
+        <locationY>684</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -15,21 +15,33 @@
             </value>
         </inputParameters>
         <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>senderAddress</name>
             <value>
-                <elementReference>$Label.FS_CorreoElectronicoServicio</elementReference>
+                <elementReference>Obtener_OWD_email.Address</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>emailSubject</name>
+            <name>relatedRecordId</name>
             <value>
-                <stringValue>Recordatorio de encuesta</stringValue>
+                <stringValue>{!$Record.Id}</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>emailBody</name>
+            <name>recipientId</name>
             <value>
-                <stringValue>Tienes una encuesta pendiente de responder</stringValue>
+                <elementReference>Contacto</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <elementReference>ObtenerPlantillaCorreo.Id</elementReference>
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
@@ -40,7 +52,7 @@
         <name>diaValido</name>
         <label>Dia de la semana</label>
         <locationX>380</locationX>
-        <locationY>252</locationY>
+        <locationY>468</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>es_valido</name>
@@ -50,6 +62,13 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.InviteExpiryDateTime</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>FechaHoy</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -62,7 +81,7 @@
         <name>Id_del_contacto</name>
         <label>Id del contacto</label>
         <locationX>182</locationX>
-        <locationY>360</locationY>
+        <locationY>576</locationY>
         <defaultConnectorLabel>Falso</defaultConnectorLabel>
         <rules>
             <name>Verdadero</name>
@@ -88,9 +107,17 @@
         <dataType>Boolean</dataType>
         <expression>IF(
 OR(
+WEEKDAY(TODAY()) = 2,
+WEEKDAY(TODAY()) = 3,
 WEEKDAY(TODAY()) = 4,
+WEEKDAY(TODAY()) = 5,
 WEEKDAY(TODAY()) = 6 ), 
 true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>FechaHoy</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
     </formulas>
     <interviewLabel>Encuestas Automatizadas {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Encuestas Automatizadas</label>
@@ -113,18 +140,61 @@ true, false)</expression>
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <start>
-        <locationX>254</locationX>
-        <locationY>0</locationY>
+    <recordLookups>
+        <name>Obtener_OWD_email</name>
+        <label>Obtener OWD email</label>
+        <locationX>380</locationX>
+        <locationY>360</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>diaValido</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>ResponseStatus</field>
+            <field>DisplayName</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>NotStarted</stringValue>
+                <elementReference>OWDEmailAddress</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OrgWideEmailAddress</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Obtener la plantilla de Correo Electrónico de  &quot;Plantilla de Encuesta FISA (Contacto)&quot;</description>
+        <name>ObtenerPlantillaCorreo</name>
+        <label>Obtener Plantilla Correo</label>
+        <locationX>380</locationX>
+        <locationY>252</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Obtener_OWD_email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>NombrePlantilla</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailTemplate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>ObtenerPlantillaCorreo</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ResponseStatus</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Completed</stringValue>
             </value>
         </filters>
         <object>SurveyInvitation</object>
@@ -135,7 +205,7 @@ true, false)</expression>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Obsolete</status>
     <variables>
         <name>Contacto</name>
         <dataType>String</dataType>
@@ -144,6 +214,26 @@ true, false)</expression>
         <isOutput>false</isOutput>
         <value>
             <elementReference>$Record.ContactId</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>NombrePlantilla</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Plantilla_de_Encuesta_FISA_Contacto_1720192902846</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>OWDEmailAddress</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>smfisahelpdesk@fisagrp.com</stringValue>
         </value>
     </variables>
 </Flow>
