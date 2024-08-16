@@ -52,7 +52,7 @@ public with sharing class CaseTriggerHelperPMPS {
                 if(record.ContactId != caso.ContactId) {
                     record.addError('Privilegios insuficientes, no puede editar campos del caso ingresados por el cliente.'); 
                 }
-                if((record.Status == 'Dado de Baja' || record.Status == 'Cerrado') && record.status == caso.Status && record.RecordTypeId == REQUERIMIENTO_TIPO_REGISTRO && (profileName != 'Customer Community User' ||  profileName != 'Customer Community Plus User') ) {
+                if((record.Status == 'Dado de Baja' || record.Status == 'Cerrado') && record.status == caso.Status && record.RecordTypeId == REQUERIMIENTO_TIPO_REGISTRO && (profileName != 'Customer Community User' ||  profileName != 'Encuestas Servicio al Cliente. Perfil') ) {
                     record.addError('Privilegios insuficientes para modificar el caso en el estado actual.');
                 }
                 if(!record.FS_Calificacion__c && record.FS_Calificacion__c != caso.FS_Calificacion__c && record.RecordTypeId == REQUERIMIENTO_TIPO_REGISTRO) {
