@@ -4,6 +4,7 @@
 		<members>CaseTriggerHandler</members>
 		<members>CaseTriggerHelper</members>
 		<members>CaseTriggerHelper_Test</members>
+		<members>CaseTriggerHelperPMPS</members>
 		<members>ContactTriggerHandler</members>
 		<members>ContactTriggerHelper</members>
 		<members>ContactTriggerHelper_Test</members>
