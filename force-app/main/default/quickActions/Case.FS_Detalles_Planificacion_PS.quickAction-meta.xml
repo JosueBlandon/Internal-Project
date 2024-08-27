@@ -38,6 +38,11 @@
                 <field>ClosedDate</field>
                 <uiBehavior>Readonly</uiBehavior>
             </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>FS_FechaDesarrolloListo__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
         </quickActionLayoutColumns>
     </quickActionLayout>
     <successMessage>Información del caso actualizada.</successMessage>
