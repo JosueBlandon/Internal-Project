@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Fecha_Desarollo_Listo</fullName>
+    <active>true</active>
+    <description>Debe ser llenado desde la etapa de Nuevo hasta la etapa de Certificado. En las etapas siguientes este campo no se podría modificar.</description>
+    <errorConditionFormula>AND(
+NOT(OR($Profile.Name=&apos;System Administrator&apos;, $Profile.Name=&apos;Administrador del sistema&apos;)),
+OR( ISPICKVAL(Status,&apos;En Producción&apos;),
+    ISPICKVAL(Status,&apos;Pendiente de Respuesta CSAT&apos;),
+    ISPICKVAL(Status,&apos;En Espera de Respuesta del Cliente&apos;),
+    ISPICKVAL(Status,&apos;Dado de Baja&apos;)
+),
+ (PRIORVALUE( FS_FechaDesarrolloListo__c )  &lt;&gt;  FS_FechaDesarrolloListo__c)
+
+)</errorConditionFormula>
+    <errorDisplayField>FS_FechaDesarrolloListo__c</errorDisplayField>
+    <errorMessage>Privilegios insuficientes, Este campo no podra ser modificado, cuando se encuentre en los siguientes estados: En Producción, Pendiente de Respuesta CSAT, En Espera de Respuesta del Cliente y Dado de baja.</errorMessage>
+</ValidationRule>
