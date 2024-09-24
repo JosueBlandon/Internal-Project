@@ -1051,11 +1051,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Certificaciones_Integraciones__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Opportunity.Chequeo_Volumetr_a__c</field>
         <readable>true</readable>
     </fieldPermissions>
