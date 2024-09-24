@@ -3101,11 +3101,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Business_Case_por_el_Cliente__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Opportunity.C_digo_de_Proyecto__c</field>
         <readable>true</readable>
     </fieldPermissions>
