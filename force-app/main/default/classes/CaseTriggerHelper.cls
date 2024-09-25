@@ -16,6 +16,7 @@
 * 2024-04-26   Intellect Systems             Modify method called: validacionProducto, to validate products related to account.  
 * 2024-05-02   Intellect Systems             Se añade validación en el método: validacionUser, se incluye perfil: Servicio al Cliente.
 * 2027-07-24   Intellect Systems             Se remueve bloqué de código del método: validacionFechaEntrega.
+* 2024-09-24   Intellect Systems             Se añade metodo para actualizacion de campos post actualizacion.
 **************************************************************************************************************
 */
 
@@ -338,6 +339,21 @@ public without sharing class CaseTriggerHelper {
         if(!updateCaseList.isEmpty()) {
             update updateCaseList;
         }
+    }
+    
+    public static void UpdateFields(List<Case> newCaseList, Map<Id, Case> oldCaseMap) {
+         list<Case> updateCaseList = new list<Case>();
+        for(Case item: newCaseList) {
+            if(item.FS_AceptaRespuesta__c == 'No'){
+                Case record = new Case(Id = item.Id);
+                record.FS_AceptaRespuesta__c = '';
+                updateCaseList.add(record);
+            }
+        }
+        if(!updateCaseList.isEmpty()) {
+            update updateCaseList;
+        }
+        
     }
     
     public static void validacionAprobacionSolucion(List<Case> newCaseList, Map<Id, Case> oldCaseMap){

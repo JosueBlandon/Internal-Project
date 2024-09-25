@@ -133,7 +133,7 @@ public with sharing class CaseTriggerHelperPMPS {
             }
             if(record.FS_AceptaRespuesta__c == 'No' && record.Status == 'Validación de Respuesta (Cliente)' && record.FS_AceptaRespuesta__c != caso.FS_AceptaRespuesta__c) {
                 record.Status = 'En Desarrollo'; 
-                record.FS_AceptaRespuesta__c = ''; 
+                //record.FS_AceptaRespuesta__c = ''; 
                 CaseTriggerHelper.crearHistorialAprobaciones(record);
                 casesNew.add(record);
                 casesOld.add(caso);

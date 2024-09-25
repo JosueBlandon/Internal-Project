@@ -1031,11 +1031,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Business_Case_por_el_Cliente__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Opportunity.C_digo_de_Proyecto__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1052,16 +1047,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Caso_de_xito_Referencia__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Certificaciones_Integraciones__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Chequeo_Volumetr_a__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1117,16 +1102,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Fecha_Env_o_Propuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Infraestructura_Requerida__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Integraciones_Requeridas__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1222,11 +1197,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Revisi_n_Final_de_Propuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Socios_en_el_mbito__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

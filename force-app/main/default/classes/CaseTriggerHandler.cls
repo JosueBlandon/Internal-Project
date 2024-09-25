@@ -94,6 +94,7 @@ public without sharing class CaseTriggerHandler {
         }
 
         CaseTriggerHelper.historialCaso(newCaseList, oldCaseMap);
+        CaseTriggerHelper.UpdateFields(newCaseList, oldCaseMap);
         
         if(executeFlag) {
             CaseTriggerHelper.solventarPregunta(newCaseList, oldCaseMap);
