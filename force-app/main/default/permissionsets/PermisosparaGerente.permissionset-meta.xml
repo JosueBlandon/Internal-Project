@@ -3126,11 +3126,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Chequeo_Volumetr_a__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Opportunity.Closure_Q__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3242,16 +3237,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Fecha_Siguiente_Paso__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Infraestructura_Requerida__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Integraciones_Requeridas__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3422,11 +3407,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Servicios_Profesionales__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Socios_en_el_mbito__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
